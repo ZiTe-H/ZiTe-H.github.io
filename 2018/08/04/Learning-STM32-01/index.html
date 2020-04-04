@@ -15,7 +15,7 @@
 <meta property="og:description" content="&amp;nbsp;前言&amp;nbsp;由於最近在接觸ARM，而我選擇STM32系列的微控制器，它們和FPGA&#x2F;CPLD的用法有著不少的差別，讓我一時之間無法很好理解用法，而台灣相關的資源也不是很豐富，所以我想來寫有關STM32系列微控制器的文章。 雖然我不是很厲害，但是想說一邊學習一邊將我學到的知識或遇到的問題做一個整理，讓和我一樣的初學者可以和我一起學習與討論，也希望如果我的內容有錯誤的時候有前">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://1.bp.blogspot.com/-lN8BAf_D-F0/Xoh7te-zqZI/AAAAAAAACAs/ff1cV3v-KAMA_kYaM8sPZXr6xg4EhYDvACKgBGAsYHg/s480/MOV_0032.mp4_20180823_233924.884.png">
-<meta property="og:image" content="https://1.bp.blogspot.com/-Fn41tqvnEGY/Xoh7taDL_kI/AAAAAAAACAs/W9rVWH00tJM85yt10K0LDw8vpbnysPebQCKgBGAsYHg/s640/1-1-%25E6%2594%25B9.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-Fn41tqvnEGY/Xoh7taDL_kI/AAAAAAAACAs/W9rVWH00tJM85yt10K0LDw8vpbnysPebQCKgBGAsYHg/s800/1-1-%25E6%2594%25B9.png">
 <meta property="og:image" content="https://1.bp.blogspot.com/-e86OaVgEwlc/Xoh7tVGf1HI/AAAAAAAACAs/qt8l0RkIXxEQM_l17es4ON_H_VovrNxzQCKgBGAsYHg/s640/1-2-%25E6%2594%25B9.png">
 <meta property="og:image" content="https://1.bp.blogspot.com/-rWcNce64LxU/Xoh7tSr7SsI/AAAAAAAACAs/CtAGJdyNrvEE5ogN7a__pnxwmIZDzv22QCKgBGAsYHg/s640/1-3-%25E6%2594%25B9.png">
 <meta property="og:image" content="https://1.bp.blogspot.com/-yRoGvNO3DHc/Xoh7tTar9uI/AAAAAAAACAs/PeXs-R_TXUws_chYP8kOO5qRC8OXqgTTACKgBGAsYHg/s640/Library.png">
@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://1.bp.blogspot.com/-DYAfcXY47TI/Xoh7tURI6FI/AAAAAAAACAs/tmXpKpxrYVwNOM1nJKsfesEEWK6iB9cQACKgBGAsYHg/s640/%25E8%25BB%259F%25E9%25AB%2594%25E7%2589%2588%25E6%259C%25AC%25E8%25B3%2587%25E8%25A8%258A.png">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png">
 <meta property="article:published_time" content="2018-08-04T07:05:00.000Z">
-<meta property="article:modified_time" content="2020-04-04T12:40:01.120Z">
+<meta property="article:modified_time" content="2020-04-04T13:08:47.297Z">
 <meta property="article:author" content="ZiTe">
 <meta property="article:tag" content="教學">
 <meta property="article:tag" content="電子電路">
@@ -147,7 +147,7 @@
 <br/>
 
 <h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>1.到ST網站的<a href="https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software.html?querycriteria=productId=SC961" target="_blank" rel="noopener">STM32 Embedded Software</a>，滾動到頁面下方的清單處，在清單上方選擇[STM32 Standard Peripheral Libraries]<br>2.找到對的型號。如我使用的是STM32F103RBT6，所以選擇STM32F10x系列用的STSW-STM32054。</p>
-<p>![](<br><img src="https://1.bp.blogspot.com/-Fn41tqvnEGY/Xoh7taDL_kI/AAAAAAAACAs/W9rVWH00tJM85yt10K0LDw8vpbnysPebQCKgBGAsYHg/s640/1-1-%25E6%2594%25B9.png" alt="upload successful"></p>
+<p><img src="https://1.bp.blogspot.com/-Fn41tqvnEGY/Xoh7taDL_kI/AAAAAAAACAs/W9rVWH00tJM85yt10K0LDw8vpbnysPebQCKgBGAsYHg/s800/1-1-%25E6%2594%25B9.png" alt=""></p>
 <p>3.點擊三角形展開。<br>4.點擊名稱後方的箭頭按鈕開啟下載頁面。</p>
 <p><img src="https://1.bp.blogspot.com/-e86OaVgEwlc/Xoh7tVGf1HI/AAAAAAAACAs/qt8l0RkIXxEQM_l17es4ON_H_VovrNxzQCKgBGAsYHg/s640/1-2-%25E6%2594%25B9.png" alt=""></p>
 <p>5.在新開啟的頁面滾至底下，點藍色的[Download]，確認同意並登錄ST帳號後開始下載。</p>
@@ -283,8 +283,8 @@
     <div class="widget">
       <div style="text-align:center;">
         <font color=#000000>
-          <img alt="" style="border-width:0" src="https://1.bp.blogspot.com/-5qKH5HuhkZk/XoiDeludLzI/AAAAAAAACBM/YMUDy5rvufwyX9ykkp_nkV36Drxyjaf-QCKgBGAsYHg/s400/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-03_mini.png" /><br/>
-          <font size="5">ZiTe</font><br/><br/>
+          <img alt="" style="border-width:0" src="https://1.bp.blogspot.com/-sspbiAhkwxg/XoiFbkxKHAI/AAAAAAAACBs/CSM39YqdH5g6b2VjwfWF5XlXdn_D9dMCgCKgBGAsYHg/s225/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-04-01.png" /><br/>
+          <font size="5">ZiTe</font><br/><br/><br/>
           <div style="text-align:left;">
             「ZiTe」音同「資特」<br/><br/>
             有什麼話想說，都歡迎在文章下方留言，或是寄E-Mail給我！<br/>
