@@ -541,8 +541,7 @@ body {
   text-decoration: none;
   font-size: 2em;
   font-weight: bold;
-  background-color: #EA8859;
-  color: #F0F0F0;
+  color: #555;
   line-height: 1.1em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
@@ -553,7 +552,7 @@ a.article-title:hover {
   color: #258fb8;
 }
 .article-entry {
-  color: #555;
+  color: #000000;
   padding: 0 20px;
 }
 .article-entry:before,
