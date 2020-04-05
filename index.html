@@ -135,8 +135,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <font size="3">
-
-<h1 id="nbsp-前言-nbsp"><a href="#nbsp-前言-nbsp" class="headerlink" title="&nbsp;前言&nbsp;"></a><span style="background-color:#EA8859"><font color=#f5f5f5>&nbsp;前言&nbsp;</font></span></h1><p>在先前的<a href="https://zite-h.github.io/2018/09/08/Learning-STM32-03/">文章</a>中已經介紹過STM32設定GPIO的相關函式，但如果是常用Arduion的人一定不太習慣這種設定方式，畢竟每設定一個GPIO就要打4行程式，雖然可以複製貼上，但程式一多難免看起來混亂複雜，所以我自己寫了一些GPIO相關的函式，方便自己未來使用。</p>
+<h1><span style="background-color:#EA8859"><font color=#f5f5f5> 前言 </font></span></h1>
+<p>在先前的<a href="https://zite-h.github.io/2018/09/08/Learning-STM32-03/">文章</a>中已經介紹過STM32設定GPIO的相關函式，但如果是常用Arduion的人一定不太習慣這種設定方式，畢竟每設定一個GPIO就要打4行程式，雖然可以複製貼上，但程式一多難免看起來混亂複雜，所以我自己寫了一些GPIO相關的函式，方便自己未來使用。</p>
         
           <p class="article-more-link">
             <a href="/2020/04/02/Learning-STM32-05/#more">繼續閱讀</a>
@@ -184,13 +184,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <font size="3">
-
 <p><img src="https://1.bp.blogspot.com/-jpislKTRwlY/XomHrzCsbVI/AAAAAAAACCk/ambFVA1uD4guODQ_Zurcc9CNpkfhFiiQwCKgBGAsYHg/s640/Screenshot%2B%252811%2529.png" alt=""></p>
 <br/>
-
-<h1 id="nbsp-前言-nbsp"><a href="#nbsp-前言-nbsp" class="headerlink" title="&nbsp;前言&nbsp;"></a><span style="background-color:#EA8859"><font color=#f5f5f5>&nbsp;前言&nbsp;</font></span></h1><p>我之前搭配STM32使用的IDE為Keil uVision 5，但用了一段時間後實在是無法習慣它的操作。後來又上網找了許多不同的IDE來用，最後我就找到了今天的主角——<a href="https://atollic.com/truestudio/" target="_blank" rel="noopener">Atollic TrueSTUDIO for STM32</a>。</p>
-<p>TrueSTUDIO是一套由意法半導體（STMicroelectronics）公司專門為STM32開發的免費IDE。它是基於開源標準，建立於Eclipse、CDT、GCC和GDB之上的C/C++開發工具。  </p>
-<p>熟悉Java的人可能有聽過甚至用過<a href="https://www.eclipse.org/" target="_blank" rel="noopener">Eclipse</a>，TrueSTUDIO就是基於Eclipse框架進行開發的，所以其界面和Eclipse基本上是一模一樣，自然也傳承了它的靈活性。  </p>
+<h1><span style="background-color:#EA8859"><font color=#f5f5f5> 前言 </font></span></h1>
+<p>我之前搭配STM32使用的IDE為Keil uVision 5，但用了一段時間後實在是無法習慣它的操作。後來又上網找了許多不同的IDE來用，最後我就找到了今天的主角——<a href="https://atollic.com/truestudio/" target="_blank" rel="noopener">Atollic TrueSTUDIO for STM32</a>。</p>
+<p>TrueSTUDIO是一套由意法半導體（STMicroelectronics）公司專門為STM32開發的免費IDE。它是基於開源標準，建立於Eclipse、CDT、GCC和GDB之上的C/C++開發工具。</p>
+<p>熟悉Java的人可能有聽過甚至用過<a href="https://www.eclipse.org/" target="_blank" rel="noopener">Eclipse</a>，TrueSTUDIO就是基於Eclipse框架進行開發的，所以其界面和Eclipse基本上是一模一樣，自然也傳承了它的靈活性。</p>
         
           <p class="article-more-link">
             <a href="/2020/03/31/Learning-STM32-04/#more">繼續閱讀</a>
@@ -238,7 +237,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <font size="3">
-
 <p>先前已經介紹過<a href="https://zite-h.github.io//2018/08/26/Learning-STM32-02/">GPIO相關暫存器</a>的用法了，現在我來介紹幾個最基本的輸出入程式寫法。</p>
 <p>由於我使用的開發板NUCLEO-F103RB上有内建LED燈（PA5）和按鈕（PC13），所以以下的程式我就直接使用這兩隻腳位。</p>
         
@@ -289,14 +287,14 @@
       
         <font size="3">
 <br/>
-
-<h1 id="nbsp-前言-nbsp"><a href="#nbsp-前言-nbsp" class="headerlink" title="&nbsp;前言&nbsp;"></a><span style="background-color:#EA8859"><font color=#f5f5f5>&nbsp;前言&nbsp;</font></span></h1><p>MCU控制最基本的就是輸入與輸出，此篇就來簡單介紹最基本的輸出入相關暫存器。</p>
+<h1><span style="background-color:#EA8859"><font color=#f5f5f5> 前言 </font></span></h1>
+<p>MCU控制最基本的就是輸入與輸出，此篇就來簡單介紹最基本的輸出入相關暫存器。</p>
 <p>首先我們要來認識STM32F10x和輸出入有關的暫存器。每個GPIO有：(以下x為Port名稱，也就是A，B，C，D或E)</p>
 <ol>
 <li>兩個32位元的設置暫存器（GPIOx_CRH、GPIOx_CRL）</li>
-<li>兩個32位元的資料暫存器（GPIOx_IDR、GPIOx_ODR）  </li>
+<li>兩個32位元的資料暫存器（GPIOx_IDR、GPIOx_ODR）</li>
 <li>一個32位元的位元設定/重置暫存器（GPIOx_BSRR）</li>
-<li>一個16位元的位元重置暫存器（GPIOx_BRR）  </li>
+<li>一個16位元的位元重置暫存器（GPIOx_BRR）</li>
 <li>一個32位元的設置鎖定暫存器（GPIOx_LCKR）</li>
 </ol>
         
@@ -346,13 +344,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <font size="3">
-
 <p><img src="https://1.bp.blogspot.com/-lN8BAf_D-F0/Xoh7te-zqZI/AAAAAAAACAs/ff1cV3v-KAMA_kYaM8sPZXr6xg4EhYDvACKgBGAsYHg/s480/MOV_0032.mp4_20180823_233924.884.png" alt=""></p>
 <br/>
-
-<h1 id="nbsp-前言-nbsp"><a href="#nbsp-前言-nbsp" class="headerlink" title="&nbsp;前言&nbsp;"></a><span style="background-color:#EA8859"><font color=#f5f5f5>&nbsp;前言&nbsp;</font></span></h1><p>由於最近在接觸ARM，而我選擇STM32系列的微控制器，它們和FPGA/CPLD的用法有著不少的差別，讓我一時之間無法很好理解用法，而台灣相關的資源也不是很豐富，所以我想來寫有關STM32系列微控制器的文章。</p>
-<p>雖然我不是很厲害，但是想說一邊學習一邊將我學到的知識或遇到的問題做一個整理，讓和我一樣的初學者可以和我一起學習與討論，也希望如果我的內容有錯誤的時候有前輩可以指導一番。  </p>
-<p>我使用的開發板為NUCLEO-F103RB，上面的晶片型號是STM32F103RBT6。此開發板自帶ST-Link/V2，所以只要USB接上電腦就可以進行燒錄工作。而我使用的IDE是Keil uVision 5。  </p>
+<h1><span style="background-color:#EA8859"><font color=#f5f5f5> 前言 </font></span></h1>
+<p>由於最近在接觸ARM，而我選擇STM32系列的微控制器，它們和FPGA/CPLD的用法有著不少的差別，讓我一時之間無法很好理解用法，而台灣相關的資源也不是很豐富，所以我想來寫有關STM32系列微控制器的文章。</p>
+<p>雖然我不是很厲害，但是想說一邊學習一邊將我學到的知識或遇到的問題做一個整理，讓和我一樣的初學者可以和我一起學習與討論，也希望如果我的內容有錯誤的時候有前輩可以指導一番。</p>
+<p>我使用的開發板為NUCLEO-F103RB，上面的晶片型號是STM32F103RBT6。此開發板自帶ST-Link/V2，所以只要USB接上電腦就可以進行燒錄工作。而我使用的IDE是Keil uVision 5。</p>
         
           <p class="article-more-link">
             <a href="/2018/08/04/Learning-STM32-01/#more">繼續閱讀</a>
