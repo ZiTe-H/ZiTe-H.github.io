@@ -94,14 +94,166 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://lh3.googleusercontent.com/M5eVBj_ZsyFYyMbovsJzr1tAGXkvuoXnFt9bYuceacQTP_90MnjSJ6VBRD-UjZDvZ9246ygWXw=w1280" alt=""></p>
-<h1 id="ABC"><a href="#ABC" class="headerlink" title="ABC"></a>ABC</h1><h3 id="DEF"><a href="#DEF" class="headerlink" title="DEF"></a>DEF</h3><h6 id="ascasd"><a href="#ascasd" class="headerlink" title="ascasd"></a>ascasd</h6>
+        <h1 id="ABC"><a href="#ABC" class="headerlink" title="ABC"></a>ABC</h1><h3 id="DEF"><a href="#DEF" class="headerlink" title="DEF"></a>DEF</h3><h6 id="ascasd"><a href="#ascasd" class="headerlink" title="ascasd"></a>ascasd</h6>
       
     </div>
     <footer class="article-footer">
       <a data-url="https://zite-h.github.io/2020/04/04/test-1/" data-id="ck8lg983g0000h4i38mxnhi55" class="article-share-link">分享</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Learning-STM32-05" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/02/Learning-STM32-05/" class="article-date">
+  <time datetime="2020-04-02T07:40:00.000Z" itemprop="datePublished">2020-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/STM32%E5%AD%B8%E7%BF%92%E8%A8%98%E9%8C%84/">STM32學習記錄</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/02/Learning-STM32-05/">[STM32學習記錄-5] 優化STM32 GPIO設定函式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font size="3">
+
+<h1 id="nbsp-前言-nbsp"><a href="#nbsp-前言-nbsp" class="headerlink" title="&nbsp;前言&nbsp;"></a><span style="background-color:#EA8859"><font color=#f5f5f5>&nbsp;前言&nbsp;</font></span></h1><p>在先前的<a href="https://zite-h.github.io/2018/09/08/Learning-STM32-03/">文章</a>中已經介紹過STM32設定GPIO的相關函式，但如果是常用Arduion的人一定不太習慣這種設定方式，畢竟每設定一個GPIO就要打4行程式，雖然可以複製貼上，但程式一多難免看起來混亂複雜，所以我自己寫了一些GPIO相關的函式，方便自己未來使用。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/02/Learning-STM32-05/#more">繼續閱讀</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zite-h.github.io/2020/04/02/Learning-STM32-05/" data-id="ck8mqkfrx000blki398bxgf35" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Learning-STM32-04" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/31/Learning-STM32-04/" class="article-date">
+  <time datetime="2020-03-31T07:18:00.000Z" itemprop="datePublished">2020-03-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/STM32%E5%AD%B8%E7%BF%92%E8%A8%98%E9%8C%84/">STM32學習記錄</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/31/Learning-STM32-04/">[STM32學習記錄-4] 免費好用的STM32 IDE——TrueSTUDIO</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font size="3">
+
+<p><img src="https://1.bp.blogspot.com/-jpislKTRwlY/XomHrzCsbVI/AAAAAAAACCk/ambFVA1uD4guODQ_Zurcc9CNpkfhFiiQwCKgBGAsYHg/s640/Screenshot%2B%252811%2529.png" alt=""></p>
+<br/>
+
+<h1 id="nbsp-前言-nbsp"><a href="#nbsp-前言-nbsp" class="headerlink" title="&nbsp;前言&nbsp;"></a><span style="background-color:#EA8859"><font color=#f5f5f5>&nbsp;前言&nbsp;</font></span></h1><p>我之前搭配STM32使用的IDE為Keil uVision 5，但用了一段時間後實在是無法習慣它的操作。後來又上網找了許多不同的IDE來用，最後我就找到了今天的主角——<a href="https://atollic.com/truestudio/" target="_blank" rel="noopener">Atollic TrueSTUDIO for STM32</a>。</p>
+<p>TrueSTUDIO是一套由意法半導體（STMicroelectronics）公司專門為STM32開發的免費IDE。它是基於開源標準，建立於Eclipse、CDT、GCC和GDB之上的C/C++開發工具。  </p>
+<p>熟悉Java的人可能有聽過甚至用過<a href="https://www.eclipse.org/" target="_blank" rel="noopener">Eclipse</a>，TrueSTUDIO就是基於Eclipse框架進行開發的，所以其界面和Eclipse基本上是一模一樣，自然也傳承了它的靈活性。  </p>
+        
+          <p class="article-more-link">
+            <a href="/2020/03/31/Learning-STM32-04/#more">繼續閱讀</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zite-h.github.io/2020/03/31/Learning-STM32-04/" data-id="ck8mpsnys0006lki37c385sce" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Learning-STM32-03" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/08/Learning-STM32-03/" class="article-date">
+  <time datetime="2018-09-08T06:24:00.000Z" itemprop="datePublished">2018-09-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/STM32%E5%AD%B8%E7%BF%92%E8%A8%98%E9%8C%84/"> STM32學習記錄</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/08/Learning-STM32-03/">[STM32學習記錄-3] 基本輸入與輸出教學-GPIO相關程式寫法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <font size="3">
+
+<p>先前已經介紹過<a href="https://zite-h.github.io//2018/08/26/Learning-STM32-02/">GPIO相關暫存器</a>的用法了，現在我來介紹幾個最基本的輸出入程式寫法。</p>
+<p>由於我使用的開發板NUCLEO-F103RB上有内建LED燈（PA5）和按鈕（PC13），所以以下的程式我就直接使用這兩隻腳位。</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/09/08/Learning-STM32-03/#more">繼續閱讀</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zite-h.github.io/2018/09/08/Learning-STM32-03/" data-id="ck8mnusam0000lki3hx7zgszh" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+
     </footer>
   </div>
   
@@ -261,7 +413,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分類</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/STM32%E5%AD%B8%E7%BF%92%E8%A8%98%E9%8C%84/">STM32學習記錄</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/STM32%E5%AD%B8%E7%BF%92%E8%A8%98%E9%8C%84/"> STM32學習記錄</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/STM32%E5%AD%B8%E7%BF%92%E8%A8%98%E9%8C%84/">STM32學習記錄</a></li></ul>
     </div>
   </div>
 
@@ -271,7 +423,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
     </div>
   </div>
 

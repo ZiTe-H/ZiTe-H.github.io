@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://1.bp.blogspot.com/--JWiz_-VUOg/XolLhAERcnI/AAAAAAAACCM/y4oAc9VRbWolR4LntmFY7_ybyVi5vvyvACKgBGAsYHg/s1600/GPIO-APB2ENR%25E6%25A0%25BC%25E5%25BC%258F.png">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png">
 <meta property="article:published_time" content="2018-08-26T02:47:00.000Z">
-<meta property="article:modified_time" content="2020-04-05T03:20:04.600Z">
+<meta property="article:modified_time" content="2020-04-05T07:04:36.822Z">
 <meta property="article:author" content="ZiTe">
 <meta property="article:tag" content="教學">
 <meta property="article:tag" content="電子電路">
@@ -127,15 +127,15 @@
 <p>而CRH和CRL的格式如下。CNF和MODE後面的數字就是腳位標號，可以看出每隻接腳由4個位元進行設置，如CRH的31到28位元控制第15腳、CRL的15到12位元控制第3腳。而且所有位元都是可讀寫的。</p>
 <p><img src="https://1.bp.blogspot.com/-OvB2rTtC9Nk/XolLhKSs6RI/AAAAAAAACCM/VqlwJqk-awIACdKWboZmscLIfZkZ9dNKgCKgBGAsYHg/s1600/GPIO-CRH%2526CRL%25E6%25A0%25BC%25E5%25BC%258F.png" alt=""></p>
 <p>範例：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GPIOB-&gt;CRH = <span class="number">0x004411EE</span>;</span><br><span class="line"><span class="comment">// 將Port B的15、14腳設為類比輸入,</span></span><br><span class="line"><span class="comment">// 13、12腳設為浮空輸入,</span></span><br><span class="line"><span class="comment">// 11、10腳設為最快10MHz的推挽通用輸出,</span></span><br><span class="line"><span class="comment">// 9、8腳設為最快2MHz的漏極開路复用輸出.</span></span><br><span class="line"></span><br><span class="line">GPIOA-&gt;CRL = <span class="number">0x22222222</span>;</span><br><span class="line"><span class="comment">// 將Port A的7到0腳都設為最快2MHz的推挽通用輸出</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GPIOB-&gt;CRH = <span class="number">0x004411EE</span>;</span><br><span class="line"><span class="comment">// 將Port B的15、14腳設為類比輸入,</span></span><br><span class="line"><span class="comment">// 13、12腳設為浮空輸入,</span></span><br><span class="line"><span class="comment">// 11、10腳設為最快10MHz的推挽通用輸出,</span></span><br><span class="line"><span class="comment">// 9、8腳設為最快2MHz的汲極開路复用輸出.</span></span><br><span class="line"></span><br><span class="line">GPIOA-&gt;CRL = <span class="number">0x22222222</span>;</span><br><span class="line"><span class="comment">// 將Port A的7到0腳都設為最快2MHz的推挽通用輸出</span></span><br></pre></td></tr></table></figure>
 
 <p>至於各個輸出入模式有什麼差別，我簡單的以我找到的資料說明一下：</p>
 <br/>
 
-<h3 id="※推挽和漏極開路"><a href="#※推挽和漏極開路" class="headerlink" title="※推挽和漏極開路"></a>※推挽和漏極開路</h3><p>這兩者根本的差異在於電路結構不同。  </p>
+<h3 id="※推挽和汲極開路"><a href="#※推挽和汲極開路" class="headerlink" title="※推挽和汲極開路"></a>※推挽和汲極開路</h3><p>這兩者根本的差異在於電路結構不同。  </p>
 <ul>
 <li>推挽（Push-Pull）使用一對互補的電晶體，輸出可以直接是高或低準位，不用再外加電路，並且能夠灌電流（Sink current）與拉電流（Sourcing current）。</li>
-<li>漏極開路（Open-Drain，OD）是MOSFET版的集極開路（ Open-Collector，OC），基本上只有開路（浮接）和接地這兩種狀態，所以如果要輸出高低準位的話要外加一個上拉電阻（提升電阻，Pull-up resistor），也因為可以使用上拉電阻，所以上拉的電源電壓可以自己決定，可以當作邏輯電壓轉換，且可以提供大於晶片本身能提供的電流，因為電源已經獨立出來了。而一般情況只能灌電流（Sink current），外加上拉電阻後才行拉電流（Sourcing current）。而將多隻OD輸出接在一起後加上一上拉電阻，會形成所謂的“線接及閘（Wired AND）”</li>
+<li>汲極開路（Open-Drain，OD）是MOSFET版的集極開路（ Open-Collector，OC），基本上只有開路（浮接）和接地這兩種狀態，所以如果要輸出高低準位的話要外加一個上拉電阻（提升電阻，Pull-up resistor），也因為可以使用上拉電阻，所以上拉的電源電壓可以自己決定，可以當作邏輯電壓轉換，且可以提供大於晶片本身能提供的電流，因為電源已經獨立出來了。而一般情況只能灌電流（Sink current），外加上拉電阻後才行拉電流（Sourcing current）。而將多隻OD輸出接在一起後加上一上拉電阻，會形成所謂的“線接及閘（Wired AND）”</li>
 </ul>
 <p>如果以上還是不瞭解的話，一般就用推挽輸出就好了。詳細可以觀看：</p>
 <ol>
@@ -227,11 +227,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/04/04/test-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/08/Learning-STM32-03/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">較新的文章</strong>
       <div class="article-nav-title">
         
-          test-1
+          [STM32學習記錄-3] 基本輸入與輸出教學-GPIO相關程式寫法
         
       </div>
     </a>
@@ -285,7 +285,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分類</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/STM32%E5%AD%B8%E7%BF%92%E8%A8%98%E9%8C%84/">STM32學習記錄</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/STM32%E5%AD%B8%E7%BF%92%E8%A8%98%E9%8C%84/"> STM32學習記錄</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/STM32%E5%AD%B8%E7%BF%92%E8%A8%98%E9%8C%84/">STM32學習記錄</a></li></ul>
     </div>
   </div>
 
@@ -295,7 +295,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">彙整</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
     </div>
   </div>
 
