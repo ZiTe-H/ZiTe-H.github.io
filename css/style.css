@@ -124,7 +124,7 @@ body,
 }
 body {
   background: #eee;
-  font: 14px "GenRyuMin TW TTF Medium", "Helvetica Neue", "Helvetica", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font: 14px "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Source Han Sans CN", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 .outer {
