@@ -194,7 +194,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #999;
+  color: #ccc;
   margin-bottom: 1em;
   margin-left: 5px;
   line-height: 1em;
@@ -232,7 +232,7 @@ body {
 .article-entry h6,
 .widget h6 {
   font-size: 1em;
-  color: #999;
+  color: #ccc;
 }
 .article-entry hr,
 .widget hr {
@@ -480,7 +480,7 @@ body {
 .search-form-input {
   border: none;
   background: none;
-  color: #555;
+  color: #444;
   width: 100%;
   font: 13px "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Source Han Sans CN", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, sans-serif;
   outline: none;
@@ -541,7 +541,7 @@ body {
   text-decoration: none;
   font-size: 2em;
   font-weight: bold;
-  color: #555;
+  color: #444;
   line-height: 1.1em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
@@ -552,7 +552,7 @@ a.article-title:hover {
   color: #258fb8;
 }
 .article-entry {
-  color: #555;
+  color: #444;
   padding: 0 20px;
 }
 .article-entry:before,
@@ -651,7 +651,7 @@ a.article-title:hover {
   margin-left: 1em;
 }
 .article-entry .caption {
-  color: #999;
+  color: #ccc;
   display: block;
   font-size: 0.9em;
   margin-top: 0.5em;
@@ -680,7 +680,7 @@ a.article-title:hover {
   padding: 6px 15px;
   border-radius: 15px;
   background: #eee;
-  color: #999;
+  color: #ccc;
   text-shadow: 0 1px #fff;
   text-decoration: none;
 }
@@ -706,11 +706,11 @@ a.article-title:hover {
   clear: both;
 }
 .article-footer a {
-  color: #999;
+  color: #ccc;
   text-decoration: none;
 }
 .article-footer a:hover {
-  color: #555;
+  color: #444;
 }
 .article-tag-list-item {
   float: left;
@@ -770,7 +770,7 @@ a.article-title:hover {
 .article-nav-link-wrap {
   text-decoration: none;
   text-shadow: 0 1px #fff;
-  color: #999;
+  color: #ccc;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -779,7 +779,7 @@ a.article-title:hover {
   display: block;
 }
 .article-nav-link-wrap:hover {
-  color: #555;
+  color: #444;
 }
 @media screen and (min-width: 768px) {
   .article-nav-link-wrap {
@@ -838,7 +838,7 @@ a.article-title:hover {
   box-sizing: border-box;
   font: 14px "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Source Han Sans CN", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, sans-serif;
   padding: 0 15px;
-  color: #555;
+  color: #444;
   outline: none;
   border: 1px solid #ddd;
   border-radius: 3px 3px 0 0;
@@ -999,7 +999,7 @@ a.article-title:hover {
 .archive-article-title {
   text-decoration: none;
   font-weight: bold;
-  color: #555;
+  color: #444;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
@@ -1013,7 +1013,7 @@ a.article-title:hover {
   margin-top: 1em;
 }
 .archive-article-date {
-  color: #999;
+  color: #ccc;
   text-decoration: none;
   font-size: 0.85em;
   line-height: 1em;
@@ -1028,7 +1028,7 @@ a.article-title:hover {
   border: 1px solid #ddd;
   border-radius: 3px;
   text-align: center;
-  color: #999;
+  color: #ccc;
   overflow: hidden;
 }
 #page-nav:before,
@@ -1046,11 +1046,11 @@ a.article-title:hover {
   height: 2ex;
 }
 #page-nav a {
-  color: #999;
+  color: #ccc;
   text-decoration: none;
 }
 #page-nav a:hover {
-  background: #999;
+  background: #ccc;
   color: #fff;
 }
 #page-nav .prev {
@@ -1068,7 +1068,7 @@ a.article-title:hover {
   }
 }
 #page-nav .current {
-  color: #555;
+  color: #444;
   font-weight: bold;
 }
 #page-nav .space {
@@ -1078,7 +1078,7 @@ a.article-title:hover {
   background: #262a30;
   padding: 50px 0;
   border-top: 1px solid #ddd;
-  color: #999;
+  color: #ccc;
 }
 #footer a {
   color: #258fb8;
@@ -1278,7 +1278,7 @@ pre .javascript .function {
 @media screen and (max-width: 479px) {
   .mobile-nav-link {
     display: block;
-    color: #999;
+    color: #ccc;
     text-decoration: none;
     padding: 15px 20px;
     font-weight: bold;
@@ -1355,7 +1355,7 @@ pre .javascript .function {
 .tag-list-count,
 .archive-list-count {
   padding-left: 5px;
-  color: #999;
+  color: #ccc;
   font-size: 0.85em;
 }
 .category-list-count:before,
