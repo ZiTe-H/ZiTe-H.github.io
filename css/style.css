@@ -124,7 +124,7 @@ body,
 }
 body {
   background: #eee;
-  font: 16px "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Source Han Sans CN", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, sans-serif;
+  font: 15px "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Source Han Sans CN", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 .outer {
@@ -412,9 +412,9 @@ body {
 .nav-icon {
   font-family: FontAwesome;
   text-align: center;
-  font-size: 16px;
-  width: 16px;
-  height: 16px;
+  font-size: 15px;
+  width: 15px;
+  height: 15px;
   padding: 20px 15px;
   position: relative;
   cursor: pointer;
@@ -634,7 +634,7 @@ a.article-title:hover {
   text-align: center;
 }
 .article-entry blockquote footer {
-  font-size: 16px;
+  font-size: 15px;
   margin: 1.5em 0;
   font-family: "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Source Han Sans CN", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, sans-serif;
 }
@@ -1107,7 +1107,7 @@ a.article-title:hover {
   border-width: 1px 0;
   overflow: auto;
   color: #ccc;
-  line-height: 24px;
+  line-height: 22.5px;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
@@ -1163,7 +1163,7 @@ a.article-title:hover {
   padding-right: 20px;
 }
 .article-entry .highlight .line {
-  height: 24px;
+  height: 22.5px;
 }
 .article-entry .highlight .line.marked {
   background: #515151;
