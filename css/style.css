@@ -212,6 +212,7 @@ body {
 .article-entry h1,
 .widget h1 {
   font-size: 2em;
+  color: #ea8859;
 }
 .article-entry h2,
 .widget h2 {
@@ -480,7 +481,7 @@ body {
 .search-form-input {
   border: none;
   background: none;
-  color: #f02;
+  color: #444;
   width: 100%;
   font: 13px "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Source Han Sans CN", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, sans-serif;
   outline: none;
@@ -541,7 +542,7 @@ body {
   text-decoration: none;
   font-size: 2em;
   font-weight: bold;
-  color: #f02;
+  color: #444;
   line-height: 1.1em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
@@ -552,7 +553,7 @@ a.article-title:hover {
   color: #258fb8;
 }
 .article-entry {
-  color: #f02;
+  color: #444;
   padding: 0 20px;
 }
 .article-entry:before,
@@ -710,7 +711,7 @@ a.article-title:hover {
   text-decoration: none;
 }
 .article-footer a:hover {
-  color: #f02;
+  color: #444;
 }
 .article-tag-list-item {
   float: left;
@@ -779,7 +780,7 @@ a.article-title:hover {
   display: block;
 }
 .article-nav-link-wrap:hover {
-  color: #f02;
+  color: #444;
 }
 @media screen and (min-width: 768px) {
   .article-nav-link-wrap {
@@ -838,7 +839,7 @@ a.article-title:hover {
   box-sizing: border-box;
   font: 14px "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Source Han Sans CN", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Hiragino Sans GB", "WenQuanYi Micro Hei", Arial, sans-serif;
   padding: 0 15px;
-  color: #f02;
+  color: #444;
   outline: none;
   border: 1px solid #ddd;
   border-radius: 3px 3px 0 0;
@@ -999,7 +1000,7 @@ a.article-title:hover {
 .archive-article-title {
   text-decoration: none;
   font-weight: bold;
-  color: #f02;
+  color: #444;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
@@ -1068,7 +1069,7 @@ a.article-title:hover {
   }
 }
 #page-nav .current {
-  color: #f02;
+  color: #444;
   font-weight: bold;
 }
 #page-nav .space {
