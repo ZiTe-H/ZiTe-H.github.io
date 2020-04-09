@@ -199,7 +199,7 @@ body {
   margin-left: 5px;
   line-height: 1em;
   text-shadow: 0 1px #fff;
-  font-weight: bold;
+  font-weight: 400;
 }
 .article-inner,
 .archive-article-inner {
@@ -371,7 +371,7 @@ body {
 #subtitle {
   text-decoration: none;
   color: #fff;
-  font-weight: 300;
+  font-weight: 100;
   text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 #logo {
@@ -579,7 +579,7 @@ a.article-title:hover {
 .article-entry h4,
 .article-entry h5,
 .article-entry h6 {
-  font-weight: bold;
+  font-weight: 900;
 }
 .article-entry h1,
 .article-entry h2,
@@ -712,7 +712,7 @@ a.article-title:hover {
   clear: both;
 }
 .article-footer a {
-  color: #666;
+  color: #888;
   text-decoration: none;
 }
 .article-footer a:hover {
@@ -812,7 +812,7 @@ a.article-title:hover {
   letter-spacing: 2px;
   color: #999;
   line-height: 1em;
-  font-weight: bold;
+  font-weight: 700;
 }
 #article-nav-newer .article-nav-caption {
   margin-right: -2px;
@@ -1052,7 +1052,7 @@ a.article-title:hover {
   height: 2ex;
 }
 #page-nav a {
-  color: #666;
+  color: #888;
   text-decoration: none;
 }
 #page-nav a:hover {
@@ -1094,8 +1094,9 @@ a.article-title:hover {
   text-decoration: underline;
 }
 #footer-info {
-  line-height: 1.2em;
-  font-size: 0.85em;
+  line-height: 1.25em;
+  font-size: 0.7em;
+  font-weight: 100;
 }
 .article-entry pre,
 .article-entry .highlight {
