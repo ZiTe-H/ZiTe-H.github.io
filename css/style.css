@@ -420,7 +420,7 @@ body {
   cursor: pointer;
 }
 .main-nav-link {
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 1px;
 }
 @media screen and (max-width: 479px) {
