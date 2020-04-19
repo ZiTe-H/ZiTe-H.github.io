@@ -212,31 +212,37 @@ body {
 .article-entry h1,
 .widget h1 {
   font-size: 2em;
+  font-weight: 900;
   color: #ea8859;
 }
 .article-entry h2,
 .widget h2 {
   font-size: 1.5em;
+  font-weight: 700;
   color: #ea8859;
 }
 .article-entry h3,
 .widget h3 {
   font-size: 1.3em;
+  font-weight: 400;
   color: #ea8859;
 }
 .article-entry h4,
 .widget h4 {
   font-size: 1.2em;
+  font-weight: 900;
   color: #ea8859;
 }
 .article-entry h5,
 .widget h5 {
   font-size: 1em;
+  font-weight: 700;
   color: #ea8859;
 }
 .article-entry h6,
 .widget h6 {
   font-size: 1em;
+  font-weight: 700;
   color: #666;
 }
 .article-entry hr,
@@ -559,6 +565,7 @@ a.article-title:hover {
 .article-entry {
   color: #444;
   padding: 0 20px;
+  h1: , h2, h3, h4, h5, h6;
 }
 .article-entry:before,
 .article-entry:after {
@@ -573,89 +580,81 @@ a.article-title:hover {
   line-height: 1.5em;
   margin: 1.5em 0;
 }
-.article-entry h1,
-.article-entry h2,
-.article-entry h3,
-.article-entry h4,
-.article-entry h5,
-.article-entry h6 {
-  font-weight: 900;
-}
-.article-entry h1,
-.article-entry h2,
-.article-entry h3,
-.article-entry h4,
-.article-entry h5,
-.article-entry h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.1em;
   margin: 1.8em 0 0.5em 0;
 }
-.article-entry a {
+a {
   color: #258fb8;
   text-decoration: none;
 }
-.article-entry a:hover {
+a:hover {
   text-decoration: underline;
 }
-.article-entry ul,
-.article-entry ol,
-.article-entry dl {
+ul,
+ol,
+dl {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
-.article-entry img,
-.article-entry video {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
   margin: auto;
 }
-.article-entry iframe {
+iframe {
   border: none;
 }
-.article-entry table {
+table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 }
-.article-entry th {
+th {
   font-weight: bold;
   border-bottom: 3px solid #ccc;
   padding-bottom: 0.5em;
 }
-.article-entry td {
+td {
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
 }
-.article-entry blockquote {
+blockquote {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.4em;
   margin: 1.5em 20px;
   text-align: center;
 }
-.article-entry blockquote footer {
+blockquote footer {
   font-size: 16px;
   margin: 1.5em 0;
   font-family: "Noto Sans TC", "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", Arial, sans-serif;
 }
-.article-entry blockquote footer cite:before {
+blockquote footer cite:before {
   content: "—";
   padding: 0 0.5em;
 }
-.article-entry .pullquote {
+.pullquote {
   text-align: left;
   width: 45%;
   margin: 0;
 }
-.article-entry .pullquote.left {
+.pullquote.left {
   margin-left: 0.5em;
   margin-right: 1em;
 }
-.article-entry .pullquote.right {
+.pullquote.right {
   margin-right: 0.5em;
   margin-left: 1em;
 }
-.article-entry .caption {
+.caption {
   color: #444;
   display: block;
   font-size: 0.85em;
@@ -664,15 +663,15 @@ a.article-title:hover {
   position: relative;
   text-align: center;
 }
-.article-entry .video-container {
+.video-container {
   position: relative;
   padding-top: 56.25%;
   height: 0;
   overflow: hidden;
 }
-.article-entry .video-container iframe,
-.article-entry .video-container object,
-.article-entry .video-container embed {
+.video-container iframe,
+.video-container object,
+.video-container embed {
   position: absolute;
   top: 0;
   left: 0;

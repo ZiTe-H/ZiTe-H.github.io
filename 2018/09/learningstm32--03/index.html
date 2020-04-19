@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  
+
+  
+  <title>[STM32學習記錄-3] 基本輸入與輸出教學-GPIO相關程式寫法 | ZiTe 本物誌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="先前已經介紹過GPIO相關暫存器的用法了，現在我來介紹幾個最基本的輸出入程式寫法。 由於我使用的開發板NUCLEO-F103RB上有内建LED燈（PA5）和按鈕（PC13），所以以下的程式我就直接使用這兩隻腳位。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[STM32學習記錄-3] 基本輸入與輸出教學-GPIO相關程式寫法">
+<meta property="og:url" content="https://zite-h.github.io/2018/09/learningstm32--03/index.html">
+<meta property="og:site_name" content="ZiTe 本物誌">
+<meta property="og:description" content="先前已經介紹過GPIO相關暫存器的用法了，現在我來介紹幾個最基本的輸出入程式寫法。 由於我使用的開發板NUCLEO-F103RB上有内建LED燈（PA5）和按鈕（PC13），所以以下的程式我就直接使用這兩隻腳位。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://1.bp.blogspot.com/-ct3JBzB9eSc/XomEJe9LfFI/AAAAAAAACCY/1_9B4X2lI30ukU6soP9mk6EF_qL7TD6vgCKgBGAsYHg/s1600/%25E5%259F%25BA%25E6%259C%25AC%25E8%25BC%25B8%25E5%2587%25BA-01.gif">
+<meta property="og:image" content="https://1.bp.blogspot.com/-n3Of_FG-F64/XomEJXHpiFI/AAAAAAAACCY/CaogFO97DFoZjwpXmZRy5AsfxXBJrkELQCKgBGAsYHg/s1600/%25E5%259F%25BA%25E6%259C%25AC%25E8%25BC%25B8%25E5%2585%25A5-01.gif">
+<meta property="article:published_time" content="2018-09-08T06:24:00.000Z">
+<meta property="article:modified_time" content="2020-04-17T14:28:40.015Z">
+<meta property="article:author" content="ZiTe">
+<meta property="article:tag" content="電子電路">
+<meta property="article:tag" content="教學">
+<meta property="article:tag" content="ARM-STM32F10x">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.bp.blogspot.com/-ct3JBzB9eSc/XomEJe9LfFI/AAAAAAAACCY/1_9B4X2lI30ukU6soP9mk6EF_qL7TD6vgCKgBGAsYHg/s1600/%25E5%259F%25BA%25E6%259C%25AC%25E8%25BC%25B8%25E5%2587%25BA-01.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="ZiTe 本物誌" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700;900&display=swap" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'></link>
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ZiTe 本物誌</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">這是ZiTe的個人網站。在這裡，我會分享我的資訊電子相關内容、攝影作品、好書推薦或生活上的所有事物。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/pages/about.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zite-h.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-learningstm32--03" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/learningstm32--03/" class="article-date">
+  <time datetime="2018-09-08T06:24:00.000Z" itemprop="datePublished">2018-09-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [STM32學習記錄-3] 基本輸入與輸出教學-GPIO相關程式寫法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先前已經介紹過<a href="https://zite-h.github.io//2018/08/26/Learning-STM32-02/">GPIO相關暫存器</a>的用法了，現在我來介紹幾個最基本的輸出入程式寫法。</p>
+<p>由於我使用的開發板NUCLEO-F103RB上有内建LED燈（PA5）和按鈕（PC13），所以以下的程式我就直接使用這兩隻腳位。</p>
+<a id="more"></a>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本輸出</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stm32f10x.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Delay</span><span class="params">(__IO u32 nCount)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   RCC-&gt;APB2ENR |= <span class="number">0x00000004</span>; <span class="comment">// 啟用GPIOA時鐘</span></span><br><span class="line">   GPIOA-&gt;CRL = <span class="number">0x00200000</span>;    <span class="comment">// 設定PA5為推挽輸出，最高輸出頻率為2MHz</span></span><br><span class="line">   <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">   &#123;</span><br><span class="line">     GPIOA-&gt;ODR = <span class="number">0X0020</span>;      <span class="comment">// PA5 = 1</span></span><br><span class="line">     Delay(<span class="number">6400000</span>);           <span class="comment">// Delay</span></span><br><span class="line">     GPIOA-&gt;ODR = <span class="number">0X0000</span>;      <span class="comment">// PA5 = 0</span></span><br><span class="line">     Delay(<span class="number">6400000</span>);           <span class="comment">// Delay</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Delay</span><span class="params">(__IO u32 nCount)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">for</span> (; nCount != <span class="number">0</span>; nCount--);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://1.bp.blogspot.com/-ct3JBzB9eSc/XomEJe9LfFI/AAAAAAAACCY/1_9B4X2lI30ukU6soP9mk6EF_qL7TD6vgCKgBGAsYHg/s1600/%25E5%259F%25BA%25E6%259C%25AC%25E8%25BC%25B8%25E5%2587%25BA-01.gif" alt="▲ 基本輸出-中間的綠色LED會不斷閃爍。"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本輸出</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stm32f10x.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   RCC-&gt;APB2ENR |= <span class="number">0X00000044</span>;  <span class="comment">// 啟用GPIOA、GPIOE時鐘</span></span><br><span class="line">   GPIOA-&gt;CRL = <span class="number">0x00200000</span>;     <span class="comment">// 設定PA5為推挽輸出，最高輸出頻率為2MHz</span></span><br><span class="line">   GPIOC-&gt;CRH = <span class="number">0x00400000</span>;     <span class="comment">// 設定PC13為浮空輸入</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="keyword">if</span>(GPIOC-&gt;IDR &amp; <span class="number">0x2000</span>)    <span class="comment">// if PC13 = 1</span></span><br><span class="line">       GPIOA-&gt;ODR = <span class="number">0X0020</span>;     <span class="comment">// PA5 = 1</span></span><br><span class="line">     <span class="keyword">else</span></span><br><span class="line">       GPIOA-&gt;ODR = <span class="number">0X0000</span>;     <span class="comment">// PA5 = 0</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://1.bp.blogspot.com/-n3Of_FG-F64/XomEJXHpiFI/AAAAAAAACCY/CaogFO97DFoZjwpXmZRy5AsfxXBJrkELQCKgBGAsYHg/s1600/%25E5%259F%25BA%25E6%259C%25AC%25E8%25BC%25B8%25E5%2585%25A5-01.gif" alt="▲ 基本輸入-按下按鈕後中間的綠色LED熄滅，否則亮起。"></p>
+<p>基本輸出入除了以上這種直接寫入暫存器的方法外還可以使用函數的方式來達成，而這些函數都在stm32f10x_rcc.c和stm32f10x_gpio.c中（參考路徑：Libraries\STM32F10x_StdPeriph_Driver\src），有興趣的可以參考研究。</p>
+<p>如果將上面的基本輸入程式改用函數的話，寫法如下。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本輸入-使用各種函數來達成</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stm32f10x.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);    <span class="comment">// 啟用GPIOA時鐘</span></span><br><span class="line">	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);    <span class="comment">// 啟用GPIOC時鐘</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 宣告一個GPIO_InitTypeDef類型的結構GPIO_InitStructure</span></span><br><span class="line">	GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line"></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;             <span class="comment">// 使用Pin_5</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;      <span class="comment">// 設定為推挽式輸出</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;      <span class="comment">// 設定最高輸出頻率為2MHz</span></span><br><span class="line">	GPIO_Init(GPIOA, &amp;GPIO_InitStructure); <span class="comment">// 選為GPIO Port-A，傳入以上設定</span></span><br><span class="line"></span><br><span class="line">	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;            <span class="comment">// 使用Pin_13</span></span><br><span class="line">	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; <span class="comment">// 設定為浮空輸入</span></span><br><span class="line">	GPIO_Init(GPIOC, &amp;GPIO_InitStructure); <span class="comment">// 選爲GPIO Port-C，傳入以上設定</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line"> 	&#123;</span><br><span class="line">		<span class="keyword">if</span>(GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13) == <span class="number">1</span>) <span class="comment">// if PC13 = 1</span></span><br><span class="line">			GPIO_SetBits(GPIOA,GPIO_Pin_5);           <span class="comment">// PA5 = 1</span></span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			GPIO_ResetBits(GPIOA,GPIO_Pin_5);         <span class="comment">// PA5 = 0</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下個別介紹使用到的函數：</p>
+<br/>
+
+<p>RCC_APB2PeriphClockCmd</p>
+<ul>
+<li>函數原型：void RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewState)</li>
+<li>功能：致能（使用）或禁能（關閉）APB2外圍設備時鐘。</li>
+<li>輸出參數1：RCC_APB2Periph，選擇要設定的外圍設備（詳細用法請見下方表格整理）。</li>
+<li>輸入參數2：NewState，選擇要使用還是關閉時鐘（詳細用法請見下方表格整理）。</li>
+<li>輸出參數：無</li>
+<li>返回值：無</li>
+<li>先決條件：無</li>
+<li>被調用函數：無</li>
+</ul>
+<br/>
+
+<p>GPIO_Init</p>
+<ul>
+<li>函數原型：void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)</li>
+<li>功能：設定GPIO的模式，也就是設定CRH、CRL暫存器。</li>
+<li>輸入參數1：GPIOx，選擇GPIO。</li>
+<li>輸入參數2：GPIO_InitStruct，選擇GPIO模式。爲指向GPIO_InitTypeDef的指標。GPIO_InitTypeDef類型的結構有以下3個成員（詳細用法請見下方表格整理）。<ul>
+<li>GPIO_Pin</li>
+<li>GPIO_Speed</li>
+<li>GPIO_Mode</li>
+</ul>
+</li>
+<li>輸出參數：無</li>
+<li>返回值：無</li>
+<li>先決條件：無</li>
+<li>被調用函數：無</li>
+</ul>
+<br/>
+
+<p>GPIO_ReadInputDataBit</p>
+<ul>
+<li>函數原型：uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)</li>
+<li>功能：讀取指定端口的輸入值。</li>
+<li>輸入參數1：GPIOx，選擇GPIO（詳細用法請見下方表格整理）。</li>
+<li>輸入參數2：GPIO_Pin，選擇GPIO_Pin（詳細用法請見下方表格整理）。</li>
+<li>輸出參數：無</li>
+<li>返回值：端口的輸入值，1或是0。</li>
+<li>先決條件：無</li>
+<li>被調用函數：無</li>
+</ul>
+<br/>
+
+<p>GPIO_SetBits</p>
+<ul>
+<li>函數原型：void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)</li>
+<li>功能：將端口設置為1。</li>
+<li>輸入參數1：GPIOx，選擇GPIO（詳細用法請見下方表格整理）。</li>
+<li>輸入參數2：GPIO_Pin，選擇GPIO_Pin（詳細用法請見下方表格整理）。</li>
+<li>輸出參數：無</li>
+<li>返回值：無</li>
+<li>先決條件：無</li>
+<li>被調用函數：無</li>
+</ul>
+<br/>
+
+<p>GPIO_ResetBits</p>
+<ul>
+<li>函數原型：void GPIO_ResetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)</li>
+<li>功能：將端口重置為0。</li>
+<li>輸入參數1：GPIOx，選擇GPIO（詳細用法請見下方表格整理）。</li>
+<li>輸入參數2：GPIO_Pin，選擇GPIO_Pin（詳細用法請見下方表格整理）。</li>
+<li>輸出參數：無</li>
+<li>返回值：無</li>
+<li>先決條件：無</li>
+<li>被調用函數：無</li>
+</ul>
+<br/>
+
+<table>
+<thead>
+<tr>
+<th>RCC_APB2Periph</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RCC_APB2Periph_AFIO</td>
+<td>复用功能</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_GPIOA</td>
+<td>GPIO A</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_GPIOB</td>
+<td>GPIO B</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_GPIOC</td>
+<td>GPIO C</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_GPIOD</td>
+<td>GPIO D</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_GPIOE</td>
+<td>GPIO E</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_ADC1</td>
+<td>ADC1</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_ADC2</td>
+<td>ADC2</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_TIM1</td>
+<td>TIM1</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_SPI1</td>
+<td>SPI1</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_USART1</td>
+<td>USART1</td>
+</tr>
+<tr>
+<td>RCC_APB2Periph_ALL</td>
+<td>全部</td>
+</tr>
+</tbody></table>
+<p>備註：可以用“|”符號（也就是OR運算）一次選取多個功能。例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 啟用Port-A、C時鐘</span></span><br><span class="line">RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA |</span><br><span class="line">                       RCC_APB2Periph_GPIOC ,</span><br><span class="line">                       ENABLE);</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>NewState</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ENABLE</td>
+<td>致能（使用）</td>
+</tr>
+<tr>
+<td>DISABLE</td>
+<td>禁能（關閉）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>GPIO_Pin</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GPIO_Pin_0</td>
+<td>選擇Pin_0</td>
+</tr>
+<tr>
+<td>GPIO_Pin_1</td>
+<td>選擇Pin_1</td>
+</tr>
+<tr>
+<td>GPIO_Pin_2</td>
+<td>選擇Pin_2</td>
+</tr>
+<tr>
+<td>GPIO_Pin_3</td>
+<td>選擇Pin_3</td>
+</tr>
+<tr>
+<td>GPIO_Pin_4</td>
+<td>選擇Pin_4</td>
+</tr>
+<tr>
+<td>GPIO_Pin_5</td>
+<td>選擇Pin_5</td>
+</tr>
+<tr>
+<td>GPIO_Pin_6</td>
+<td>選擇Pin_6</td>
+</tr>
+<tr>
+<td>GPIO_Pin_7</td>
+<td>選擇Pin_7</td>
+</tr>
+<tr>
+<td>GPIO_Pin_8</td>
+<td>選擇Pin_8</td>
+</tr>
+<tr>
+<td>GPIO_Pin_9</td>
+<td>選擇Pin_9</td>
+</tr>
+<tr>
+<td>GPIO_Pin_10</td>
+<td>選擇Pin_10</td>
+</tr>
+<tr>
+<td>GPIO_Pin_11</td>
+<td>選擇Pin_11</td>
+</tr>
+<tr>
+<td>GPIO_Pin_12</td>
+<td>選擇Pin_12</td>
+</tr>
+<tr>
+<td>GPIO_Pin_13</td>
+<td>選擇Pin_13</td>
+</tr>
+<tr>
+<td>GPIO_Pin_14</td>
+<td>選擇Pin_14</td>
+</tr>
+<tr>
+<td>GPIO_Pin_15</td>
+<td>選擇Pin_15</td>
+</tr>
+<tr>
+<td>GPIO_Pin_All</td>
+<td>選擇全部</td>
+</tr>
+</tbody></table>
+<p>備註：可以用“|”符號一次選取多個功能。例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO_SetBits(GPIOA, GPIO_Pin_10 | GPIO_Pin_15); <span class="comment">// 將PA10、PA15設置為1</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>GPIO_Speed</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GPIO_Speed_10MHz</td>
+<td>設定最高輸出頻率為10MHz</td>
+</tr>
+<tr>
+<td>GPIO_Speed_2MHz</td>
+<td>設定最高輸出頻率為2MHz</td>
+</tr>
+<tr>
+<td>GPIO_Speed_50MHz</td>
+<td>設定最高輸出頻率為50MHz</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>GPIO_Mode</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GPIO_Mode_AIN</td>
+<td>類比輸入</td>
+</tr>
+<tr>
+<td>GPIO_Mode_IN_FLOATING</td>
+<td>浮空輸入</td>
+</tr>
+<tr>
+<td>GPIO_Mode_IPD</td>
+<td>下拉輸入</td>
+</tr>
+<tr>
+<td>GPIO_Mode_IPU</td>
+<td>上拉輸入</td>
+</tr>
+<tr>
+<td>GPIO_Mode_Out_OD</td>
+<td>汲極開路通用輸出</td>
+</tr>
+<tr>
+<td>GPIO_Mode_Out_PP</td>
+<td>推挽通用輸出</td>
+</tr>
+<tr>
+<td>GPIO_Mode_AF_OD</td>
+<td>汲極開路复用輸出</td>
+</tr>
+<tr>
+<td>GPIO_Mode_AF_PP</td>
+<td>推挽复用輸出</td>
+</tr>
+</tbody></table>
+<h1 id="相關文章"><a href="#相關文章" class="headerlink" title="相關文章"></a>相關文章</h1><ul>
+<li><a href="/Serial/S-Learning-STM32.html">[系列文章] STM32學習記錄</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zite-h.github.io/2018/09/learningstm32--03/" data-id="ck96f4c0j0017fci3c2i568rk" class="article-share-link">分享</a>
+      
+        <a href="https://zite-h.github.io/2018/09/learningstm32--03/#disqus_thread" class="article-comment-link">Comments</a>
+        
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/seagatepersonalcloud/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">較新的文章</strong>
+      <div class="article-nav-title">
+        
+          把Seagate Personal Cloud改裝成USB外接硬碟
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/learningstm32--02/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">較舊的文章</strong>
+      <div class="article-nav-title">[STM32學習記錄-2] 基本輸入與輸出教學-GPIO相關暫存器簡介</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">作者</h3>
+    <div class="widget">
+      <div style="text-align:center;">
+        <!-- <table border="1">
+          <tr>
+            <td>
+              <a href="/Pages/About-Me.html">
+                <img src="https://1.bp.blogspot.com/-sspbiAhkwxg/XoiFbkxKHAI/AAAAAAAACBs/CSM39YqdH5g6b2VjwfWF5XlXdn_D9dMCgCKgBGAsYHg/s225/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-04-01.png" width="80" style="margin-right: 10px";><br/>
+              </a>
+            </td>
+            <td>
+              <a href="/Pages/About-Me.html">
+                <b><font color="#444" size="6">ZiTe</font></b><br>
+              </a>
+                <div style="text-align:left;">
+                  有什麼話想說，都歡迎留言或寄E-mail給我！<br>
+                  honmonoh@gmail.com
+                </div>
+              </td>
+          </tr>
+        </table> -->
+        <a href="/pages/about.html" title="關於我">
+          <img src="https://1.bp.blogspot.com/-sspbiAhkwxg/XoiFbkxKHAI/AAAAAAAACBs/CSM39YqdH5g6b2VjwfWF5XlXdn_D9dMCgCKgBGAsYHg/s225/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-04-01.png" width="170"; style="margin-bottom: 10px">
+        </a>
+        <a href="/pages/about.html" title="關於我">
+          <b><font color="#444" size="6">ZiTe</font></b>
+        </a>
+        <font color="#444">
+          <font size="6">／</font>
+          <font size="1">honmonoh@gmail.com</font><br>
+          <br>
+        </font>
+      </div>
+      <div style="text-align:left;">
+        有什麼話想說，都歡迎在文章下方留言或寄E-mail給我！
+      </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E8%97%9D/" rel="tag">文藝</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%B3%E6%A9%9F/" rel="tag">耳機</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%96%8B%E7%AE%B1/" rel="tag">開箱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%96%B1%E8%AE%80/" rel="tag">閱讀</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">讀者意見調查問卷</h3>
+    <div class="widget">
+          每一個意見對我來說都非常寶貴。如果您願意的話，不妨填寫
+          <a href="https://goo.gl/forms/RwQrwaEg7wAFrhUz1" title="讀者問卷" target="_blank">此問卷</a>
+          。謝謝！<br/>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <font size="2">
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+          <img alt="" style="border-width:0;margin-left: 0px" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
+        </a><br>
+        本站內容除了特別標註者外，皆採用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">創用CC 姓名標示-非商業性-禁止改作 4.0 國際 授權條款</a>授權。<br>
+        轉載分享時禁止修改內容，禁止用於商業目的，並且註明來自<a href="https://zite-h.github.io/" target="_blank">ZiTe 本物誌</a>作者<a href="https://zite-h.github.io/pages/about.html" target="_blank">ZiTe</a>與附上原文連結。<br>
+        詳細分享注意事項請參考<a href="/Pages/How-to-Share.html">如何分享</a>。<br>
+        <br>
+        2020 <a href="/pages/about.html">ZiTe</a> ╱
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </font>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/pages/about.html" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'zite-honmonoh';
+  
+  var disqus_url = 'https://zite-h.github.io/2018/09/learningstm32--03/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

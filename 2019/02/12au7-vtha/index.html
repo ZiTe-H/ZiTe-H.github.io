@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  
+
+  
+  <title>自製12AU7(ECC82) 真空管耳機擴大機 | ZiTe 本物誌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言這學期因爲有一門電子學實習的課程，而實習的期末作業就是要自己找一個電路來做，然後自己佈線、手洗電路板最後在焊接。由於我之前一直都是使用PCB電路板雕刻機，所以這次的實習作業讓我非常的期待，而這個題目也必定要好好思考，得做些特別的才有趣，於是我就想起了我國中時的夢想：真空管擴大機。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自製12AU7(ECC82) 真空管耳機擴大機">
+<meta property="og:url" content="https://zite-h.github.io/2019/02/12au7-vtha/index.html">
+<meta property="og:site_name" content="ZiTe 本物誌">
+<meta property="og:description" content="前言這學期因爲有一門電子學實習的課程，而實習的期末作業就是要自己找一個電路來做，然後自己佈線、手洗電路板最後在焊接。由於我之前一直都是使用PCB電路板雕刻機，所以這次的實習作業讓我非常的期待，而這個題目也必定要好好思考，得做些特別的才有趣，於是我就想起了我國中時的夢想：真空管擴大機。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://1.bp.blogspot.com/-lbg-gEN1IxM/XppfskTS_xI/AAAAAAAACGg/pkHxv9yG9tQX-e7VCSXuP-Wmu1jx6LmTwCPcBGAsYHg/s640/360%25E7%259C%259F%25E7%25A9%25BA%25E7%25AE%25A1%25E8%2580%25B3%25E6%2593%25B4.gif">
+<meta property="og:image" content="https://1.bp.blogspot.com/-17xn8Q69cDo/XppfsowdAaI/AAAAAAAACGg/IpAGZPHxYHMyLAmsZX3L8X3l7oO0deNVACPcBGAsYHg/s1600/Screenshot%2B%252846%2529.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-j6Co2pwj9nE/XppfsgCF5LI/AAAAAAAACGg/TRaL66T5CYwbTXtbeFrIXP6-aL4IrMhvgCPcBGAsYHg/s1600/Screenshot%2B%252847%2529.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-DEULRvFaDvo/XppfstrgZGI/AAAAAAAACGg/xuPunToCDu8aZKs0KiTvnSqVsfDASVpHwCPcBGAsYHg/s640/12AU7-VTHPA_Ver1.1%2528PCB%2BLayout%2529.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-PXLeHrYzzfM/Xppfsqi9DnI/AAAAAAAACGg/Gk1damJugNMgmPkByA2xyxXUI-aX8NojQCPcBGAsYHg/s1600/DSC05877.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-E4OpgvbjNaY/XppfsiOWrCI/AAAAAAAACGg/IACSZgjKNGYLrucQCr8r3_j8k3ewUbRZACPcBGAsYHg/s1600/12AU7-VTNPA-0038.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-MhTLZsE3C9g/XppfskxZ8lI/AAAAAAAACGg/8tzInUcyomcA3RozG0Fst-cIkhH9MQ74ACPcBGAsYHg/s1600/12AU7-VTNPA-0041.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-FwKj5O8j_5g/XppfsgxN1rI/AAAAAAAACGg/w6boNxC0sfQxVgDB2bC2niEElSrZKfNLQCPcBGAsYHg/s1600/12AU7-VTNPA-0066.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-tTBygku660w/Xppfsom5AFI/AAAAAAAACGg/1e30I9N72gwgx6EBh56zAao37oc1RKTxQCPcBGAsYHg/s1600/12AU7-VTNPA-0069.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-g1d8Kc1fyPU/Xppfsm-TxWI/AAAAAAAACGg/c6irPN6BOGssWDi9Y5CazyI29rRsaLuaQCPcBGAsYHg/s1600/12AU7-VTNPA-0099.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-GKjiCbkx3HM/XppfsutmSnI/AAAAAAAACGg/78vJnPZfif0BEyorVhLridkBtpUf1coRgCPcBGAsYHg/s1600/12AU7-VTNPA-0073.jpg">
+<meta property="article:published_time" content="2019-02-18T01:59:00.000Z">
+<meta property="article:modified_time" content="2020-04-18T02:49:17.720Z">
+<meta property="article:author" content="ZiTe">
+<meta property="article:tag" content="耳機">
+<meta property="article:tag" content="電子電路">
+<meta property="article:tag" content="DIY">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.bp.blogspot.com/-lbg-gEN1IxM/XppfskTS_xI/AAAAAAAACGg/pkHxv9yG9tQX-e7VCSXuP-Wmu1jx6LmTwCPcBGAsYHg/s640/360%25E7%259C%259F%25E7%25A9%25BA%25E7%25AE%25A1%25E8%2580%25B3%25E6%2593%25B4.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="ZiTe 本物誌" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700;900&display=swap" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'></link>
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ZiTe 本物誌</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">這是ZiTe的個人網站。在這裡，我會分享我的資訊電子相關内容、攝影作品、好書推薦或生活上的所有事物。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/pages/about.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zite-h.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-12au7-vtha" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/12au7-vtha/" class="article-date">
+  <time datetime="2019-02-18T01:59:00.000Z" itemprop="datePublished">2019-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      自製12AU7(ECC82) 真空管耳機擴大機
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://1.bp.blogspot.com/-lbg-gEN1IxM/XppfskTS_xI/AAAAAAAACGg/pkHxv9yG9tQX-e7VCSXuP-Wmu1jx6LmTwCPcBGAsYHg/s640/360%25E7%259C%259F%25E7%25A9%25BA%25E7%25AE%25A1%25E8%2580%25B3%25E6%2593%25B4.gif" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這學期因爲有一門電子學實習的課程，而實習的期末作業就是要自己找一個電路來做，然後自己佈線、手洗電路板最後在焊接。由於我之前一直都是使用PCB電路板雕刻機，所以這次的實習作業讓我非常的期待，而這個題目也必定要好好思考，得做些特別的才有趣，於是我就想起了我國中時的夢想：真空管擴大機。  </p>
+<a id="more"></a>
+
+<p>我當初高職會選擇讀資訊電子類也有很大一部分的原因是因爲那時候我在玩耳機音響，對於那些DAC、AMP、啥前級擴大、後級擴大、A類、B類的一堆機器有著很大的興趣。但是都已經讀到大學了，算過無數BJT、MOSFET的題目，卻沒做過實際的擴大機電路，所以我就像藉著這次的機會來完成一下這個小小夢想。  </p>
+<h1 id="找資料"><a href="#找資料" class="headerlink" title="找資料"></a>找資料</h1><p>但是說實在的，真空管在這個時代是只會出現在計概或電子學課本第一章的東西，我完全不知道它要怎麽用，怎麽運作，所以第一步當然就是要上網找各種資料啦~經過兩周的學習，我已經瞭解了真空管的運作原理，連直流負載線、工作點都可以設計了。至於我找到的資料會放在下面的作品報告中，可能之後也可以另外出篇來介紹。  </p>
+<h1 id="開始製作"><a href="#開始製作" class="headerlink" title="開始製作"></a>開始製作</h1><p>雖然知道了真空管的運作原理，但要直接設計出完整實際可用的電路對我來説還是有點難，畢竟電路是有很多東西需要考慮的。所以我就上網找了些別人設計好的電路來參考。最後我找到了這篇文章：<a href="http://diyaudioprojects.com/Solid/12AU7-IRF510-LM317-Headamp/" target="_blank" rel="noopener">NP-100v12：12AU7(ECC82) / IRF510 Headphone Amp</a>。然後我就照著它的電路圖來用Altium Designer 17開始繪製電路。  </p>
+<p><img src="https://1.bp.blogspot.com/-17xn8Q69cDo/XppfsowdAaI/AAAAAAAACGg/IpAGZPHxYHMyLAmsZX3L8X3l7oO0deNVACPcBGAsYHg/s1600/Screenshot%2B%252846%2529.png" alt=""></p>
+<p>這是系統電路圖(原理圖)的部分，基本上就是照著上述文章中的電路複製重繪一次，只是我把兩聲道的電路都話出來了。  </p>
+<p>這張圖的可變電阻-開關(VR-SW1)的VR部分<strong>其實是畫反的</strong>，一般來説是順時針轉VR要越大聲，但我這裡畫反了，所以如果有要參考的話要在多注意一下。  </p>
+<p><img src="https://1.bp.blogspot.com/-j6Co2pwj9nE/XppfsgCF5LI/AAAAAAAACGg/TRaL66T5CYwbTXtbeFrIXP6-aL4IrMhvgCPcBGAsYHg/s1600/Screenshot%2B%252847%2529.png" alt=""></p>
+<p><img src="https://1.bp.blogspot.com/-DEULRvFaDvo/XppfstrgZGI/AAAAAAAACGg/xuPunToCDu8aZKs0KiTvnSqVsfDASVpHwCPcBGAsYHg/s640/12AU7-VTHPA_Ver1.1%2528PCB%2BLayout%2529.png" alt=""></p>
+<p>再來就是PCB電路圖，也就是Layout佈線的部分了。由於我只使用Bottom Layer，但有2條零件面跳線，分別在U1和U2的Pin3。然後U2那邊的跳線會和R7交叉到，是我當初設計的失誤。  </p>
+<p><img src="https://1.bp.blogspot.com/-PXLeHrYzzfM/Xppfsqi9DnI/AAAAAAAACGg/Gk1damJugNMgmPkByA2xyxXUI-aX8NojQCPcBGAsYHg/s1600/DSC05877.jpg" alt=""></p>
+<p>然後就是把電路板洗出來然後將零件焊接上去了，做完試聽一下確定有聲音。  </p>
+<h1 id="照片"><a href="#照片" class="headerlink" title="照片"></a>照片</h1><p><img src="https://1.bp.blogspot.com/-E4OpgvbjNaY/XppfsiOWrCI/AAAAAAAACGg/IACSZgjKNGYLrucQCr8r3_j8k3ewUbRZACPcBGAsYHg/s1600/12AU7-VTNPA-0038.jpg" alt=""></p>
+<p><img src="https://1.bp.blogspot.com/-MhTLZsE3C9g/XppfskxZ8lI/AAAAAAAACGg/8tzInUcyomcA3RozG0Fst-cIkhH9MQ74ACPcBGAsYHg/s1600/12AU7-VTNPA-0041.jpg" alt=""></p>
+<p><img src="https://1.bp.blogspot.com/-FwKj5O8j_5g/XppfsgxN1rI/AAAAAAAACGg/w6boNxC0sfQxVgDB2bC2niEElSrZKfNLQCPcBGAsYHg/s1600/12AU7-VTNPA-0066.jpg" alt=""></p>
+<p><img src="https://1.bp.blogspot.com/-tTBygku660w/Xppfsom5AFI/AAAAAAAACGg/1e30I9N72gwgx6EBh56zAao37oc1RKTxQCPcBGAsYHg/s1600/12AU7-VTNPA-0069.jpg" alt=""></p>
+<p><img src="https://1.bp.blogspot.com/-g1d8Kc1fyPU/Xppfsm-TxWI/AAAAAAAACGg/c6irPN6BOGssWDi9Y5CazyI29rRsaLuaQCPcBGAsYHg/s1600/12AU7-VTNPA-0099.jpg" alt=""></p>
+<p><img src="https://1.bp.blogspot.com/-GKjiCbkx3HM/XppfsutmSnI/AAAAAAAACGg/78vJnPZfif0BEyorVhLridkBtpUf1coRgCPcBGAsYHg/s1600/12AU7-VTNPA-0073.jpg" alt=""></p>
+<p>最後附上此作業我打的結果報告，裡面有很多我找到的真空管相關資料，有需要者可以參考看看。我將此PDF檔放在我的雲端上：<a href="https://drive.google.com/file/d/1H40-AUMELtlNLMlD_a0G0DIxzHOKnHU3/view?usp=sharing" target="_blank" rel="noopener">Google雲端硬碟</a></p>
+<iframe center="" height="900" src="https://drive.google.com/file/d/1H40-AUMELtlNLMlD_a0G0DIxzHOKnHU3/preview" text-align:="" width="640"></iframe>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zite-h.github.io/2019/02/12au7-vtha/" data-id="ck96f4bz70001fci36yathogp" class="article-share-link">分享</a>
+      
+        <a href="https://zite-h.github.io/2019/02/12au7-vtha/#disqus_thread" class="article-comment-link">Comments</a>
+        
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%80%B3%E6%A9%9F/" rel="tag">耳機</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/unbox-zsa4itx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">較新的文章</strong>
+      <div class="article-nav-title">
+        
+          [開箱] ZS-A4 ITX訂製機殼及相關零件簡單開箱
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/hddnasdas/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">較舊的文章</strong>
+      <div class="article-nav-title">資料儲存備份方案比較 包含雲端空間、HDD硬碟、NAS、DAS和千年光碟</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">作者</h3>
+    <div class="widget">
+      <div style="text-align:center;">
+        <!-- <table border="1">
+          <tr>
+            <td>
+              <a href="/Pages/About-Me.html">
+                <img src="https://1.bp.blogspot.com/-sspbiAhkwxg/XoiFbkxKHAI/AAAAAAAACBs/CSM39YqdH5g6b2VjwfWF5XlXdn_D9dMCgCKgBGAsYHg/s225/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-04-01.png" width="80" style="margin-right: 10px";><br/>
+              </a>
+            </td>
+            <td>
+              <a href="/Pages/About-Me.html">
+                <b><font color="#444" size="6">ZiTe</font></b><br>
+              </a>
+                <div style="text-align:left;">
+                  有什麼話想說，都歡迎留言或寄E-mail給我！<br>
+                  honmonoh@gmail.com
+                </div>
+              </td>
+          </tr>
+        </table> -->
+        <a href="/pages/about.html" title="關於我">
+          <img src="https://1.bp.blogspot.com/-sspbiAhkwxg/XoiFbkxKHAI/AAAAAAAACBs/CSM39YqdH5g6b2VjwfWF5XlXdn_D9dMCgCKgBGAsYHg/s225/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-04-01.png" width="170"; style="margin-bottom: 10px">
+        </a>
+        <a href="/pages/about.html" title="關於我">
+          <b><font color="#444" size="6">ZiTe</font></b>
+        </a>
+        <font color="#444">
+          <font size="6">／</font>
+          <font size="1">honmonoh@gmail.com</font><br>
+          <br>
+        </font>
+      </div>
+      <div style="text-align:left;">
+        有什麼話想說，都歡迎在文章下方留言或寄E-mail給我！
+      </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E8%97%9D/" rel="tag">文藝</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%B3%E6%A9%9F/" rel="tag">耳機</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%96%8B%E7%AE%B1/" rel="tag">開箱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%96%B1%E8%AE%80/" rel="tag">閱讀</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">讀者意見調查問卷</h3>
+    <div class="widget">
+          每一個意見對我來說都非常寶貴。如果您願意的話，不妨填寫
+          <a href="https://goo.gl/forms/RwQrwaEg7wAFrhUz1" title="讀者問卷" target="_blank">此問卷</a>
+          。謝謝！<br/>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <font size="2">
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+          <img alt="" style="border-width:0;margin-left: 0px" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
+        </a><br>
+        本站內容除了特別標註者外，皆採用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">創用CC 姓名標示-非商業性-禁止改作 4.0 國際 授權條款</a>授權。<br>
+        轉載分享時禁止修改內容，禁止用於商業目的，並且註明來自<a href="https://zite-h.github.io/" target="_blank">ZiTe 本物誌</a>作者<a href="https://zite-h.github.io/pages/about.html" target="_blank">ZiTe</a>與附上原文連結。<br>
+        詳細分享注意事項請參考<a href="/Pages/How-to-Share.html">如何分享</a>。<br>
+        <br>
+        2020 <a href="/pages/about.html">ZiTe</a> ╱
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </font>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/pages/about.html" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'zite-honmonoh';
+  
+  var disqus_url = 'https://zite-h.github.io/2019/02/12au7-vtha/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
