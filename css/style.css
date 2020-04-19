@@ -558,6 +558,7 @@ body {
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
   transition: color 0.2s;
+  margin: 0 0 0.5em 0;
 }
 a.article-title:hover {
   color: #258fb8;
@@ -587,7 +588,7 @@ h4,
 h5,
 h6 {
   line-height: 1.1em;
-  margin: 1.8em 0 0.5em 0;
+  margin: 1.5em 0 0.5em 0;
 }
 a {
   color: #258fb8;
@@ -699,8 +700,8 @@ blockquote footer cite:before {
   font-size: 0.85em;
   line-height: 1.5em;
   border-top: 1px solid #ccc;
-  padding-top: 1.5em;
-  margin: 0 20px 20px;
+  padding-top: 0;
+  margin: 30px 20px 20px 20px;
 }
 .article-footer:before,
 .article-footer:after {
