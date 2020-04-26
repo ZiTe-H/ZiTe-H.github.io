@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  
+
+  
+  <title>專案:電腦風扇控制器-2] OLED-SSD1306零件簡單介紹 | ZiTe 本物誌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言我第一次接觸OLED-SSD1306是因為高中技藝競賽的題目有用到，當時我覺得這是一個很難的零件，當然我到現在也沒完全了解這個零件，但我覺得網路上可以參考的中文資源太少了，所以我藉著這次製作風扇控制器的關係，還是打了這個文章，還請各位讀者見笑了，內容如果有錯還請各位指導。(本文都是以128*64解析度的單色OLED來做示範)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="專案:電腦風扇控制器-2] OLED-SSD1306零件簡單介紹">
+<meta property="og:url" content="https://zite-h.github.io/2017/12/fenctrl-2/index.html">
+<meta property="og:site_name" content="ZiTe 本物誌">
+<meta property="og:description" content="前言我第一次接觸OLED-SSD1306是因為高中技藝競賽的題目有用到，當時我覺得這是一個很難的零件，當然我到現在也沒完全了解這個零件，但我覺得網路上可以參考的中文資源太少了，所以我藉著這次製作風扇控制器的關係，還是打了這個文章，還請各位讀者見笑了，內容如果有錯還請各位指導。(本文都是以128*64解析度的單色OLED來做示範)">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://1.bp.blogspot.com/-HdFGyfRgpCI/XqUx46khu6I/AAAAAAAACIE/ODfjLdGcWiATpEiAIsihhjISX9eLH2eiQCPcBGAsYHg/s320/DSC_0357.JPG">
+<meta property="og:image" content="https://1.bp.blogspot.com/-Vus4lU_2mhk/XqUx4xe6ziI/AAAAAAAACIE/FB4mCvhqngsyGbj77PZO6TSaGucYuMIBQCPcBGAsYHg/s1600/OLED-Power.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-aPxLHDc29VY/XqUx4__yVjI/AAAAAAAACIE/CDWH3Y0kDqs04nUPtC-idcvPuOti75mewCPcBGAsYHg/s1600/I2C%25E8%25A6%258F%25E6%25A0%25BC.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-VWS0UUarM2E/XqUx43tkwGI/AAAAAAAACIE/RitqiAn7N1A-5q4ujK2_kyd5ieRKnaZEwCPcBGAsYHg/s1600/I2C%25E5%2582%25B3%25E8%25BC%25B8%25E8%25A6%258F%25E6%25A0%25BC.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-NRn-OHJHdSQ/XqUx4-u_VKI/AAAAAAAACIE/GtLeVmPX3qgexfVkEaD90B_q6EFENi_VQCPcBGAsYHg/s1600/OLED-Page-1.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-qyutGh_tkdE/XqUx4wtzecI/AAAAAAAACIE/LFob3m3Xn0Evd2_DM3MLQHg_VmtapLz5QCPcBGAsYHg/s1600/OLED-Page-2.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-4-fpQZQO2fo/XqUx42TnoyI/AAAAAAAACIE/Iz3q3W1GH9UW_RWO8Ue1Dc6S23H8wSBKQCPcBGAsYHg/s1600/OLED-Command.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-1wjmZn1XG6s/XqUx4z8hZLI/AAAAAAAACIE/qBHTNl5xcbYq5r9hybfM5IXQO2DvnHDVgCPcBGAsYHg/s1600/OLED-In.png">
+<meta property="article:published_time" content="2017-12-27T06:56:00.000Z">
+<meta property="article:modified_time" content="2020-04-26T07:58:29.071Z">
+<meta property="article:author" content="ZiTe">
+<meta property="article:tag" content="電子電路">
+<meta property="article:tag" content="DIY">
+<meta property="article:tag" content="教學">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.bp.blogspot.com/-HdFGyfRgpCI/XqUx46khu6I/AAAAAAAACIE/ODfjLdGcWiATpEiAIsihhjISX9eLH2eiQCPcBGAsYHg/s320/DSC_0357.JPG">
+  
+    <link rel="alternate" href="/atom.xml" title="ZiTe 本物誌" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700;900&display=swap" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'></link>
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ZiTe 本物誌</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">這是ZiTe的個人網站。在這裡，我會分享我的資訊電子相關内容、攝影作品、好書推薦或生活上的所有事物。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/pages/about.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zite-h.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-fenctrl-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/fenctrl-2/" class="article-date">
+  <time datetime="2017-12-27T06:56:00.000Z" itemprop="datePublished">2017-12-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      專案:電腦風扇控制器-2] OLED-SSD1306零件簡單介紹
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://1.bp.blogspot.com/-HdFGyfRgpCI/XqUx46khu6I/AAAAAAAACIE/ODfjLdGcWiATpEiAIsihhjISX9eLH2eiQCPcBGAsYHg/s320/DSC_0357.JPG" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我第一次接觸OLED-SSD1306是因為高中技藝競賽的題目有用到，當時我覺得這是一個很難的零件，當然我到現在也沒完全了解這個零件，但我覺得網路上可以參考的中文資源太少了，所以我藉著這次製作風扇控制器的關係，還是打了這個文章，還請各位讀者見笑了，內容如果有錯還請各位指導。(本文都是以128*64解析度的單色OLED來做示範)</p>
+<a id="more"></a>
+
+<h1 id="認識零件"><a href="#認識零件" class="headerlink" title="認識零件"></a>認識零件</h1><p>要了解一個零件，最直接且不會出錯的方式就是找Data Sheet來看，所以我們要來簡單的看一下SSD1306的Data Sheet。  </p>
+<p>首先是電源的部分，雖然Data Sheet上表示IC logic要1.65<del>3.3V，且面板要7</del>15V，但我實際使用的OLED模組都是只要一個3.3V就可以驅動了，而我也沒試過其他的電壓，所以這部分可能會因為每個廠商製作的模組而有差異，一定要查清楚。  </p>
+<p>然後是傳輸界面，SSD1306共有3種通訊方式可以用，但我這次只介紹I2C的部分，因為我也沒用過其他通訊界面。  </p>
+<p><img src="https://1.bp.blogspot.com/-Vus4lU_2mhk/XqUx4xe6ziI/AAAAAAAACIE/FB4mCvhqngsyGbj77PZO6TSaGucYuMIBQCPcBGAsYHg/s1600/OLED-Power.png" alt="▲ 取自Data Sheet P.6"></p>
+<p>再來是I2C的部分，文中有講到，<strong>SDA與SCL兩支接腳都要接提升電阻</strong>(上拉電阻)，而我平常都是用4.7KΩ的電阻，上接到電源3.3V的地方。基本上任何I2C零件的SDA與SCL就是要接提升電阻，因為這是I2C原廠設計並規定的，有興趣的話可以查查I2C的Data Sheet，裡面有更詳細的I2C規格與使用。  </p>
+<p>再來是I2C的地址部分，文中可以看到SSD1306的I2C位置是”011110 SA0+R/W#”。SA0是可以透過D/C# Pin來改變是’1’還是’0’。而R/W#是讀寫控制，’1’的時候是主控端讀取、接收資料；’0’的時候是主控端寫出、發送資料。  </p>
+<p>總結來說就是SSD1306的位置可能是”0111100+R/W#”或”0111101+R/W#”這兩種，所以要先確認好自己用的零件是哪一個地址。每一個I2C裝置都會有I2C地址，而這些地址是要和I2C原廠購買申請的，而且不同的I2C類型，地址的位元數不同，像新的I2C支援10Bits的地址。  </p>
+<p>想要更詳細了解I2C的話，可以來看這篇文章 : <a href="http://wiki.csie.ncku.edu.tw/embedded/I2C" target="_blank" rel="noopener">I2C: Inter-Integrated Circuit - 成大資工Wiki</a>  </p>
+<p><img src="https://1.bp.blogspot.com/-aPxLHDc29VY/XqUx4__yVjI/AAAAAAAACIE/CDWH3Y0kDqs04nUPtC-idcvPuOti75mewCPcBGAsYHg/s1600/I2C%25E8%25A6%258F%25E6%25A0%25BC.jpg" alt="▲ 取自Data Sheet P.19"></p>
+<p>下面這張圖是I2C的傳輸格式，資料一定要照著這樣的格式才行，基本上這個格式是所有I2C零件都通用的。  </p>
+<p><img src="https://1.bp.blogspot.com/-VWS0UUarM2E/XqUx43tkwGI/AAAAAAAACIE/RitqiAn7N1A-5q4ujK2_kyd5ieRKnaZEwCPcBGAsYHg/s1600/I2C%25E5%2582%25B3%25E8%25BC%25B8%25E8%25A6%258F%25E6%25A0%25BC.jpg" alt="▲ 取自Data Sheet P.20"></p>
+<h1 id="運作方式"><a href="#運作方式" class="headerlink" title="運作方式"></a>運作方式</h1><p>其實SSD1306的運作方式和點矩陣基本上一樣，可以把它想成一個128*64的單色點矩陣，只要分別控制這128*64個點要給’1’還是’0’，就可以控制它顯示的圖樣。  </p>
+<p>SSD1306的圖形顯示資料記憶體(GDDRAM)由上而下可以分為第0頁~第7頁(共8頁)，每一頁都是一個128*8 Bits的陣列形式(本文講到有關陣列的部分 ，都是橫行直排、水平*垂直)，這樣總共就是(128*8)*8頁=128*64 Bits，而我們只要控制這128*64 個Bits是’1’或’0’，他就會在顯示面板對應的128*64個點上亮或是滅(可以用指令設定是要共陽型—‘0’代表亮或共陰型—‘1’代表亮。本文都是以共陰型來做示範)。  </p>
+<p>所以如果我把偶數頁(含第0頁)的資料全部給’1’，奇數頁的資料全部給’0’，那它就會顯示由上而下的亮暗相間的樣式，也就是由上而下顯示亮8行,暗8行,亮8行…暗8行。又如果我把每一頁的第0排(SEG0)到第63排(SEG63)都給’1’，其餘都給’0’，那它就會顯示左邊全亮，右邊全暗，且剛好是一半。  </p>
+<p>所以當你想要用SSD1306顯示一個圖案、文字或任何樣式時，只要宣告一個128*64的二維陣列，並將’1’與’0’排列成它的樣子，然後每一頁每一排一個一個傳進SSD1306就可以成功顯示了。  </p>
+<p><img src="https://1.bp.blogspot.com/-NRn-OHJHdSQ/XqUx4-u_VKI/AAAAAAAACIE/GtLeVmPX3qgexfVkEaD90B_q6EFENi_VQCPcBGAsYHg/s1600/OLED-Page-1.png" alt=""></p>
+<p><img src="https://1.bp.blogspot.com/-qyutGh_tkdE/XqUx4wtzecI/AAAAAAAACIE/LFob3m3Xn0Evd2_DM3MLQHg_VmtapLz5QCPcBGAsYHg/s1600/OLED-Page-2.png" alt="▲ 取自 Data Sheet P.29"></p>
+<h1 id="指令功能"><a href="#指令功能" class="headerlink" title="指令功能"></a>指令功能</h1><p>這個部分就像許多的微控制器(MCU)一樣，可以傳送指令給SSD1306，它就會依據不同的指令，變換不同等功能，下面就介紹一些比較重要的指令。</p>
+<ul>
+<li>Set Contrast Control(設定對比度控制)<ul>
+<li>SSD1306可以設定256階段的對比度。這個指令要用到2個Byte，第一個Byte是(81)h，用來告訴SSD1306你要設定對比度了；第二個Byte全都是自定位元，看你想設定多高的對比度，就寫入多高的數值。例如寫入(FF)h就代表設定為最高對比度，而第二個Byte為(7F)h時為重置對比度。</li>
+</ul>
+</li>
+<li>Entire Display ON(全部顯示ON)<ul>
+<li>(A4)h : 恢復到GDDRAM的內容顯示，輸出會依照GDDRAM的內容。</li>
+<li>(A5)h : 全部顯示ON，不論GDRAM的內容為何，OLED顯示全亮。</li>
+</ul>
+</li>
+<li>Set Normal/Inverse Display(設定正常/反向顯示)<ul>
+<li>(A6)h : 正常顯示(共陰型顯示)，GDDRAM中的’0’代表暗，’1’代表亮。</li>
+<li>(A7)h : 反向顯示(共陽型顯示)，GDDRAM中的’0’代表亮，’1’代表暗。</li>
+</ul>
+</li>
+<li>Set Display ON/OFF(設定顯示開關)<ul>
+<li>(AE)h : 關閉顯示(睡眠模式)，此時OLED不會顯示任何東西。</li>
+<li>(AF)h : 開啟顯示(正常模式)，此時OLED會依照GDDRAM或是其他指令來顯示。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://1.bp.blogspot.com/-4-fpQZQO2fo/XqUx42TnoyI/AAAAAAAACIE/Iz3q3W1GH9UW_RWO8Ue1Dc6S23H8wSBKQCPcBGAsYHg/s1600/OLED-Command.png" alt="▲ 取自Data Sheet P.28"></p>
+<p>最後則是廠商附上的初始化步驟，也就是在SSD1306一開始啟動時設定一些基本的功能，只要照著下表達步驟丟指令就可以了。  </p>
+<p><img src="https://1.bp.blogspot.com/-1wjmZn1XG6s/XqUx4z8hZLI/AAAAAAAACIE/qBHTNl5xcbYq5r9hybfM5IXQO2DvnHDVgCPcBGAsYHg/s1600/OLED-In.png" alt="▲ 取自Data Sheet-Application Note P.5"></p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料:"></a>參考資料:</h1><ul>
+<li><a href="https://www.google.com.tw/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwiRquzen9vXAhXGkZQKHacKC8YQFgglMAA&url=https%3A%2F%2Fcdn-shop.adafruit.com%2Fdatasheets%2FSSD1306.pdf&usg=AOvVaw295piYr-tzt5CnBsNVzI7X" target="_blank" rel="noopener">OLED-SSD1306 Data Sheet</a></li>
+<li><a href="http://wiki.csie.ncku.edu.tw/embedded/I2C" target="_blank" rel="noopener">I2C: Inter-Integrated Circuit - 成大資工Wiki</a> </li>
+</ul>
+<h1 id="相關文章"><a href="#相關文章" class="headerlink" title="相關文章"></a>相關文章</h1><ul>
+<li><a href="/2017/11/fenctrl-1/">[專案:電腦風扇控制器-1] 構想與零件選用</a></li>
+<li><a href="/2017/12/fenctrl-2/">[專案:電腦風扇控制器-2] OLED-SSD1306零件簡單介紹</a>(本篇)</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+ <!-- 改 -->
+      <a data-url="https://zite-h.github.io/2017/12/fenctrl-2/" data-id="ck9h1elg4000gxgi3aanxbvmp" class="article-share-link">分享</a>
+      
+        <a href="https://zite-h.github.io/2017/12/fenctrl-2/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
+        
+      <!--
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+-->
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/googleshortcuts/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">較新的文章</strong>
+      <div class="article-nav-title">
+        
+          [Firefox/Chrome擴充套件] Google Shortcuts 快捷清單
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/fenctrl-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">較舊的文章</strong>
+      <div class="article-nav-title">[專案:電腦風扇控制器-1] 構想與零件選用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">作者</h3>
+    <div class="widget">
+      <div style="text-align:center;">
+        <!-- <table border="1">
+          <tr>
+            <td>
+              <a href="/Pages/About-Me.html">
+                <img src="https://1.bp.blogspot.com/-sspbiAhkwxg/XoiFbkxKHAI/AAAAAAAACBs/CSM39YqdH5g6b2VjwfWF5XlXdn_D9dMCgCKgBGAsYHg/s225/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-04-01.png" width="80" style="margin-right: 10px";><br/>
+              </a>
+            </td>
+            <td>
+              <a href="/Pages/About-Me.html">
+                <b><font color="#444" size="6">ZiTe</font></b><br>
+              </a>
+                <div style="text-align:left;">
+                  有什麼話想說，都歡迎留言或寄E-mail給我！<br>
+                  honmonoh@gmail.com
+                </div>
+              </td>
+          </tr>
+        </table> -->
+        <a href="/pages/about.html" title="關於我">
+          <img src="https://1.bp.blogspot.com/-sspbiAhkwxg/XoiFbkxKHAI/AAAAAAAACBs/CSM39YqdH5g6b2VjwfWF5XlXdn_D9dMCgCKgBGAsYHg/s225/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-04-01.png" width="170"; style="margin-bottom: 10px">
+        </a>
+        <a href="/pages/about.html" title="關於我">
+          <b><font color="#444" size="6">ZiTe</font></b>
+        </a>
+        <font color="#444">
+          <font size="6">／</font>
+          <font size="1">honmonoh@gmail.com</font><br>
+          <br>
+        </font>
+      </div>
+      <div style="text-align:left;">
+        有什麼話想說，都歡迎在文章下方留言或寄E-mail給我！
+      </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome%E6%93%B4%E5%85%85%E5%A5%97%E4%BB%B6/" rel="tag">Chrome擴充套件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Firefox%E6%93%B4%E5%85%85%E5%A5%97%E4%BB%B6/" rel="tag">Firefox擴充套件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E8%97%9D/" rel="tag">文藝</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%B3%E6%A9%9F/" rel="tag">耳機</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%96%8B%E7%AE%B1/" rel="tag">開箱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%96%B1%E8%AE%80/" rel="tag">閱讀</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">讀者意見調查問卷</h3>
+    <div class="widget">
+          每一個意見對我來說都非常寶貴。如果您願意的話，不妨填寫
+          <a href="https://goo.gl/forms/RwQrwaEg7wAFrhUz1" title="讀者問卷" target="_blank">此問卷</a>
+          。謝謝！<br/>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <font size="2">
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+          <img alt="" style="border-width:0;margin: 0px" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
+        </a><br>
+        本站內容除了特別標註者外，皆採用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">創用CC 姓名標示-非商業性-禁止改作 4.0 國際 授權條款</a>授權。<br>
+        轉載分享時禁止修改內容，禁止用於商業目的，並且註明來自<a href="https://zite-h.github.io/" target="_blank">ZiTe 本物誌</a>作者<a href="https://zite-h.github.io/pages/about.html" target="_blank">ZiTe</a>與附上原文連結。<br>
+        詳細分享注意事項請參考<a href="/Pages/How-to-Share.html">如何分享</a>。<br>
+        <br>
+        2020 <a href="/pages/about.html">ZiTe</a> ╱
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </font>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/pages/about.html" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'zite-honmonoh';
+  
+  var disqus_url = 'https://zite-h.github.io/2017/12/fenctrl-2/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
