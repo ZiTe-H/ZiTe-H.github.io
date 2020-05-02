@@ -491,7 +491,7 @@ body {
 .search-form-input {
   border: none;
   background: none;
-  color: #444;
+  color: #3b3b3b;
   width: 100%;
   font: 13px "Noto Sans TC", "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", Arial, sans-serif;
   outline: none;
@@ -552,7 +552,7 @@ body {
   text-decoration: none;
   font-size: 2em;
   font-weight: bold;
-  color: #444;
+  color: #3b3b3b;
   line-height: 1.1em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
@@ -564,7 +564,7 @@ a.article-title:hover {
   color: #258fb8;
 }
 .article-entry {
-  color: #444;
+  color: #3b3b3b;
   padding: 0 20px;
   h1: , h2, h3, h4, h5, h6;
 }
@@ -656,7 +656,7 @@ blockquote footer cite:before {
   margin-left: 1em;
 }
 .caption {
-  color: #444;
+  color: #3b3b3b;
   display: block;
   font-size: 0.85em;
   margin-top: 0.2em;
@@ -716,7 +716,7 @@ blockquote footer cite:before {
   text-decoration: none;
 }
 .article-footer a:hover {
-  color: #444;
+  color: #3b3b3b;
 }
 .article-tag-list-item {
   float: left;
@@ -776,7 +776,7 @@ blockquote footer cite:before {
 .article-nav-link-wrap {
   text-decoration: none;
   text-shadow: 0 1px #fff;
-  color: #444;
+  color: #3b3b3b;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -785,7 +785,7 @@ blockquote footer cite:before {
   display: block;
 }
 .article-nav-link-wrap:hover {
-  color: #444;
+  color: #3b3b3b;
 }
 @media screen and (min-width: 768px) {
   .article-nav-link-wrap {
@@ -844,7 +844,7 @@ blockquote footer cite:before {
   box-sizing: border-box;
   font: 14px "Noto Sans TC", "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", Arial, sans-serif;
   padding: 0 15px;
-  color: #444;
+  color: #3b3b3b;
   outline: none;
   border: 1px solid #ccc;
   border-radius: 3px 3px 0 0;
@@ -1005,7 +1005,7 @@ blockquote footer cite:before {
 .archive-article-title {
   text-decoration: none;
   font-weight: bold;
-  color: #444;
+  color: #3b3b3b;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
@@ -1074,7 +1074,7 @@ blockquote footer cite:before {
   }
 }
 #page-nav .current {
-  color: #444;
+  color: #3b3b3b;
   font-weight: bold;
 }
 #page-nav .space {
@@ -1200,7 +1200,7 @@ blockquote footer cite:before {
 }
 .article-entry .gist .gist-file .gist-meta {
   background: #eee;
-  color: #444;
+  color: #3b3b3b;
   font: 0.5em "Noto Sans TC", "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", Arial, sans-serif;
   text-shadow: 0 0;
   padding: 10px 0/0;
