@@ -1170,12 +1170,11 @@ blockquote footer cite:before {
   background: #515151;
 }
 .article-entry .gist {
-  margin: 0 -20px;
   border-style: solid;
   border-color: #ccc;
-  border-width: 1px 0;
-  background: #2d2d2d;
-  padding: 15px 20px 15px 0;
+  border-width: 2px;
+  background: #eee;
+  padding: 0;
 }
 .article-entry .gist .gist-file {
   border: none;
@@ -1200,13 +1199,13 @@ blockquote footer cite:before {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #2d2d2d;
-  color: #999;
-  font: 0.85em "Noto Sans TC", "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", Arial, sans-serif;
+  background: #eee;
+  color: #444;
+  font: 0.5em "Noto Sans TC", "Helvetica Neue", "Helvetica", "Segoe UI", "Microsoft YaHei", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", Arial, sans-serif;
   text-shadow: 0 0;
-  padding: 0;
-  margin-top: 1em;
-  margin-left: 20px;
+  padding: 10px 0/0;
+  margin-top: 0;
+  margin-left: 0;
 }
 .article-entry .gist .gist-file .gist-meta a {
   color: #258fb8;
