@@ -624,8 +624,8 @@ th {
   padding-bottom: 0.5em;
 }
 td {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 blockquote {
   font-family: Georgia, "Times New Roman", serif;
