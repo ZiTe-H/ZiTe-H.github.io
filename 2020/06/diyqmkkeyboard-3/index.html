@@ -23,13 +23,13 @@
 <meta property="og:image" content="https://1.bp.blogspot.com/-EgrFqZ05qvc/Xu8SLcnbmzI/AAAAAAAAChY/SjQG8nQdpNcxa4owlwivtJB_0QvFQ964QCK4BGAsYHg/s960/AVRDUDESS-02.png">
 <meta property="og:image" content="https://1.bp.blogspot.com/-nBbABHCw-8w/Xu8SLuGSqfI/AAAAAAAAChc/th4vpoYxMjk3BIKszo7_oTko6pY1ADJOQCK4BGAsYHg/s960/AVRDUDESS-03.png">
 <meta property="article:published_time" content="2020-06-21T08:33:00.000Z">
-<meta property="article:modified_time" content="2020-06-21T08:38:22.883Z">
+<meta property="article:modified_time" content="2020-06-21T11:05:55.393Z">
 <meta property="article:author" content="ZiTe">
 <meta property="article:tag" content="教學">
+<meta property="article:tag" content="電子電路">
+<meta property="article:tag" content="DIY">
 <meta property="article:tag" content="軟體">
 <meta property="article:tag" content="3C">
-<meta property="article:tag" content="DIY">
-<meta property="article:tag" content="電子電路">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://1.bp.blogspot.com/-R-JnAk6dbbc/Xu8SJ6OKXeI/AAAAAAAAChE/KAmscT04GTE5o9w_K9TQgx1eQid8Tt94gCK4BGAsYHg/s850/kb%25E8%25B3%2587%25E6%2596%2599%25E5%25A4%25BE.jpg">
   
@@ -131,7 +131,7 @@
 <h1 id="燒錄韌體"><a href="#燒錄韌體" class="headerlink" title="燒錄韌體"></a>燒錄韌體</h1><h2 id="準備軟體"><a href="#準備軟體" class="headerlink" title="準備軟體"></a>準備軟體</h2><p>燒錄韌體前要先安裝好用來燒錄的軟體。QMK有個官方的燒錄工具：<a href="https://github.com/qmk/qmk_toolbox/releases" target="_blank" rel="noopener">QMK Toolbox</a>，一般情況下你可以先試試看使用它進行燒錄。但是如果你和我一樣是使用Pro Micro開發板的話，我會建議你使用<a href="https://blog.zakkemble.net/avrdudess-a-gui-for-avrdude/" target="_blank" rel="noopener">AVRDUDESS</a>來進行燒錄。</p>
 <p>以下為將示範使用AVRDUDESS進行燒錄，如果想要使用QMK Toolbox或指令碼的話可以參考QMK的官方指南：<a href="https://docs.qmk.fm/#/newbs_flashing" target="_blank" rel="noopener">Flashing Your Keyboard</a>。</p>
 <h2 id="DFU（Bootloader）模式"><a href="#DFU（Bootloader）模式" class="headerlink" title="DFU（Bootloader）模式"></a>DFU（Bootloader）模式</h2><p>再來要確認好你使用的晶片或開發板要如何進入所謂的DFU（或稱Bootloader）模式，不同的板子和晶片可能會有所不同，通常都是透過短接RST（Reset）和GND接腳。</p>
-<p>以我的Pro Micro來說，進入DFU模式要快速地短接RST和GND接腳<strong>2次</strong>，然後它在8秒內會是Bootloader模式。關於Pro Micro的Bootloader相關說明可以看官方說明：<a href="https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/troubleshooting-and-faq#ts-reset" target="_blank" rel="noopener">SpaekFun Pro Micro: Reset to Bootloader</a>。</p>
+<p>以我的Pro Micro來說，進入DFU模式要快速地短接RST和GND接腳<strong>2次</strong>，然後它在8秒內會是Bootloader模式。關於Pro Micro的Bootloader相關說明可以看官方說明：<a href="https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/troubleshooting-and-faq#ts-reset" target="_blank" rel="noopener">SparkFun Pro Micro: Reset to Bootloader</a>。</p>
 <p>為了方便作業，建議各位可以裝個按鈕或開關之類的，當然如果你眼明手快也是可以用金屬鑷子之類的來短接。</p>
 <p><img src="https://1.bp.blogspot.com/-TKceHU3vb0s/Xu8SKzMqdII/AAAAAAAAChQ/xfBuaKSsOGguZcPwDfjP_43mBYOBhM-cgCK4BGAsYHg/s2796/DSC_0036.JPG" alt="▲ 建議裝個開關在RST和GND腳上。"></p>
 <h2 id="進行燒錄"><a href="#進行燒錄" class="headerlink" title="進行燒錄"></a>進行燒錄</h2><p>接下來請打開「裝置管理員」（你可以透過在左下角、工具列上的Windows標誌的開始鍵上按滑鼠右鍵來打開選單並打開它），裝置管理員內會列出目前連接到此電腦上的裝置。</p>
@@ -164,7 +164,7 @@
 <li><a href="/pages/serial/s-diysnmkeyboard.html">[系列文章] 自製QMK鍵盤</a></li>
 <li>參考資料<ul>
 <li><a href="https://ergotaiwan.tw/install-qmk-tutorials-2020/" target="_blank" rel="noopener">[2020] 新版 QMK 教學</a></li>
-<li><a href="https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/troubleshooting-and-faq#ts-reset" target="_blank" rel="noopener">SpaekFun Pro Micro: Reset to Bootloader</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/troubleshooting-and-faq#ts-reset" target="_blank" rel="noopener">SparkFun Pro Micro: Reset to Bootloader</a></li>
 <li><a href="https://www.keebtalk.com/t/trouble-flashing-qmk-no-device-present/5871/21" target="_blank" rel="noopener">Trouble flashing QMK - No device present</a></li>
 <li><a href="https://learn.sparkfun.com/tutorials/installing-an-arduino-bootloader" target="_blank" rel="noopener">Installing an Arduino Bootloader</a> </li>
 <li><a href="https://www.reddit.com/r/olkb/comments/8sxgzb/replace_pro_micro_bootloader_with_qmk_dfu/" target="_blank" rel="noopener">Replace Pro Micro bootloader with QMK DFU</a></li>
@@ -184,7 +184,7 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
  <!-- 改 -->
-      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-3/" data-id="ckbotkuod000mbgi3g56tftz0" class="article-share-link">分享</a>
+      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-3/" data-id="ckboyurvy000pewi31hpx0q6k" class="article-share-link">分享</a>
       
         <a href="https://zite-h.github.io/2020/06/diyqmkkeyboard-3/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
         
