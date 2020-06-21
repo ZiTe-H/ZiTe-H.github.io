@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  
+
+  
+  <title>[自製QMK鍵盤-3] 編譯並燒錄QMK | ZiTe 本物誌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言在上一篇文章時，我們已經有了編輯好的QMK韌體原始檔，接下來就可以準備進行編譯和燒錄。 編譯和燒錄的步驟對於不熟悉軟體和開發板的人可能會覺得複雜甚至是害怕，但是其實沒有這麼困難，只要小心地確認好每一步、好好地照著做，相信這是很容易的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[自製QMK鍵盤-3] 編譯並燒錄QMK">
+<meta property="og:url" content="https://zite-h.github.io/2020/06/diyqmkkeyboard-3/index.html">
+<meta property="og:site_name" content="ZiTe 本物誌">
+<meta property="og:description" content="前言在上一篇文章時，我們已經有了編輯好的QMK韌體原始檔，接下來就可以準備進行編譯和燒錄。 編譯和燒錄的步驟對於不熟悉軟體和開發板的人可能會覺得複雜甚至是害怕，但是其實沒有這麼困難，只要小心地確認好每一步、好好地照著做，相信這是很容易的。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://1.bp.blogspot.com/-R-JnAk6dbbc/Xu8SJ6OKXeI/AAAAAAAAChE/KAmscT04GTE5o9w_K9TQgx1eQid8Tt94gCK4BGAsYHg/s850/kb%25E8%25B3%2587%25E6%2596%2599%25E5%25A4%25BE.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-Bjr_FxhTLNg/Xu8SKcvMgtI/AAAAAAAAChI/IC2Zb9iaYvIhVl5E-YqfUGo1sjekUDk0QCK4BGAsYHg/s534/MSYS2-01.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-hENkr6oUTL4/Xu8SKl2cmPI/AAAAAAAAChM/o6l8dhizAMIrAk5i4xCmnjFTJ_iXLlPQQCK4BGAsYHg/s754/MSYS2-02.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-TKceHU3vb0s/Xu8SKzMqdII/AAAAAAAAChQ/xfBuaKSsOGguZcPwDfjP_43mBYOBhM-cgCK4BGAsYHg/s2796/DSC_0036.JPG">
+<meta property="og:image" content="https://1.bp.blogspot.com/-h_kR_cbyiI0/Xu8SLCaQHQI/AAAAAAAAChU/KdGDqoghBnArI9ZTjw6yywYsBMCE1ZDmgCK4BGAsYHg/s646/AVRDUDESS-01.jpg">
+<meta property="og:image" content="https://1.bp.blogspot.com/-EgrFqZ05qvc/Xu8SLcnbmzI/AAAAAAAAChY/SjQG8nQdpNcxa4owlwivtJB_0QvFQ964QCK4BGAsYHg/s960/AVRDUDESS-02.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-nBbABHCw-8w/Xu8SLuGSqfI/AAAAAAAAChc/th4vpoYxMjk3BIKszo7_oTko6pY1ADJOQCK4BGAsYHg/s960/AVRDUDESS-03.png">
+<meta property="article:published_time" content="2020-06-21T08:33:00.000Z">
+<meta property="article:modified_time" content="2020-06-21T08:38:22.883Z">
+<meta property="article:author" content="ZiTe">
+<meta property="article:tag" content="教學">
+<meta property="article:tag" content="軟體">
+<meta property="article:tag" content="3C">
+<meta property="article:tag" content="DIY">
+<meta property="article:tag" content="電子電路">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.bp.blogspot.com/-R-JnAk6dbbc/Xu8SJ6OKXeI/AAAAAAAAChE/KAmscT04GTE5o9w_K9TQgx1eQid8Tt94gCK4BGAsYHg/s850/kb%25E8%25B3%2587%25E6%2596%2599%25E5%25A4%25BE.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="ZiTe 本物誌" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700;900&display=swap" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet'></link>
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ZiTe 本物誌</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">這是ZiTe的個人網站。在這裡，我會分享我的資訊電子相關事物、攝影作品、好書推薦或生活上的所有事物。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/pages/about.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zite-h.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-diyqmkkeyboard-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/diyqmkkeyboard-3/" class="article-date">
+  <time datetime="2020-06-21T08:33:00.000Z" itemprop="datePublished">2020-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [自製QMK鍵盤-3] 編譯並燒錄QMK
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在上一篇文章時，我們已經有了編輯好的QMK韌體原始檔，接下來就可以準備進行編譯和燒錄。</p>
+<p>編譯和燒錄的步驟對於不熟悉軟體和開發板的人可能會覺得複雜甚至是害怕，但是其實沒有這麼困難，只要小心地確認好每一步、好好地照著做，相信這是很容易的。</p>
+<a id="more"></a>
+
+
+<h1 id="編譯韌體"><a href="#編譯韌體" class="headerlink" title="編譯韌體"></a>編譯韌體</h1><h2 id="建構環境"><a href="#建構環境" class="headerlink" title="建構環境"></a>建構環境</h2><p>編譯（Compile）韌體麻煩的地方在於要建構環境（Environment）。這個部分目前沒有捷徑，只能乖乖地照著說明去做。還好QMK官方的說明文件寫的非常清楚。</p>
+<p>這裡推薦各位可以看<a href="https://ergotaiwan.tw/" target="_blank" rel="noopener">ErgoTaiwan</a>寫的<a href="https://ergotaiwan.tw/install-qmk-tutorials-2020/" target="_blank" rel="noopener">[2020] 新版 QMK 教學</a>，它將<a href="https://docs.qmk.fm/#/newbs_getting_started" target="_blank" rel="noopener">QMK的官方指南</a>完整地翻譯成中文了，只要照著它就可以成功。建議各位在進行環境建構時，打開上面兩篇，相互對照著看。而如果內容有出入的話，基本上就以QMK官方指南為準。過程中，Google翻譯也會是你的好幫手。</p>
+<p>另外注意，QMK的官方指南雖然有<a href="https://docs.qmk.fm/#/zh-cn/newbs_getting_started" target="_blank" rel="noopener">簡體中文版</a>，但目前其內容和英文版的指南並不同，應該是舊版的教學，實作時請以英文版的為主。</p>
+<h2 id="開始編譯"><a href="#開始編譯" class="headerlink" title="開始編譯"></a>開始編譯</h2><p>當你建立好QMK的環境後，就可以正式開始編譯了。以下教學以Windows系統為範例，Mac和Linux的話還請另請高人。（不過會用Linux的人應該也不會看我的教學吧？）</p>
+<p>首先，複製你在上一篇文章中準備好的QMK韌體原始檔資料夾\qmk_firmware\keyboards\底下的kb資料夾，並把它貼到你的環境底下的keyboards資料夾中（參考路徑：C:\Users\USERNAME\qmk_firmware\keyboards）。</p>
+<p><img src="https://1.bp.blogspot.com/-R-JnAk6dbbc/Xu8SJ6OKXeI/AAAAAAAAChE/KAmscT04GTE5o9w_K9TQgx1eQid8Tt94gCK4BGAsYHg/s850/kb%25E8%25B3%2587%25E6%2596%2599%25E5%25A4%25BE.jpg" alt="▲ 大概像這樣。"></p>
+<p>接著打開你的MSYS2 MinGW 64-bit終端機。輸入指令：<code>qmk compile -kb kb -km default</code>，然後按下<kbd>Enter</kbd>。你可以複製該行指令，並用滑鼠右鍵（而不是<kbd>Ctrl</kbd>+<kbd>V</kbd>）在MSYS2 MinGW 64-bit裡貼上。</p>
+<p>指令中<code>-kb</code>後面代表了你要編譯的鍵盤名稱，<code>-km</code>後面則是要編譯的鍵位佈局（Keymap）。</p>
+<p><img src="https://1.bp.blogspot.com/-Bjr_FxhTLNg/Xu8SKcvMgtI/AAAAAAAAChI/IC2Zb9iaYvIhVl5E-YqfUGo1sjekUDk0QCK4BGAsYHg/s534/MSYS2-01.png" alt="▲ MSYS2 MinGW 64-bit裡鍵入編譯指令並執行。"></p>
+<p>如果有問題的話，MSYS2 MinGW 64-bit會顯示問題出在哪裡。如果都沒問題的話，應該會看到一整排的<code>[OK]</code>，並且會告訴你編譯好的檔案「kb_defaulf.hex」已經儲存在環境\qmk_firmware底下（參考路徑：C:\Users\USERNAME\qmk_firmware）。</p>
+<p><img src="https://1.bp.blogspot.com/-hENkr6oUTL4/Xu8SKl2cmPI/AAAAAAAAChM/o6l8dhizAMIrAk5i4xCmnjFTJ_iXLlPQQCK4BGAsYHg/s754/MSYS2-02.png" alt="▲ 編譯完成並顯示編譯好的檔案。"></p>
+<p>有了這個.hex（或.bin）檔就可以進行燒錄了。</p>
+<h1 id="燒錄韌體"><a href="#燒錄韌體" class="headerlink" title="燒錄韌體"></a>燒錄韌體</h1><h2 id="準備軟體"><a href="#準備軟體" class="headerlink" title="準備軟體"></a>準備軟體</h2><p>燒錄韌體前要先安裝好用來燒錄的軟體。QMK有個官方的燒錄工具：<a href="https://github.com/qmk/qmk_toolbox/releases" target="_blank" rel="noopener">QMK Toolbox</a>，一般情況下你可以先試試看使用它進行燒錄。但是如果你和我一樣是使用Pro Micro開發板的話，我會建議你使用<a href="https://blog.zakkemble.net/avrdudess-a-gui-for-avrdude/" target="_blank" rel="noopener">AVRDUDESS</a>來進行燒錄。</p>
+<p>以下為將示範使用AVRDUDESS進行燒錄，如果想要使用QMK Toolbox或指令碼的話可以參考QMK的官方指南：<a href="https://docs.qmk.fm/#/newbs_flashing" target="_blank" rel="noopener">Flashing Your Keyboard</a>。</p>
+<h2 id="DFU（Bootloader）模式"><a href="#DFU（Bootloader）模式" class="headerlink" title="DFU（Bootloader）模式"></a>DFU（Bootloader）模式</h2><p>再來要確認好你使用的晶片或開發板要如何進入所謂的DFU（或稱Bootloader）模式，不同的板子和晶片可能會有所不同，通常都是透過短接RST（Reset）和GND接腳。</p>
+<p>以我的Pro Micro來說，進入DFU模式要快速地短接RST和GND接腳<strong>2次</strong>，然後它在8秒內會是Bootloader模式。關於Pro Micro的Bootloader相關說明可以看官方說明：<a href="https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/troubleshooting-and-faq#ts-reset" target="_blank" rel="noopener">SpaekFun Pro Micro: Reset to Bootloader</a>。</p>
+<p>為了方便作業，建議各位可以裝個按鈕或開關之類的，當然如果你眼明手快也是可以用金屬鑷子之類的來短接。</p>
+<p><img src="https://1.bp.blogspot.com/-TKceHU3vb0s/Xu8SKzMqdII/AAAAAAAAChQ/xfBuaKSsOGguZcPwDfjP_43mBYOBhM-cgCK4BGAsYHg/s2796/DSC_0036.JPG" alt="▲ 建議裝個開關在RST和GND腳上。"></p>
+<h2 id="進行燒錄"><a href="#進行燒錄" class="headerlink" title="進行燒錄"></a>進行燒錄</h2><p>接下來請打開「裝置管理員」（你可以透過在左下角、工具列上的Windows標誌的開始鍵上按滑鼠右鍵來打開選單並打開它），裝置管理員內會列出目前連接到此電腦上的裝置。</p>
+<p>打開AVRDUDESS，並跟隨以下步驟：</p>
+<ol>
+<li>在上方的「Programmer」選單中選擇「Ateml AppNote AVR109 BootLoader」。</li>
+<li>在下面的「Flash」中選擇點擊文字框右邊的「…」按鈕來選擇剛剛你編譯好的.hex（或.bin）檔案（如示範為kb_defaulf.hex）。</li>
+<li>在右上方的「MCU」選單中選擇「ATmega32U4」（或者你的晶片型號。Pro Micro請和我一樣選ATmega32U4）。</li>
+<li>將你的開發板（如Pro Micro）透過USB線接上電腦。這時「裝置管理員」應該會有反應。</li>
+<li>讓你的開發板進入DFU模式（例如Pro Micro是快速短接RST和GND腳2次）。</li>
+<li>這時「裝置管理員」應該也會有反應，並請特別注意「裝置管理員」中的「連接埠 (COM和LPT)」項目，開發板進入DFU模式後這裡會出現一個新的裝置，並在後面會標示其COM-Port名稱（如COM10）。</li>
+<li>回到AVRDUDESS中的「Programmer」，在其中的「Port」選單裡選擇剛剛看到的COM-Port名稱（如COM10）。</li>
+<li>按下AVRDUDESS下方的「Program!」，下方的指令列會開始動作。</li>
+<li>等待它燒錄完成。</li>
+</ol>
+<p><img src="https://1.bp.blogspot.com/-h_kR_cbyiI0/Xu8SLCaQHQI/AAAAAAAAChU/KdGDqoghBnArI9ZTjw6yywYsBMCE1ZDmgCK4BGAsYHg/s646/AVRDUDESS-01.jpg" alt="▲ 設定好的AVRDUDESS大概是這樣。"></p>
+<p><strong>請注意！</strong> 因為Pro Micro的DFU模式只會持續8秒，所以在上述的步驟5進入DFU模式後，接下來的步驟6～8必須要在這8秒內完成，否則失敗。</p>
+<p>如果成功燒錄的話應該會看到類似這樣的畫面。如果失敗的話就多試幾次吧。</p>
+<p><img src="https://1.bp.blogspot.com/-EgrFqZ05qvc/Xu8SLcnbmzI/AAAAAAAAChY/SjQG8nQdpNcxa4owlwivtJB_0QvFQ964QCK4BGAsYHg/s960/AVRDUDESS-02.png" alt="▲ 燒錄成功。"></p>
+<p>如果出現以下這種畫面的話，你的開發板可能並沒有進入DFU模式，或是COM-Port選錯，請再找找資料或多試幾次。</p>
+<p><img src="https://1.bp.blogspot.com/-nBbABHCw-8w/Xu8SLuGSqfI/AAAAAAAAChc/th4vpoYxMjk3BIKszo7_oTko6pY1ADJOQCK4BGAsYHg/s960/AVRDUDESS-03.png" alt="▲ 出現此畫面，可能代表沒有成功進入DFU模式，或是COM-Port選錯。"></p>
+<p>燒錄過程示範影片：</p>
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/_KihNT558II" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+<h1 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h1><p>這時你可以拔掉連接開發板的USB線，等待「裝置管理員」更新畫面後再次接上USB，如果這時「裝置管理員」也有反應的話，且「鍵盤」的地方有新的裝置出現（如HID Keyboard Device），代表你的開發板有被正確識別為鍵盤，也就是成功了。</p>
+<p>如果你在燒錄時有出現成功燒錄的畫面，但是電腦卻沒有正確地辨識出你的開發板的話，請在此確定你的QMK韌體原始檔的內容有沒有錯誤（尤其是選擇Bootloader的部分）。找到錯誤、重新編譯、再燒一次。</p>
+<p>接下來你就可以透過將設定好的鍵盤掃描矩陣的行列腳位短接或接上開關按鈕，來測試鍵盤是否正常運作。測試時可以使用類似<a href="http://en.key-test.ru/" target="_blank" rel="noopener">這樣</a>的工具。</p>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>如果到這一步都很成功的話那就恭喜了，因為你現在應該已經有一個可以當作鍵盤的開發板。接下來的硬體接線會簡單許多。不過我還想在QMK中加入一些其它的功能。</p>
+<h1 id="相關文章"><a href="#相關文章" class="headerlink" title="相關文章"></a>相關文章</h1><ul>
+<li><a href="/pages/serial/s-diysnmkeyboard.html">[系列文章] 自製QMK鍵盤</a></li>
+<li>參考資料<ul>
+<li><a href="https://ergotaiwan.tw/install-qmk-tutorials-2020/" target="_blank" rel="noopener">[2020] 新版 QMK 教學</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/troubleshooting-and-faq#ts-reset" target="_blank" rel="noopener">SpaekFun Pro Micro: Reset to Bootloader</a></li>
+<li><a href="https://www.keebtalk.com/t/trouble-flashing-qmk-no-device-present/5871/21" target="_blank" rel="noopener">Trouble flashing QMK - No device present</a></li>
+<li><a href="https://learn.sparkfun.com/tutorials/installing-an-arduino-bootloader" target="_blank" rel="noopener">Installing an Arduino Bootloader</a> </li>
+<li><a href="https://www.reddit.com/r/olkb/comments/8sxgzb/replace_pro_micro_bootloader_with_qmk_dfu/" target="_blank" rel="noopener">Replace Pro Micro bootloader with QMK DFU</a></li>
+</ul>
+</li>
+<li>QMK相關<ul>
+<li><a href="https://qmk.fm/" target="_blank" rel="noopener">QMK官方網站</a></li>
+<li><a href="https://docs.qmk.fm/#/" target="_blank" rel="noopener">QMK官方說明文件</a></li>
+<li><a href="https://github.com/qmk/qmk_firmware" target="_blank" rel="noopener">QMK的GitHub</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+ <!-- 改 -->
+      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-3/" data-id="ckbotkuod000mbgi3g56tftz0" class="article-share-link">分享</a>
+      
+        <a href="https://zite-h.github.io/2020/06/diyqmkkeyboard-3/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
+        
+      <!--
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+-->
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/diyqmkkeyboard-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">較舊的文章</strong>
+      <div class="article-nav-title">[自製QMK鍵盤-2] 手動編輯QMK韌體原始檔</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">作者</h3>
+    <div class="widget">
+      <div style="text-align:center;">
+        <!-- <table border="1">
+          <tr>
+            <td>
+              <a href="/Pages/About-Me.html">
+                <img src="https://1.bp.blogspot.com/-sspbiAhkwxg/XoiFbkxKHAI/AAAAAAAACBs/CSM39YqdH5g6b2VjwfWF5XlXdn_D9dMCgCKgBGAsYHg/s225/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-04-01.png" width="80" style="margin-right: 10px";><br/>
+              </a>
+            </td>
+            <td>
+              <a href="/Pages/About-Me.html">
+                <b><font color="#444" size="6">ZiTe</font></b><br>
+              </a>
+                <div style="text-align:left;">
+                  有什麼話想說，都歡迎留言或寄E-mail給我！<br>
+                  honmonoh@gmail.com
+                </div>
+              </td>
+          </tr>
+        </table> -->
+        <a href="/pages/about.html" title="關於我">
+          <img src="https://1.bp.blogspot.com/-sspbiAhkwxg/XoiFbkxKHAI/AAAAAAAACBs/CSM39YqdH5g6b2VjwfWF5XlXdn_D9dMCgCKgBGAsYHg/s225/Z-Hex%2BLogo_V%2B2.2%2528Fin_W%2529-04-01.png" width="170"; style="margin-bottom: 10px">
+        </a>
+        <a href="/pages/about.html" title="關於我">
+          <b><font color="#444" size="6">ZiTe</font></b>
+        </a>
+        <font color="#444">
+          <font size="6">／</font>
+          <font size="1">honmonoh@gmail.com</font><br>
+          <br>
+        </font>
+      </div>
+      <div style="text-align:left;">
+        有什麼話想說，都歡迎在文章下方留言或寄E-mail給我！
+      </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/3D%E5%88%97%E5%8D%B0/" rel="tag">3D列印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome%E6%93%B4%E5%85%85%E5%A5%97%E4%BB%B6/" rel="tag">Chrome擴充套件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Firefox%E6%93%B4%E5%85%85%E5%A5%97%E4%BB%B6/" rel="tag">Firefox擴充套件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%A6%E9%A9%97/" rel="tag">實驗</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E8%97%9D/" rel="tag">文藝</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%80%B3%E6%A9%9F/" rel="tag">耳機</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%96%8B%E7%AE%B1/" rel="tag">開箱</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%96%B1%E8%AE%80/" rel="tag">閱讀</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">讀者意見調查問卷</h3>
+    <div class="widget">
+          每一個意見對我來說都非常寶貴。如果您願意的話，不妨填寫<a href="https://goo.gl/forms/RwQrwaEg7wAFrhUz1" title="讀者問卷" target="_blank">此問卷</a>。謝謝！<br/>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <font size="2">
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+          <img alt="" style="border-width:0;margin: 0px" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
+        </a><br>
+        本站內容除了特別標註者外，皆採用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">創用CC 姓名標示-非商業性-禁止改作 4.0 國際 授權條款</a>授權。<br>
+        轉載分享時禁止修改內容，禁止用於商業目的，並且註明來自<a href="https://zite-h.github.io/" target="_blank">ZiTe 本物誌</a>作者<a href="https://zite-h.github.io/pages/about.html" target="_blank">ZiTe</a>與附上原文連結。<br>
+        詳細轉載分享注意事項請參考<a href="/pages/howtoshare.html" title="了解如何轉載並分享文章">如何分享</a>。<br>
+        <br>
+        2020 <a href="/pages/about.html">ZiTe</a> ╱
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </font>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/pages/about.html" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'zite-honmonoh';
+  
+  var disqus_url = 'https://zite-h.github.io/2020/06/diyqmkkeyboard-3/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
