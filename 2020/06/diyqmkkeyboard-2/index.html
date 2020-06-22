@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言會來到這一篇文章代表你是不辛的，因為接下來的步驟可麻煩了；但同時也是幸運的，因為即使艱苦，前人也已經盡可能地鋪設好道路和指示，你只需要勇敢且小心地往前跨步就行了。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-06-21T02:28:00.000Z">
-<meta property="article:modified_time" content="2020-06-21T11:16:24.332Z">
+<meta property="article:modified_time" content="2020-06-22T07:36:29.626Z">
 <meta property="article:author" content="ZiTe">
 <meta property="article:tag" content="教學">
 <meta property="article:tag" content="DIY">
@@ -105,7 +105,7 @@
 <a id="more"></a>
 
 <h1 id="前期準備"><a href="#前期準備" class="headerlink" title="前期準備"></a>前期準備</h1><p>接下來的步驟會需要編寫程式碼，請確保你的電腦裝有一個好用的文字編輯軟體（記事本？建議不要）。我自己是使用GitHub開發的的<a href="https://atom.io/" target="_blank" rel="noopener">Atom</a>，或是你可以參考<a href="https://docs.qmk.fm/#/newbs_getting_started?id=text-editor" target="_blank" rel="noopener">QMK的建議</a>。</p>
-<p>還記得上一篇文章中，最後從Keyboard Firmware Builder的「COMPILE」標籤頁下載的.zip檔嗎？請把它解壓縮。</p>
+<p>還記得<a href="/2020/06/diyqmkkeyboard-1/">上一篇文章</a>中，最後從Keyboard Firmware Builder的「COMPILE」標籤頁下載的<a href="/2020/06/diyqmkkeyboard-1/#編譯">.zip檔</a>嗎？請把它解壓縮。</p>
 <h1 id="修改rules-mk（使用Pro-Micro請注意）"><a href="#修改rules-mk（使用Pro-Micro請注意）" class="headerlink" title="修改rules.mk（使用Pro Micro請注意）"></a>修改rules.mk（使用Pro Micro請注意）</h1><p>在解壓縮資料夾\qmk_firmware\keyboards\kb底下，找到檔案rules.mk。使用你準備好的文字編輯軟體打開它。</p>
 <p>我的rules.mk長這樣：</p>
 <script src="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51.js?file=(source)rules.mk"></script>
@@ -145,7 +145,8 @@
 <p>你所需要做的就是把該按鍵的代號（如<code>KC_P7</code>）放在對的位置就好了。而每一塊</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">KEYMAP(</span><br><span class="line">	KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,</span><br><span class="line">	KC_H, KC_MS_U, KC_J,</span><br><span class="line">	KC_MS_L, KC_TRNS, KC_MS_UR, KC_TRNS,</span><br><span class="line">	KC_B, KC_MS_D, KC_D,</span><br><span class="line">	KC_A, KC_TRNS, KC_TRNS),</span><br></pre></td></tr></table></figure>
 <p>代表的是一層，最上面的是第0層，往下是第1、2…層。</p>
-<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>到此為止，QMK韌體的基本編輯就完成了，檔艱辛的路途還有一半。接下來請見下一篇文章：<a href="/2020/06/diyqmkkeyboard-3/">[自製QMK鍵盤-3] 編譯並燒錄QMK</a>。</p>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>到此為止，QMK韌體的基本編輯就完成了，檔艱辛的路途還有一半。</p>
+<p>接下來請見下一篇文章：<a href="/2020/06/diyqmkkeyboard-3/">[自製QMK鍵盤-3] 編譯並燒錄QMK</a>。</p>
 <h1 id="相關文章"><a href="#相關文章" class="headerlink" title="相關文章"></a>相關文章</h1><ul>
 <li><a href="/pages/serial/s-diysnmkeyboard.html">[系列文章] 自製QMK鍵盤</a></li>
 <li>參考資料<ul>
@@ -168,7 +169,7 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li></ul>
  <!-- 改 -->
-      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-2/" data-id="ckboz7x9s000mioi330lgd3q1" class="article-share-link">分享</a>
+      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-2/" data-id="ckbq7c7ym000yw8i3c33j20e7" class="article-share-link">分享</a>
       
         <a href="https://zite-h.github.io/2020/06/diyqmkkeyboard-2/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
         
