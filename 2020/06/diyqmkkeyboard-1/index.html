@@ -37,10 +37,10 @@
 <meta property="og:image" content="https://1.bp.blogspot.com/-Vdfp-gzx0uQ/Xu4uEo34ilI/AAAAAAAACdc/sRvlviZR_xUQEhy6Ma0oLsFQ9c_OW50hgCK4BGAsYHg/s800/%255B10%255DKeyboard%2BFirmware%2BBuilder_Settings.png">
 <meta property="og:image" content="https://1.bp.blogspot.com/-IbmnNoxPZ-s/Xu4uE8BFvvI/AAAAAAAACdg/khQpXPgiygkaVn409H394FOvf9RN8C-iACK4BGAsYHg/s800/%255B11%255DKeyboard%2BFirmware%2BBuilder_Compile.png">
 <meta property="article:published_time" content="2020-06-21T02:27:00.000Z">
-<meta property="article:modified_time" content="2020-06-22T07:43:18.823Z">
+<meta property="article:modified_time" content="2020-06-23T16:00:16.527Z">
 <meta property="article:author" content="ZiTe">
-<meta property="article:tag" content="教學">
 <meta property="article:tag" content="DIY">
+<meta property="article:tag" content="教學">
 <meta property="article:tag" content="3C">
 <meta property="article:tag" content="軟體">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <p><img src="https://1.bp.blogspot.com/-3_lDlu5GoMI/Xu4uCxknlCI/AAAAAAAACdE/4pwTfeQGe8cw8LW-L2a26VXxSf20eA3nwCK4BGAsYHg/s826/%255B04%255DKeyboard%2BFirmware%2BBuilder_Pins.png" alt="▲ 「PINS」標籤頁。此圖中的接腳是隨意設定的，請勿直接套用。"></p>
 <p>要注意的是這裡顯示的接腳名稱是該晶片原始定義的接腳名稱，可能會和開發板上的腳位號碼不同。例如Pro Micro開發板上的「D16腳」其實是主晶片ATmega32U4的「PB2腳」，而在「PINS」標籤頁顯示的是「B2」也就是代表「PB2」（PB2、PD7…的P是指Port，通常以8或16腳為一個Port。P後面的英文字為Port名，通常由A開始。再來的數字是腳位編號，通常由0開始。所以PB2就代表Port-B的2號腳，也就是Port-B的第3支接腳，因為Port-B的第一支是PB0）。設定前記得看好腳位對照圖。</p>
 <p><img src="https://1.bp.blogspot.com/-UqmjvTbo7Uo/Xu4yajqMXKI/AAAAAAAACeE/AEfdjtlknrcRsjSYvmRz5B0IxY4RIiQegCK4BGAsYHg/s1166/ProMicroPin.png" alt="▲ Pro Micro的腳位圖。圖片取自SparkFun。"></p>
-<h2 id="按鍵功能與層"><a href="#按鍵功能與層" class="headerlink" title="按鍵功能與層"></a>按鍵功能與層</h2><p>再來就是重要的「KEYMAP」標籤頁，按鍵的功能會在這裡進行設定。點選一個按鍵後，可以在下方選擇該按鍵的功能（如<kbd>A</kbd>、<kbd>Ctrl</kbd>、<kbd>Enter</kbd>…等）。而QMK可以設定「層（Layer）」在設定按鍵的上方有個數字就是顯示目前在設定的層，透過按上下來設定不同層的按鍵。</p>
+<h2 id="按鍵功能與層"><a href="#按鍵功能與層" class="headerlink" title="按鍵功能與層"></a>按鍵功能與層</h2><p>再來就是重要的「KEYMAP」標籤頁，按鍵的功能（鍵映射）會在這裡進行設定。點選一個按鍵後，可以在下方選擇該按鍵的功能（如<kbd>A</kbd>、<kbd>Ctrl</kbd>、<kbd>Enter</kbd>…等）。而QMK可以設定「層（Layer）」在設定按鍵的上方有個數字就是顯示目前在設定的層，透過按上下來設定不同層的按鍵。</p>
 <p><img src="https://1.bp.blogspot.com/-bWzQzPwFGgI/Xu4uDJhvouI/AAAAAAAACdI/UTgEK0bLZWgvv2Sl1gTl3mLlCnSgn_RbACK4BGAsYHg/s1903/%255B05%255DKeyboard%2BFirmware%2BBuilder_Keymap_1.png" alt="▲ 「KEYMAP」標籤頁。"></p>
 <p>如果你在Keyboard Layout Editor有設定好的話，它會自動讀入按鍵的功能，如果沒有的話就自己慢慢按吧。</p>
 <p>QMK可以設定的按鍵請看QMK的說明文件：<a href="https://docs.qmk.fm/#/keycodes?id=keycodes-overview" target="_blank" rel="noopener">Keycodes Overview</a>。但你可能會發現這裡可以設定的按鍵並不完全，很多在「Keycodes Overview」裡面有的按鍵這裡都沒有，關於這點之後會講到。</p>
@@ -202,7 +202,7 @@
 <p>它們已經幫很多忙了，接下來要靠自己了。（當然你也可以先試試看用它編譯好的.hex檔<a href="/2020/06/diyqmkkeyboard-3/#燒錄韌體">進行燒錄</a>，如果很幸運地可以正常運作的話，那就恭喜你不用做接下來的麻煩事了）</p>
 <h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>本篇簡單地介紹了利用「Keyboard Layout Editor」和「Keyboard Firmware Builder」這兩個線上工具進行鍵盤的相關編輯與設定，雖然這只是開頭而已，還沒做的事可多了。</p>
 <p>接下來的步驟請見下一篇文章：<a href="/2020/06/diyqmkkeyboard-2/">[自製QMK鍵盤-2] 手動編輯QMK韌體原始檔</a>。</p>
-<h1 id="相關文章"><a href="#相關文章" class="headerlink" title="相關文章"></a>相關文章</h1><ul>
+<h1 id="相關文章與資源"><a href="#相關文章與資源" class="headerlink" title="相關文章與資源"></a>相關文章與資源</h1><ul>
 <li><a href="/pages/serial/s-diysnmkeyboard.html">[系列文章] 自製QMK鍵盤</a></li>
 <li>線上工具<ul>
 <li><a href="http://www.keyboard-layout-editor.com/" target="_blank" rel="noopener">Keyboard Layout Editor</a></li>
@@ -229,7 +229,7 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li></ul>
  <!-- 改 -->
-      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/" data-id="ckbq7c7yk000ww8i30w6g1uut" class="article-share-link">分享</a>
+      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/" data-id="ckbs48dms000hmki31vvxhwc6" class="article-share-link">分享</a>
       
         <a href="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
         
