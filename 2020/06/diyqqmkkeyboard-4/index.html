@@ -16,10 +16,10 @@
 <meta property="og:description" content="前言 在使用QMK的進階功能前，我們必須先瞭解一些QMK的基本架構與運作。這可能會有點無聊，但擁有足夠的知識總是可以讓我們少走一點冤枉路。 以下內容皆譯自QMK官方說明文件。我並沒有完全翻譯，只有翻譯其中比較重要的部分內容。如有翻譯錯誤還請指教，並以QMK官方文件為準。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-06-23T15:53:00.000Z">
-<meta property="article:modified_time" content="2020-06-24T01:14:24.347Z">
+<meta property="article:modified_time" content="2020-06-24T01:58:46.760Z">
 <meta property="article:author" content="ZiTe">
-<meta property="article:tag" content="教學">
 <meta property="article:tag" content="DIY">
+<meta property="article:tag" content="教學">
 <meta property="article:tag" content="3C">
 <meta name="twitter:card" content="summary">
   
@@ -207,9 +207,183 @@
 <p>請注意該<code>LAYOUT()</code>巨集的第二區塊（block）是如何與上面的「矩陣掃描」做匹配的？該巨集將矩陣掃描映射到鍵碼。但是數字鍵盤只有17鍵，會有3個鍵的位置在矩陣上可以有、但實際上並沒有按鍵。我們在其位置填上<code>KC_NO</code>，因為它們在鍵盤映射定義中不是必須要的。</p>
 <p>你也可以利用此巨集來處理不常見的矩陣佈局，例如<a href="https://github.com/qmk/qmk_firmware/blob/e1203a222bb12ab9733916164a000ef3ac48da93/keyboards/clueboard/66/rev2/rev2.h" target="_blank" rel="noopener">Clueboard rev2</a>。在此不為其多做說明。</p>
 <h4 id="鍵碼分配"><a class="header-anchor" href="#鍵碼分配"></a>鍵碼分配</h4>
-<p>在鍵盤映射層次，我們利用上面的<code>LAYOUT()</code>巨集將鍵碼映射到物理位置，在映射到矩陣位置。像是這樣：</p>
+<p>在鍵盤映射層次，我們利用上面的<code>LAYOUT()</code>巨集將鍵碼映射到物理位置，再映射到矩陣位置。像是這樣：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">uint16_t</span> PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = &#123;</span><br><span class="line">[<span class="number">0</span>] = LAYOUT(</span><br><span class="line">  KC_NLCK, KC_PSLS, KC_PAST, KC_PMNS, \</span><br><span class="line">  KC_P7,   KC_P8,   KC_P9,   KC_PPLS, \</span><br><span class="line">  KC_P4,   KC_P5,   KC_P6, \</span><br><span class="line">  KC_P1,   KC_P2,   KC_P3,   KC_PENT, \</span><br><span class="line">  KC_P0,            KC_PDOT)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>請注意這些引數（Argument）是如何與<code>LAYOUT()</code>巨集的前半部分匹配的？這就是取得鍵碼並映射到矩陣掃描的方法。</p>
+<p>我們在<code>const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS]</code>呼叫了<code>LAYOUT()</code>巨集，並傳遞如以下的引數給<code>LAYOUT()</code>巨集：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KC_NLCK</td>
+<td>KC_PSLS</td>
+<td>KC_PAST</td>
+<td>KC_PMNS</td>
+</tr>
+<tr>
+<td>KC_P7</td>
+<td>KC_P8</td>
+<td>KC_P9</td>
+<td>KC_PPLS</td>
+</tr>
+<tr>
+<td>KC_P4</td>
+<td>KC_P5</td>
+<td>KC_P6</td>
+<td></td>
+</tr>
+<tr>
+<td>KC_P1</td>
+<td>KC_P2</td>
+<td>KC_P3</td>
+<td>KC_PENT</td>
+</tr>
+<tr>
+<td>KC_P0</td>
+<td></td>
+<td>KC_PDOT</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>以上這些引數傳遞進<code>LAYOUT()</code>巨集後，一一對應了<code>LAYOUT()</code>巨集的前半部分，也就是：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k00</td>
+<td>k01</td>
+<td>k02</td>
+<td>k03</td>
+</tr>
+<tr>
+<td>k10</td>
+<td>k11</td>
+<td>k12</td>
+<td>k13</td>
+</tr>
+<tr>
+<td>k20</td>
+<td>k21</td>
+<td>k22</td>
+<td></td>
+</tr>
+<tr>
+<td>k30</td>
+<td>k31</td>
+<td>k32</td>
+<td>k33</td>
+</tr>
+<tr>
+<td>k40</td>
+<td></td>
+<td>k42</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>接著<code>LAYOUT()</code>巨集開始動作，也就是進行「替換」。它將傳遞給它的引數對應其前半部分的參數（Parameter）名稱，並將<code>LAYOUT()</code>巨集的後半部分「替換」成各自對應的引數。</p>
+<p>例如在<code>LAYOUT()</code>巨集的前半部分中，引數<code>KC_NLCK</code>的位置對應了參數名<code>k00</code>，那麼在<code>LAYOUT()</code>巨集後半部分的<code>k00</code>就會被替換成<code>KC_NLCK</code>。</p>
+<p>以下是<code>LAYOUT()</code>巨集的後半部分，請注意我特別標示成斜體的<em>KC_NO</em>在什麼位置。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k00</td>
+<td>k01</td>
+<td>k02</td>
+<td>k03</td>
+</tr>
+<tr>
+<td>k10</td>
+<td>k11</td>
+<td>k12</td>
+<td>k13</td>
+</tr>
+<tr>
+<td>k20</td>
+<td>k21</td>
+<td>k22</td>
+<td><em>KC_NO</em></td>
+</tr>
+<tr>
+<td>k30</td>
+<td>k31</td>
+<td>k32</td>
+<td>k33</td>
+</tr>
+<tr>
+<td>k40</td>
+<td><em>KC_NO</em></td>
+<td>k42</td>
+<td><em>KC_NO</em></td>
+</tr>
+</tbody>
+</table>
+<p>當<code>LAYOUT()</code>巨集完成所有的替換工作後，它會回傳如以下的內容：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KC_NLCK</td>
+<td>KC_PSLS</td>
+<td>KC_PAST</td>
+<td>KC_PMNS</td>
+</tr>
+<tr>
+<td>KC_P7</td>
+<td>KC_P8</td>
+<td>KC_P9</td>
+<td>KC_PPLS</td>
+</tr>
+<tr>
+<td>KC_P4</td>
+<td>KC_P5</td>
+<td>KC_P6</td>
+<td><em>KC_NO</em></td>
+</tr>
+<tr>
+<td>KC_P1</td>
+<td>KC_P2</td>
+<td>KC_P3</td>
+<td>KC_PENT</td>
+</tr>
+<tr>
+<td>KC_P0</td>
+<td><em>KC_NO</em></td>
+<td>KC_PDOT</td>
+<td><em>KC_NO</em></td>
+</tr>
+</tbody>
+</table>
 <h4 id="檢測狀態變化"><a class="header-anchor" href="#檢測狀態變化"></a>檢測狀態變化</h4>
 <p>上面講述了矩陣掃描可以告訴我們某一時刻的矩陣狀態，但是電腦只想知道狀態的變化，而不是目前的狀態。QMK會儲存最後一次矩陣掃描的結果，並透過比較來確認何時按下或釋放了什麼按鍵。</p>
 <p>以下舉例在鍵盤掃描中，之前的掃描看起來是這樣：</p>
@@ -246,7 +420,7 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li></ul>
  <!-- 改 -->
-      <a data-url="https://zite-h.github.io/2020/06/diyqqmkkeyboard-4/" data-id="ckbso0tou000vvci3c3bjebnv" class="article-share-link">分享</a>
+      <a data-url="https://zite-h.github.io/2020/06/diyqqmkkeyboard-4/" data-id="ckbspofrn000sooi37xjufrgv" class="article-share-link">分享</a>
       
         <a href="https://zite-h.github.io/2020/06/diyqqmkkeyboard-4/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
         
