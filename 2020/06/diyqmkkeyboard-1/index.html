@@ -8,12 +8,12 @@
   
   <title>[自製QMK鍵盤-1] 設計鍵盤佈局、按鍵功能和產生韌體原始檔 | ZiTe 本物誌</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 自製一把鍵盤主要會需要兩個部分：硬體和韌體。 硬體（Hardware）大家都知道，就是PCB電路板、鍵軸、LED…等，但韌體（Firmware）可能就不是每個人都聽過了。簡單來說，韌體就是嵌入在硬體（通常是晶片、微控制器）裡的程式。例如我之前介紹過的Just60鍵盤，它的主晶片是ATmega32U4，而韌體是用TMK改的。 說到自製鍵盤的韌體，就不得不說到TMK，這是目前最廣泛使用的開源（">
+  <meta name="description" content="前言自製一把鍵盤主要會需要兩個部分：硬體和韌體。 硬體（Hardware）大家都知道，就是PCB電路板、鍵軸、LED…等，但韌體（Firmware）可能就不是每個人都聽過了。簡單來說，韌體就是嵌入在硬體（通常是晶片、微控制器）裡的程式。例如我之前介紹過的Just60鍵盤，它的主晶片是ATmega32U4，而韌體是用TMK改的。 說到自製鍵盤的韌體，就不得不說到TMK，這是目前最廣泛使用的開源（O">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[自製QMK鍵盤-1] 設計鍵盤佈局、按鍵功能和產生韌體原始檔">
 <meta property="og:url" content="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/index.html">
 <meta property="og:site_name" content="ZiTe 本物誌">
-<meta property="og:description" content="前言 自製一把鍵盤主要會需要兩個部分：硬體和韌體。 硬體（Hardware）大家都知道，就是PCB電路板、鍵軸、LED…等，但韌體（Firmware）可能就不是每個人都聽過了。簡單來說，韌體就是嵌入在硬體（通常是晶片、微控制器）裡的程式。例如我之前介紹過的Just60鍵盤，它的主晶片是ATmega32U4，而韌體是用TMK改的。 說到自製鍵盤的韌體，就不得不說到TMK，這是目前最廣泛使用的開源（">
+<meta property="og:description" content="前言自製一把鍵盤主要會需要兩個部分：硬體和韌體。 硬體（Hardware）大家都知道，就是PCB電路板、鍵軸、LED…等，但韌體（Firmware）可能就不是每個人都聽過了。簡單來說，韌體就是嵌入在硬體（通常是晶片、微控制器）裡的程式。例如我之前介紹過的Just60鍵盤，它的主晶片是ATmega32U4，而韌體是用TMK改的。 說到自製鍵盤的韌體，就不得不說到TMK，這是目前最廣泛使用的開源（O">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://1.bp.blogspot.com/-e0HkQ9g2xgY/Xu47SK7X1SI/AAAAAAAACek/HbMx6Y7OE04_VbQHkZp9DKJkNiJWfnIrgCK4BGAsYHg/s1036/SNM60_Keyboard_Layout_Ver1.0.png">
 <meta property="og:image" content="https://1.bp.blogspot.com/-tNaDVTpZNkg/Xu4t__IgDhI/AAAAAAAACcY/eLwPgAw9jpQ5hLNTgKLmSL27edMDQhYpACK4BGAsYHg/s1908/%255B01%255DKeyboard%2BLayout%2BEditor_%25E9%25A6%2596%25E9%25A0%2581.png">
@@ -41,8 +41,8 @@
 <meta property="article:author" content="ZiTe">
 <meta property="article:tag" content="DIY">
 <meta property="article:tag" content="教學">
-<meta property="article:tag" content="3C">
 <meta property="article:tag" content="軟體">
+<meta property="article:tag" content="3C">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://1.bp.blogspot.com/-e0HkQ9g2xgY/Xu47SK7X1SI/AAAAAAAACek/HbMx6Y7OE04_VbQHkZp9DKJkNiJWfnIrgCK4BGAsYHg/s1036/SNM60_Keyboard_Layout_Ver1.0.png">
   
@@ -125,16 +125,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="https://1.bp.blogspot.com/-e0HkQ9g2xgY/Xu47SK7X1SI/AAAAAAAACek/HbMx6Y7OE04_VbQHkZp9DKJkNiJWfnIrgCK4BGAsYHg/s1036/SNM60_Keyboard_Layout_Ver1.0.png" alt=""></p>
-<h1>前言</h1>
-<p>自製一把鍵盤主要會需要兩個部分：硬體和韌體。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>自製一把鍵盤主要會需要兩個部分：硬體和韌體。</p>
 <p>硬體（Hardware）大家都知道，就是PCB電路板、鍵軸、LED…等，但<a href="https://zh.wikipedia.org/zh-tw/%E9%9F%8C%E9%AB%94" target="_blank" rel="noopener">韌體</a>（Firmware）可能就不是每個人都聽過了。簡單來說，韌體就是嵌入在硬體（通常是晶片、微控制器）裡的程式。例如我之前介紹過的<a href="">Just60鍵盤</a>，它的主晶片是<a href="http://ww1.microchip.com/downloads/en/devicedoc/atmel-7766-8-bit-avr-atmega16u4-32u4_datasheet.pdf">ATmega32U4</a>，而韌體是用TMK改的。</p>
 <p>說到自製鍵盤的韌體，就不得不說到<a href="https://github.com/tmk/tmk_keyboard" target="_blank" rel="noopener">TMK</a>，這是目前最廣泛使用的開源（Open-source）鍵盤韌體，有許多的自製鍵盤都是用TMK為基礎進行製作的。而TMK也有許多衍生的鍵盤韌體，其中最有名的就是本次要使用的<a href="https://github.com/qmk/qmk_firmware" target="_blank" rel="noopener">QMK</a>了。</p>
 <p>QMK韌體的功能眾多、使用簡單、擴展方便，相關的工具和文件也是非常的豐富，這些都是我選擇它的原因。而我的開發板是使用<a href="https://www.sparkfun.com/products/12587" target="_blank" rel="noopener">Pro Micro</a>，因為這是最常見的ATmega32U4開發板。而因為Pro Micro有拉出的接腳有點少，所以接下來的示範會用鍵位數比較少的設計。</p>
 <a id="more"></a>
-<h1>編輯鍵盤佈局</h1>
-<p>首先要編譯鍵盤的佈局（Layout），也就是各個按鍵的位置和尺寸。我們可以用線上工具<a href="http://www.keyboard-layout-editor.com/" target="_blank" rel="noopener">Keyboard Layout Editor</a>來進行設計。</p>
-<h2 id="主頁面"><a class="header-anchor" href="#主頁面"></a>主頁面</h2>
-<p>進去看到的就是Keyboard Layout Editor的編輯頁面。</p>
+
+<h1 id="編輯鍵盤佈局"><a href="#編輯鍵盤佈局" class="headerlink" title="編輯鍵盤佈局"></a>編輯鍵盤佈局</h1><p>首先要編譯鍵盤的佈局（Layout），也就是各個按鍵的位置和尺寸。我們可以用線上工具<a href="http://www.keyboard-layout-editor.com/" target="_blank" rel="noopener">Keyboard Layout Editor</a>來進行設計。</p>
+<h2 id="主頁面"><a href="#主頁面" class="headerlink" title="主頁面"></a>主頁面</h2><p>進去看到的就是Keyboard Layout Editor的編輯頁面。</p>
 <ul>
 <li>最上面黑色底的那邊是一些設定。</li>
 <li>左上角有藍色和紅色的按鈕，可以用來增加或刪除按鍵。旁邊還有一些編輯用的操作按鈕（回上一步、回下一步、剪下、複製、貼上）。</li>
@@ -146,8 +144,7 @@
 <p><img src="https://1.bp.blogspot.com/-KJ9BtlpHxkc/Xu4uAKgEj2I/AAAAAAAACcc/_q6_t2f8k6g_b4AvA_qcbPnK92Zmme1DQCK4BGAsYHg/s704/%255B02%255DKeyboard%2BLayout%2BEditor_Preset.png" alt="▲ 「Preset」按鈕。"></p>
 <p>例如以下匯入了「ANSI 104」的鍵盤佈局。</p>
 <p><img src="https://1.bp.blogspot.com/-hGR7m05B_Bc/Xu4uASKVfNI/AAAAAAAACcg/6Y2GJFGtcH4-vNz2CK8Bv_fvCwRvAzF2wCK4BGAsYHg/s1908/%255B03%255DKeyboard%2BLayout%2BEditor_Preset-ANSI%2B104.png" alt="▲ 匯入「ANSI 104」的鍵盤佈局。"></p>
-<h2 id="編輯按鍵"><a class="header-anchor" href="#編輯按鍵"></a>編輯按鍵</h2>
-<p>再來看到下方的按鍵編輯區。先點選一或多個按鍵，就可以在下方進行按鍵的設定。其中比較常用的是由上而下的1～12行，分別為：</p>
+<h2 id="編輯按鍵"><a href="#編輯按鍵" class="headerlink" title="編輯按鍵"></a>編輯按鍵</h2><p>再來看到下方的按鍵編輯區。先點選一或多個按鍵，就可以在下方進行按鍵的設定。其中比較常用的是由上而下的1～12行，分別為：</p>
 <ol>
 <li>Top Legend：鍵帽頂部的顯示文字，有左、中、右。</li>
 <li>Center Legend：鍵帽中間的顯示文字，有左、中、右。</li>
@@ -165,73 +162,60 @@
 <p><img src="https://1.bp.blogspot.com/-JA0T6CoKpUQ/Xu4uAj2uGiI/AAAAAAAACck/THOzxCPzfhMyQVE-4rIkk_NK4z7BqP3JQCK4BGAsYHg/s742/%255B04%255DKeyboard%2BLayout%2BEditor_Key_Properties.png" alt="▲ 按鍵編輯區。"></p>
 <p>第1～4行的文字也可以設定各自的大小和顏色。如果要移動按鍵的話也可以通過方向鍵，這應該會比較方便。</p>
 <p><img src="https://1.bp.blogspot.com/-yhzg5EnWmCc/Xu4uA5Xq1KI/AAAAAAAACco/XNep3M3gpd8FtkYBbdyBcu9RMEKQlTR_ACK4BGAsYHg/s546/%255B05%255DKeyboard%2BLayout%2BEditor_Key_Properties-text.png" alt="▲ 按鍵文字樣式。"></p>
-<p>下方還有許多不同的標籤頁可以進行不同的設定（如作者名字或鍵盤名稱），在此就不多做介紹。</p>
-<h2 id="輸出佈局"><a class="header-anchor" href="#輸出佈局"></a>輸出佈局</h2>
-<p>接著選到下方的「Raw data」標籤頁。這裡可以看到文字形式的鍵盤佈局，把裡面的文字全部複製起來，下一步驟會用到。例如我這裡的文字是：</p>
+<p>下方還有許多不同的標籤頁可以進行不同的設定（如作者名字或鍵盤名稱），在此就不多做介紹。 </p>
+<h2 id="輸出佈局"><a href="#輸出佈局" class="headerlink" title="輸出佈局"></a>輸出佈局</h2><p>接著選到下方的「Raw data」標籤頁。這裡可以看到文字形式的鍵盤佈局，把裡面的文字全部複製起來，下一步驟會用到。例如我這裡的文字是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[&quot;Num Lock&quot;,&quot;&#x2F;&quot;,&quot;*&quot;,&quot;-&quot;],</span><br><span class="line">[&quot;7\nHome&quot;,&quot;8\n↑&quot;,&quot;9\nPgUp&quot;,&#123;h:2&#125;,&quot;+&quot;],</span><br><span class="line">[&quot;4\n←&quot;,&quot;5&quot;,&quot;6\n→&quot;],</span><br><span class="line">[&quot;1\nEnd&quot;,&quot;2\n↓&quot;,&quot;3\nPgDn&quot;,&#123;h:2&#125;,&quot;Enter&quot;],</span><br><span class="line">[&#123;w:2&#125;,&quot;0\nIns&quot;,&quot;.\nDel&quot;]</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://1.bp.blogspot.com/-u-4BtExCj9Y/Xu4uBOltJ8I/AAAAAAAACcs/Gb5Yc6Tv_cg4X7R7KIMCBIi1QcFouQB0ACK4BGAsYHg/s1908/%255B06%255DKeyboard%2BLayout%2BEditor_Raw_Data.png" alt="▲ 輸出鍵盤佈局。"></p>
 <p>另外，如果想要儲存此鍵盤佈局的話，畫面右上角有個綠色的「Download」可以下載各種圖片檔（實驗性。或許你可以試試看Firefox瀏覽器強大的截圖功能）和JSON檔。而這個JSON檔會保存各種數據，只要存下來的話下次還可以上傳此JSON檔來繼續編輯此鍵盤。<strong>建議一定要儲存JSON檔</strong>。</p>
 <p><img src="https://1.bp.blogspot.com/-qydXM4etOsI/Xu4uBi6MegI/AAAAAAAACcw/MWvyrL-TyLw-v4WjefzfLY3lCcILlWP0gCK4BGAsYHg/s406/%255B07%255DKeyboard%2BLayout%2BEditor_DL_1.png" alt="▲ 右上角可以儲存各種格式。"></p>
 <p>上傳JSON檔的位置比較難找，在「Raw data」標籤頁的右下角有個綠色的「Upload JSON」，一旁的「Download JSON」同樣也可以下載JSON檔。</p>
 <p><img src="https://1.bp.blogspot.com/-m-eRyos_xAU/Xu4uBp2_njI/AAAAAAAACc0/gFa3j9BQlu8fIry-IRA-nLbmnpughQ60gCK4BGAsYHg/s356/%255B07%255DKeyboard%2BLayout%2BEditor_DL_2.png" alt="▲ 在「Raw data」標籤頁的右下角可以載入JSON檔。"></p>
-<h1>產生韌體原始檔</h1>
-<p>編輯好鍵盤佈局後，我們要開始做QMK的韌體了，<a href="https://kbfirmware.com/" target="_blank" rel="noopener">Keyboard Firmware Builder</a>線上工具會是你的好幫手。</p>
-<h2 id="讀入鍵盤"><a class="header-anchor" href="#讀入鍵盤"></a>讀入鍵盤</h2>
-<p>打開Keyboard Firmware Builder後，看到中間有一個文字框（深藍色的「Import」按鈕上面那一個），並把剛剛在Keyboard Layout Editor的「Raw data」標籤頁裡複製的文字貼上，按下深藍色的「Import」按鈕。</p>
+<h1 id="產生韌體原始檔"><a href="#產生韌體原始檔" class="headerlink" title="產生韌體原始檔"></a>產生韌體原始檔</h1><p>編輯好鍵盤佈局後，我們要開始做QMK的韌體了，<a href="https://kbfirmware.com/" target="_blank" rel="noopener">Keyboard Firmware Builder</a>線上工具會是你的好幫手。</p>
+<h2 id="讀入鍵盤"><a href="#讀入鍵盤" class="headerlink" title="讀入鍵盤"></a>讀入鍵盤</h2><p>打開Keyboard Firmware Builder後，看到中間有一個文字框（深藍色的「Import」按鈕上面那一個），並把剛剛在Keyboard Layout Editor的「Raw data」標籤頁裡複製的文字貼上，按下深藍色的「Import」按鈕。</p>
 <p><img src="https://1.bp.blogspot.com/-UTbRymD6jFo/Xu4uCFUmN4I/AAAAAAAACc4/Pun-2kS6qooDb3plao7F_e5sogqH_uHKQCK4BGAsYHg/s1903/%255B01%255DKeyboard%2BFirmware%2BBuilder_Import.png" alt="▲ Keyboard Firmware Builder頁面，貼上剛剛複製的鍵盤佈局內容。"></p>
-<h2 id="接線與鍵盤掃描矩陣"><a class="header-anchor" href="#接線與鍵盤掃描矩陣"></a>接線與鍵盤掃描矩陣</h2>
-<p>在標籤頁「WIRING」裡，你看到的是鍵盤的接線圖，你可以在這裡設定好鍵盤的接線（或者說鍵盤掃描矩陣）。點選其中一個按鍵可以設定它的鍵盤掃描矩陣的行列，還有設定二極體的方向。</p>
+<h2 id="接線與鍵盤掃描矩陣"><a href="#接線與鍵盤掃描矩陣" class="headerlink" title="接線與鍵盤掃描矩陣"></a>接線與鍵盤掃描矩陣</h2><p>在標籤頁「WIRING」裡，你看到的是鍵盤的接線圖，你可以在這裡設定好鍵盤的接線（或者說鍵盤掃描矩陣）。點選其中一個按鍵可以設定它的鍵盤掃描矩陣的行列，還有設定二極體的方向。</p>
 <p>如果你不知道什麼是鍵盤掃描矩陣的話，建議不要亂碰，以免出問題而造成鍵盤運作不正常。</p>
 <p><img src="https://1.bp.blogspot.com/-9pJYrEjmaXU/Xu4uCdp4PEI/AAAAAAAACc8/p8MMZuiSBUMSpTjsN0f0Xa78Turt48kzwCK4BGAsYHg/s1903/%255B02%255DKeyboard%2BFirmware%2BBuilder_Wiring_1.png" alt="▲ 鍵盤的接線編輯頁面。"></p>
 <p><img src="https://1.bp.blogspot.com/-Bx4OSDytWs8/Xu4uCq9KkdI/AAAAAAAACdA/8d4QLa2qTHMMXBS1Z6Fvma_u-Q5Ud22cgCK4BGAsYHg/s800/%255B03%255DKeyboard%2BFirmware%2BBuilder_Wiring_2.png" alt="▲ 點選一個按鍵後可以編輯該鍵掃描矩陣的行列。"></p>
-<h2 id="晶片與腳位"><a class="header-anchor" href="#晶片與腳位"></a>晶片與腳位</h2>
-<p>在下一個標籤頁「PINS」裡，你可以設定使用的晶片型號和其腳位。如果是使用現成的開發板（像是Pro Micro）的話，記得要選有引出的接腳。如果該鍵盤有打算加入一些特別的功能需要特別的接腳（如ADC或I2C），也不要忘記把該接腳留下。</p>
+<h2 id="晶片與腳位"><a href="#晶片與腳位" class="headerlink" title="晶片與腳位"></a>晶片與腳位</h2><p>在下一個標籤頁「PINS」裡，你可以設定使用的晶片型號和其腳位。如果是使用現成的開發板（像是Pro Micro）的話，記得要選有引出的接腳。如果該鍵盤有打算加入一些特別的功能需要特別的接腳（如ADC或I2C），也不要忘記把該接腳留下。</p>
 <p><img src="https://1.bp.blogspot.com/-3_lDlu5GoMI/Xu4uCxknlCI/AAAAAAAACdE/4pwTfeQGe8cw8LW-L2a26VXxSf20eA3nwCK4BGAsYHg/s826/%255B04%255DKeyboard%2BFirmware%2BBuilder_Pins.png" alt="▲ 「PINS」標籤頁。此圖中的接腳是隨意設定的，請勿直接套用。"></p>
 <p>要注意的是這裡顯示的接腳名稱是該晶片原始定義的接腳名稱，可能會和開發板上的腳位號碼不同。例如Pro Micro開發板上的「D16腳」其實是主晶片ATmega32U4的「PB2腳」，而在「PINS」標籤頁顯示的是「B2」也就是代表「PB2」（PB2、PD7…的P是指Port，通常以8或16腳為一個Port。P後面的英文字為Port名，通常由A開始。再來的數字是腳位編號，通常由0開始。所以PB2就代表Port-B的2號腳，也就是Port-B的第3支接腳，因為Port-B的第一支是PB0）。設定前記得看好腳位對照圖。</p>
 <p><img src="https://1.bp.blogspot.com/-UqmjvTbo7Uo/Xu4yajqMXKI/AAAAAAAACeE/AEfdjtlknrcRsjSYvmRz5B0IxY4RIiQegCK4BGAsYHg/s1166/ProMicroPin.png" alt="▲ Pro Micro的腳位圖。圖片取自SparkFun。"></p>
-<h2 id="按鍵功能與層"><a class="header-anchor" href="#按鍵功能與層"></a>按鍵功能與層</h2>
-<p>再來就是重要的「KEYMAP」標籤頁，按鍵的功能（鍵映射）會在這裡進行設定。點選一個按鍵後，可以在下方選擇該按鍵的功能（如<kbd>A</kbd>、<kbd>Ctrl</kbd>、<kbd>Enter</kbd>…等）。而QMK可以設定「層（Layer）」在設定按鍵的上方有個數字就是顯示目前在設定的層，透過按上下來設定不同層的按鍵。</p>
+<h2 id="按鍵功能與層"><a href="#按鍵功能與層" class="headerlink" title="按鍵功能與層"></a>按鍵功能與層</h2><p>再來就是重要的「KEYMAP」標籤頁，按鍵的功能（鍵映射）會在這裡進行設定。點選一個按鍵後，可以在下方選擇該按鍵的功能（如<kbd>A</kbd>、<kbd>Ctrl</kbd>、<kbd>Enter</kbd>…等）。而QMK可以設定「層（Layer）」在設定按鍵的上方有個數字就是顯示目前在設定的層，透過按上下來設定不同層的按鍵。</p>
 <p><img src="https://1.bp.blogspot.com/-bWzQzPwFGgI/Xu4uDJhvouI/AAAAAAAACdI/UTgEK0bLZWgvv2Sl1gTl3mLlCnSgn_RbACK4BGAsYHg/s1903/%255B05%255DKeyboard%2BFirmware%2BBuilder_Keymap_1.png" alt="▲ 「KEYMAP」標籤頁。"></p>
 <p>如果你在Keyboard Layout Editor有設定好的話，它會自動讀入按鍵的功能，如果沒有的話就自己慢慢按吧。</p>
 <p>QMK可以設定的按鍵請看QMK的說明文件：<a href="https://docs.qmk.fm/#/keycodes?id=keycodes-overview" target="_blank" rel="noopener">Keycodes Overview</a>。但你可能會發現這裡可以設定的按鍵並不完全，很多在「Keycodes Overview」裡面有的按鍵這裡都沒有，關於這點之後會講到。</p>
 <p>如果要使用層的功能的話，記得要在第0層（Default layer）設定跳到其它層的按鍵。層控制的按鍵有很多種，詳細可以參考QMK的說明文件：<a href="https://docs.qmk.fm/#/keycodes?id=layer-switching" target="_blank" rel="noopener">Keycodes Overview-Layer Switching</a></p>
 <p><img src="https://1.bp.blogspot.com/-AXyTVOereYY/Xu4uDQIikrI/AAAAAAAACdM/ZKoLu2A_TsMjSCcAAJVC_-EHaGEJ9w3agCK4BGAsYHg/s800/%255B06%255DKeyboard%2BFirmware%2BBuilder_Keymap_2.png" alt="▲ 其中一種切換層的按鍵設定。"></p>
 <p><img src="https://1.bp.blogspot.com/-d9DCcztZXjQ/Xu4uD44T8EI/AAAAAAAACdQ/Zq8zndxEDWsZRd3Qud_NiWASE6bDZVgkwCK4BGAsYHg/s1903/%255B07%255DKeyboard%2BFirmware%2BBuilder_Keymap_3.png" alt="▲ 不同層可以設定不同的按鍵功能更。"></p>
-<h2 id="巨集鍵和量子功能"><a class="header-anchor" href="#巨集鍵和量子功能"></a>巨集鍵和量子功能</h2>
-<p>在「MACROS」標籤頁裡，你可以設定巨集鍵功能。而在「QUANTUM」標籤頁裡，可以設定QMK特有的「量子（QUANTUM）」功能。至於量子功能是什麼呢，待未來有機會在做介紹。</p>
+<h2 id="巨集鍵和量子功能"><a href="#巨集鍵和量子功能" class="headerlink" title="巨集鍵和量子功能"></a>巨集鍵和量子功能</h2><p>在「MACROS」標籤頁裡，你可以設定巨集鍵功能。而在「QUANTUM」標籤頁裡，可以設定QMK特有的「量子（QUANTUM）」功能。至於量子功能是什麼呢，待未來有機會在做介紹。</p>
 <p>這裡的設定如果你不確定是什麼的話，就不要動它，尤其是「QUANTUM」標籤頁。</p>
 <p><img src="https://1.bp.blogspot.com/-6UmwdSv5mYk/Xu4uEFGPrgI/AAAAAAAACdU/QbZ_V0elfsM458VOkhnI7aTYoktUyzVBACK4BGAsYHg/s800/%255B08%255DKeyboard%2BFirmware%2BBuilder_Macros.png" alt="▲ 「MACROS」標籤頁。"></p>
 <p><img src="https://1.bp.blogspot.com/-3JK9VPepotg/Xu4uEYvZriI/AAAAAAAACdY/I4z4ycD-A_YLnDOm35iWjq46P1dw1WPPQCK4BGAsYHg/s800/%255B09%255DKeyboard%2BFirmware%2BBuilder_Quantum.png" alt="▲ 「QUANTUM」標籤頁。"></p>
-<h2 id="設定"><a class="header-anchor" href="#設定"></a>設定</h2>
-<p>在標籤頁「SETTINGS」裡可以設定一些而外的東西。有佈局名稱、Bootloader大小、WS2812 LED燈、背光等級。</p>
+<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p>在標籤頁「SETTINGS」裡可以設定一些而外的東西。有佈局名稱、Bootloader大小、WS2812 LED燈、背光等級。</p>
 <p><img src="https://1.bp.blogspot.com/-Vdfp-gzx0uQ/Xu4uEo34ilI/AAAAAAAACdc/sRvlviZR_xUQEhy6Ma0oLsFQ9c_OW50hgCK4BGAsYHg/s800/%255B10%255DKeyboard%2BFirmware%2BBuilder_Settings.png" alt="▲ 「SETTINGS」標籤頁。"></p>
 <p>比較重要的是深藍色的「Save Configuration」按鈕，按下後會下載一個JSON檔，裡面儲存了該鍵盤的各種設定。在一開始Keyboard Firmware Builder的頁面裡，上方有個深藍色的「Upload」按鈕，將此JSON檔傳上後就可以繼續編輯或修改該鍵盤。<strong>建議一定要儲存JSON檔</strong>。</p>
-<h2 id="編譯"><a class="header-anchor" href="#編譯"></a>編譯</h2>
-<p>終於來到最後一個標籤頁「COMPILE」了。雖然正常情況下，應該是可以直接按下深藍色的「Download .hex」按鈕，讓它幫我們完成編譯的工作，並結束這一切。</p>
+<h2 id="編譯"><a href="#編譯" class="headerlink" title="編譯"></a>編譯</h2><p>終於來到最後一個標籤頁「COMPILE」了。雖然正常情況下，應該是可以直接按下深藍色的「Download .hex」按鈕，讓它幫我們完成編譯的工作，並結束這一切。</p>
 <p>但如果你和我一樣是使用Pro Micro開發板，或是要修改更豐富的按鍵和其它功能的話，請乖乖地按下白色的「Download .zip」按鈕，來儲存QMK韌體的原始檔，準備自行修改。</p>
 <p><img src="https://1.bp.blogspot.com/-IbmnNoxPZ-s/Xu4uE8BFvvI/AAAAAAAACdg/khQpXPgiygkaVn409H394FOvf9RN8C-iACK4BGAsYHg/s800/%255B11%255DKeyboard%2BFirmware%2BBuilder_Compile.png" alt="▲ 「COMPILE」標籤頁。"></p>
-<p>它們已經幫很多忙了，接下來要靠自己了。（當然你也可以先試試看用它編譯好的.hex檔<a href="/2020/06/diyqmkkeyboard-3/#%E7%87%92%E9%8C%84%E9%9F%8C%E9%AB%94">進行燒錄</a>，如果很幸運地可以正常運作的話，那就恭喜你不用做接下來的麻煩事了）</p>
-<h1>結語</h1>
-<p>本篇簡單地介紹了利用「Keyboard Layout Editor」和「Keyboard Firmware Builder」這兩個線上工具進行鍵盤的相關編輯與設定，雖然這只是開頭而已，還沒做的事可多了。</p>
+<p>它們已經幫很多忙了，接下來要靠自己了。（當然你也可以先試試看用它編譯好的.hex檔<a href="/2020/06/diyqmkkeyboard-3/#燒錄韌體">進行燒錄</a>，如果很幸運地可以正常運作的話，那就恭喜你不用做接下來的麻煩事了）</p>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>本篇簡單地介紹了利用「Keyboard Layout Editor」和「Keyboard Firmware Builder」這兩個線上工具進行鍵盤的相關編輯與設定，雖然這只是開頭而已，還沒做的事可多了。</p>
 <p>接下來的步驟請見下一篇文章：<a href="/2020/06/diyqmkkeyboard-2/">[自製QMK鍵盤-2] 手動編輯QMK韌體原始檔</a>。</p>
-<h1>相關文章與資源</h1>
-<ul>
+<h1 id="相關文章與資源"><a href="#相關文章與資源" class="headerlink" title="相關文章與資源"></a>相關文章與資源</h1><ul>
 <li><a href="/pages/serial/s-diysnmkeyboard.html">[系列文章] 自製QMK鍵盤</a></li>
-<li>線上工具
-<ul>
+<li>線上工具<ul>
 <li><a href="http://www.keyboard-layout-editor.com/" target="_blank" rel="noopener">Keyboard Layout Editor</a></li>
 <li><a href="https://kbfirmware.com/" target="_blank" rel="noopener">Keyboard Firmware Builder</a></li>
 </ul>
 </li>
-<li>參考資料
-<ul>
+<li>參考資料<ul>
 <li><a href="https://zhuanlan.zhihu.com/p/79114621" target="_blank" rel="noopener">低端客制化，一份简单的键盘制作记录</a></li>
 <li><a href="https://post.smzdm.com/p/455929/" target="_blank" rel="noopener">机械键盘坏了怎么办？——客制化QMK改造重铸记！</a></li>
 <li><a href="https://post.smzdm.com/p/aekz8pdm/" target="_blank" rel="noopener">新手小白修复路透社机械键盘——超详细QMK刷机教程_值客原创_什么值得买</a></li>
 </ul>
 </li>
-<li>QMK相關
-<ul>
+<li>QMK相關<ul>
 <li><a href="https://qmk.fm/" target="_blank" rel="noopener">QMK官方網站</a></li>
 <li><a href="https://docs.qmk.fm/#/" target="_blank" rel="noopener">QMK官方說明文件</a></li>
 <li><a href="https://github.com/qmk/qmk_firmware" target="_blank" rel="noopener">QMK的GitHub</a></li>
@@ -245,7 +229,7 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li></ul>
  <!-- 改 -->
-      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/" data-id="ckbspofrj000mooi3cbgp83t5" class="article-share-link">分享</a>
+      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/" data-id="ckbsr300p000nxwi3fyop95b8" class="article-share-link">分享</a>
       
         <a href="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
         
