@@ -8,18 +8,18 @@
   
   <title>[自製QMK鍵盤-2] 手動編輯QMK韌體原始檔 | ZiTe 本物誌</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言會來到這一篇文章代表你是不辛的，因為接下來的步驟可麻煩了；但同時也是幸運的，因為即使艱苦，前人也已經盡可能地鋪設好道路和指示，你只需要勇敢且小心地往前跨步就行了。">
+  <meta name="description" content="前言 會來到這一篇文章代表你是不辛的，因為接下來的步驟可麻煩了；但同時也是幸運的，因為即使艱苦，前人也已經盡可能地鋪設好道路和指示，你只需要勇敢且小心地往前跨步就行了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[自製QMK鍵盤-2] 手動編輯QMK韌體原始檔">
 <meta property="og:url" content="https://zite-h.github.io/2020/06/diyqmkkeyboard-2/index.html">
 <meta property="og:site_name" content="ZiTe 本物誌">
-<meta property="og:description" content="前言會來到這一篇文章代表你是不辛的，因為接下來的步驟可麻煩了；但同時也是幸運的，因為即使艱苦，前人也已經盡可能地鋪設好道路和指示，你只需要勇敢且小心地往前跨步就行了。">
+<meta property="og:description" content="前言 會來到這一篇文章代表你是不辛的，因為接下來的步驟可麻煩了；但同時也是幸運的，因為即使艱苦，前人也已經盡可能地鋪設好道路和指示，你只需要勇敢且小心地往前跨步就行了。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-06-21T02:28:00.000Z">
 <meta property="article:modified_time" content="2020-06-23T15:59:52.367Z">
 <meta property="article:author" content="ZiTe">
-<meta property="article:tag" content="DIY">
 <meta property="article:tag" content="教學">
+<meta property="article:tag" content="DIY">
 <meta property="article:tag" content="3C">
 <meta name="twitter:card" content="summary">
   
@@ -101,61 +101,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>會來到這一篇文章代表你是不辛的，因為接下來的步驟可麻煩了；但同時也是幸運的，因為即使艱苦，前人也已經盡可能地鋪設好道路和指示，你只需要勇敢且小心地往前跨步就行了。</p>
+        <h1>前言</h1>
+<p>會來到這一篇文章代表你是不辛的，因為接下來的步驟可麻煩了；但同時也是幸運的，因為即使艱苦，前人也已經盡可能地鋪設好道路和指示，你只需要勇敢且小心地往前跨步就行了。</p>
 <a id="more"></a>
-
-<h1 id="前期準備"><a href="#前期準備" class="headerlink" title="前期準備"></a>前期準備</h1><p>接下來的步驟會需要編寫程式碼，請確保你的電腦裝有一個好用的文字編輯軟體（記事本？建議不要）。我自己是使用GitHub開發的的<a href="https://atom.io/" target="_blank" rel="noopener">Atom</a>，或是你可以參考<a href="https://docs.qmk.fm/#/newbs_getting_started?id=text-editor" target="_blank" rel="noopener">QMK的建議</a>。</p>
-<p>還記得<a href="/2020/06/diyqmkkeyboard-1/">上一篇文章</a>中，最後從Keyboard Firmware Builder的「COMPILE」標籤頁下載的<a href="/2020/06/diyqmkkeyboard-1/#編譯">.zip檔</a>嗎？請把它解壓縮。</p>
-<h1 id="修改rules-mk（使用Pro-Micro請注意）"><a href="#修改rules-mk（使用Pro-Micro請注意）" class="headerlink" title="修改rules.mk（使用Pro Micro請注意）"></a>修改rules.mk（使用Pro Micro請注意）</h1><p>在解壓縮資料夾\qmk_firmware\keyboards\kb底下，找到檔案rules.mk。使用你準備好的文字編輯軟體打開它。</p>
+<h1>前期準備</h1>
+<p>接下來的步驟會需要編寫程式碼，請確保你的電腦裝有一個好用的文字編輯軟體（記事本？建議不要）。我自己是使用GitHub開發的的<a href="https://atom.io/" target="_blank" rel="noopener">Atom</a>，或是你可以參考<a href="https://docs.qmk.fm/#/newbs_getting_started?id=text-editor" target="_blank" rel="noopener">QMK的建議</a>。</p>
+<p>還記得<a href="/2020/06/diyqmkkeyboard-1/">上一篇文章</a>中，最後從Keyboard Firmware Builder的「COMPILE」標籤頁下載的<a href="/2020/06/diyqmkkeyboard-1/#%E7%B7%A8%E8%AD%AF">.zip檔</a>嗎？請把它解壓縮。</p>
+<h1>修改rules.mk（使用Pro Micro請注意）</h1>
+<p>在解壓縮資料夾\qmk_firmware\keyboards\kb底下，找到檔案rules.mk。使用你準備好的文字編輯軟體打開它。</p>
 <p>我的rules.mk長這樣：</p>
 <script src="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51.js?file=(source)rules.mk"></script>
-
-<h2 id="晶片型號"><a href="#晶片型號" class="headerlink" title="晶片型號"></a>晶片型號</h2><p>首先確認<code>MCU = atmega32u4</code>這行（我的<a href="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51#file-source-rules-mk-L2" target="_blank" rel="noopener">第2行</a>），如果你的晶片是ATmega32U4（如Pro Micro）的話那<code>MCU = atmega32u4</code>是正確的，如果不是的話請改成你的晶片型號。QNK支援的晶片型號可以參考<a href="https://docs.qmk.fm/#/compatible_microcontrollers" target="_blank" rel="noopener">這裡</a>。</p>
-<h2 id="晶片頻率"><a href="#晶片頻率" class="headerlink" title="晶片頻率"></a>晶片頻率</h2><p>再來是<code>F_CPU = 16000000</code>這行（我的<a href="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51#file-source-rules-mk-L15" target="_blank" rel="noopener">第15行</a>），請確認你的晶片的操作頻率是多少。如果是Pro Micro的話主要有16MHz和8MHz兩種型號，要分清楚。</p>
+<h2 id="晶片型號"><a class="header-anchor" href="#晶片型號"></a>晶片型號</h2>
+<p>首先確認<code>MCU = atmega32u4</code>這行（我的<a href="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51#file-source-rules-mk-L2" target="_blank" rel="noopener">第2行</a>），如果你的晶片是ATmega32U4（如Pro Micro）的話那<code>MCU = atmega32u4</code>是正確的，如果不是的話請改成你的晶片型號。QNK支援的晶片型號可以參考<a href="https://docs.qmk.fm/#/compatible_microcontrollers" target="_blank" rel="noopener">這裡</a>。</p>
+<h2 id="晶片頻率"><a class="header-anchor" href="#晶片頻率"></a>晶片頻率</h2>
+<p>再來是<code>F_CPU = 16000000</code>這行（我的<a href="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51#file-source-rules-mk-L15" target="_blank" rel="noopener">第15行</a>），請確認你的晶片的操作頻率是多少。如果是Pro Micro的話主要有16MHz和8MHz兩種型號，要分清楚。</p>
 <p>我的Pro Micro是8MHz的，所以要將原本代表16MHz的<code>F_CPU = 16000000</code>改成8MHz：<code>F_CPU = 8000000</code>。</p>
-<h2 id="選擇Bootloader"><a href="#選擇Bootloader" class="headerlink" title="選擇Bootloader"></a>選擇Bootloader</h2><p>然後是要選擇晶片的Bootloader種類，這個部分原本的rules.mk裡面沒有，要自己加入。你可以把它加在<code>F_CPU =</code>的下面（位置其實沒什麼差別）。要加入的內容為：</p>
+<h2 id="選擇Bootloader"><a class="header-anchor" href="#選擇Bootloader"></a>選擇Bootloader</h2>
+<p>然後是要選擇晶片的Bootloader種類，這個部分原本的rules.mk裡面沒有，要自己加入。你可以把它加在<code>F_CPU = </code>的下面（位置其實沒什麼差別）。要加入的內容為：</p>
 <figure class="highlight mk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Bootloader selection</span></span><br><span class="line"><span class="comment">#   Teensy       halfkay</span></span><br><span class="line"><span class="comment">#   Pro Micro    caterina</span></span><br><span class="line"><span class="comment">#   Atmel DFU    atmel-dfu</span></span><br><span class="line"><span class="comment">#   LUFA DFU     lufa-dfu</span></span><br><span class="line"><span class="comment">#   QMK DFU      qmk-dfu</span></span><br><span class="line"><span class="comment">#   ATmega32A    bootloadHID</span></span><br><span class="line"><span class="comment">#   ATmega328P   USBasp</span></span><br><span class="line">BOOTLOADER = caterina</span><br></pre></td></tr></table></figure>
-
 <p>至於<code>BOOTLOADER = caterina</code>這行，請依照你的晶片去做選擇，可以選就是上面那一段說寫的。例如是用Teensy開發板的話，就是打<code>BOOTLOADER = halfkay</code>。因為我是用Pro Micro，對照後可以發現是要打<code>BOOTLOADER = caterina</code>。（我在這一步卡了好久，上網找問題找了好久才發現這個地方要注意。）</p>
 <p>QMK的相關說明可以看<a href="https://docs.qmk.fm/#/flashing?id=caterina" target="_blank" rel="noopener">這裡</a>。</p>
-<h2 id="rules-mk修改完成"><a href="#rules-mk修改完成" class="headerlink" title="rules.mk修改完成"></a>rules.mk修改完成</h2><p>修改rules.mk的部分大概就是這些，裡面還有更多的設定可以調整，這裡就不細講了。可以參考我<a href="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51#file-edited-rules-mk" target="_blank" rel="noopener">修改完的rules.mk</a></p>
-<h1 id="修改config-h（改腳位）"><a href="#修改config-h（改腳位）" class="headerlink" title="修改config.h（改腳位）"></a>修改config.h（改腳位）</h1><p>在與rules.mk相同路徑下有個config.h檔案，裡面可以修改腳位、名稱等。使用文字編輯軟體打開它。</p>
-<h2 id="修改名稱"><a href="#修改名稱" class="headerlink" title="修改名稱"></a>修改名稱</h2><p>在config.h裡有以下這幾行：</p>
+<h2 id="rules-mk修改完成"><a class="header-anchor" href="#rules-mk修改完成"></a>rules.mk修改完成</h2>
+<p>修改rules.mk的部分大概就是這些，裡面還有更多的設定可以調整，這裡就不細講了。可以參考我<a href="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51#file-edited-rules-mk" target="_blank" rel="noopener">修改完的rules.mk</a></p>
+<h1>修改config.h（改腳位）</h1>
+<p>在與rules.mk相同路徑下有個config.h檔案，裡面可以修改腳位、名稱等。使用文字編輯軟體打開它。</p>
+<h2 id="修改名稱"><a class="header-anchor" href="#修改名稱"></a>修改名稱</h2>
+<p>在config.h裡有以下這幾行：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MANUFACTURER    qmkbuilder</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PRODUCT         keyboard</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DESCRIPTION     Keyboard</span></span><br></pre></td></tr></table></figure>
-
 <p>其中MANUFACTURER後面可以打上開發者的名字；PRODUCT後面可以打上鍵盤的名稱；DESCRIPTION後可以打上簡短的敘述。</p>
 <p>例如我可以改成：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MANUFACTURER    ZiTe</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PRODUCT         KeyPad</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DESCRIPTION     QMK keyboard firmware for KeyPad</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="修改腳位"><a href="#修改腳位" class="headerlink" title="修改腳位"></a>修改腳位</h2><p>在config.h裡有以下這幾行，可以用來修改晶片腳位。</p>
+<h2 id="修改腳位"><a class="header-anchor" href="#修改腳位"></a>修改腳位</h2>
+<p>在config.h裡有以下這幾行，可以用來修改晶片腳位。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MATRIX_ROW_PINS &#123; B0, B1, B2, B3, B4 &#125;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MATRIX_COL_PINS &#123; B5, B6, B7, C0 &#125;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="修改keymap-c（重要）"><a href="#修改keymap-c（重要）" class="headerlink" title="修改keymap.c（重要）"></a>修改keymap.c（重要）</h1><p>在解壓縮資料夾\qmk_firmware\keyboards\kb\keymaps\default底下，有個keymap.c檔案，這是用來指定按鍵功能（鍵映射）的，使用文字編輯軟體打開它。</p>
-<h2 id="刪除even"><a href="#刪除even" class="headerlink" title="刪除even"></a>刪除even</h2><p>首先找到<code>keyevent_t event = record-&gt;event;</code>這一行（例如我的在<a href="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51#file-source-keymap-c-L120" target="_blank" rel="noopener">這裡</a>），在它前面加上2個「/」，也就是把該區塊變成：</p>
+<h1>修改keymap.c（重要）</h1>
+<p>在解壓縮資料夾\qmk_firmware\keyboards\kb\keymaps\default底下，有個keymap.c檔案，這是用來指定按鍵功能（鍵映射）的，使用文字編輯軟體打開它。</p>
+<h2 id="刪除even"><a class="header-anchor" href="#刪除even"></a>刪除even</h2>
+<p>首先找到<code>keyevent_t event = record-&gt;event;</code>這一行（例如我的在<a href="https://gist.github.com/ZiTe-H/1a6945bf7b2cd35280cdcebd15a9fb51#file-source-keymap-c-L120" target="_blank" rel="noopener">這裡</a>），在它前面加上2個「/」，也就是把該區塊變成：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">macro_t</span> *<span class="title">action_get_macro</span><span class="params">(<span class="keyword">keyrecord_t</span> *record, <span class="keyword">uint8_t</span> id, <span class="keyword">uint8_t</span> opt)</span> </span>&#123;</span><br><span class="line"><span class="comment">//	keyevent_t event = record-&gt;event;</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span> (id) &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> MACRO_NONE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>這一行會造成編譯時的錯誤，雖然我其實不確定這行是做什麼的，但上網找答案後看到<a href="https://www.reddit.com/r/olkb/comments/72f66p/qmk_issue_error_unused_variable_event/" target="_blank" rel="noopener">這篇</a>，所以最後決定就直接把它註解掉。如果你願意的話，可以在該行加上一點提醒會比較好，也就是將該區塊變成：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">macro_t</span> *<span class="title">action_get_macro</span><span class="params">(<span class="keyword">keyrecord_t</span> *record, <span class="keyword">uint8_t</span> id, <span class="keyword">uint8_t</span> opt)</span> </span>&#123;</span><br><span class="line"><span class="comment">//	keyevent_t event = record-&gt;event;  // This will cause an error whent compile</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span> (id) &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> MACRO_NONE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="改按鍵"><a href="#改按鍵" class="headerlink" title="改按鍵"></a>改按鍵</h2><p>在上一篇有提到Keyboard Firmware Builder裡的「KEYMAP」標籤頁可以設定的按鍵並不完全，如果想要自行修改的話就要再此編輯。</p>
+<h2 id="改按鍵"><a class="header-anchor" href="#改按鍵"></a>改按鍵</h2>
+<p>在上一篇有提到Keyboard Firmware Builder裡的「KEYMAP」標籤頁可以設定的按鍵並不完全，如果想要自行修改的話就要再此編輯。</p>
 <p>在keymap.c裡你會看到許多像是這樣的內容：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">KEYMAP(</span><br><span class="line">	KC_NLCK, KC_SLSH, KC_ASTR, KC_MINS,</span><br><span class="line">	KC_P7, KC_P8, KC_F9,</span><br><span class="line">	KC_P4, KC_P5, KC_P6, KC_PLUS,</span><br><span class="line">	KC_P1, KC_P2, KC_P3,</span><br><span class="line">	KC_P0, MO(<span class="number">1</span>), KC_PENT),</span><br><span class="line"></span><br><span class="line">KEYMAP(</span><br><span class="line">	KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,</span><br><span class="line">	KC_H, KC_MS_U, KC_J,</span><br><span class="line">	KC_MS_L, KC_TRNS, KC_MS_UR, KC_TRNS,</span><br><span class="line">	KC_B, KC_MS_D, KC_D,</span><br><span class="line">	KC_A, KC_TRNS, KC_TRNS),</span><br></pre></td></tr></table></figure>
-
 <p>這些就代表了鍵盤各個鍵位的按鍵功能。像是<code>KC_P7</code>代表了<kbd>Numpad7</kbd>（數字鍵盤的7），而詳細的按鍵名稱請參考QMK的說明文件：<a href="https://docs.qmk.fm/#/keycodes?id=keycodes-overview" target="_blank" rel="noopener">Keycodes Overview</a>。</p>
 <p>你所需要做的就是把該按鍵的代號（如<code>KC_P7</code>）放在對的位置就好了。而每一塊</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">KEYMAP(</span><br><span class="line">	KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,</span><br><span class="line">	KC_H, KC_MS_U, KC_J,</span><br><span class="line">	KC_MS_L, KC_TRNS, KC_MS_UR, KC_TRNS,</span><br><span class="line">	KC_B, KC_MS_D, KC_D,</span><br><span class="line">	KC_A, KC_TRNS, KC_TRNS),</span><br></pre></td></tr></table></figure>
 <p>代表的是一層，最上面的是第0層，往下是第1、2…層。</p>
-<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><p>到此為止，QMK韌體的基本編輯就完成了，檔艱辛的路途還有一半。</p>
+<h1>結語</h1>
+<p>到此為止，QMK韌體的基本編輯就完成了，檔艱辛的路途還有一半。</p>
 <p>接下來請見下一篇文章：<a href="/2020/06/diyqmkkeyboard-3/">[自製QMK鍵盤-3] 編譯並燒錄QMK</a>。</p>
-<h1 id="相關文章與資源"><a href="#相關文章與資源" class="headerlink" title="相關文章與資源"></a>相關文章與資源</h1><ul>
+<h1>相關文章與資源</h1>
+<ul>
 <li><a href="/pages/serial/s-diysnmkeyboard.html">[系列文章] 自製QMK鍵盤</a></li>
-<li>參考資料<ul>
+<li>參考資料
+<ul>
 <li><a href="https://github.com/qmk/qmk_firmware/issues/3091" target="_blank" rel="noopener">RESET key not working with pro micro #3091</a></li>
 <li><a href="https://www.reddit.com/r/olkb/comments/72f66p/qmk_issue_error_unused_variable_event/" target="_blank" rel="noopener">QMK issue - error: unused variable ‘event’ [-Werror=unused-variable]</a></li>
 <li><a href="https://www.reddit.com/r/olkb/comments/8sxgzb/replace_pro_micro_bootloader_with_qmk_dfu/" target="_blank" rel="noopener">Replace Pro Micro bootloader with QMK DFU</a></li>
 </ul>
 </li>
-<li>QMK相關<ul>
+<li>QMK相關
+<ul>
 <li><a href="https://qmk.fm/" target="_blank" rel="noopener">QMK官方網站</a></li>
 <li><a href="https://docs.qmk.fm/#/" target="_blank" rel="noopener">QMK官方說明文件</a></li>
 <li><a href="https://github.com/qmk/qmk_firmware" target="_blank" rel="noopener">QMK的GitHub</a></li>
@@ -169,7 +177,7 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li></ul>
  <!-- 改 -->
-      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-2/" data-id="ckbs48dmt000jmki389abboea" class="article-share-link">分享</a>
+      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-2/" data-id="ckbso0tot000tvci38o1icetu" class="article-share-link">分享</a>
       
         <a href="https://zite-h.github.io/2020/06/diyqmkkeyboard-2/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
         
