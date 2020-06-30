@@ -11,15 +11,15 @@
   <meta name="description" content="前言在先前的[STM32學習記錄-3] 基本輸入與輸出教學-GPIO相關程式寫法中已經介紹過STM32設定GPIO的相關函式，但如果是常用Arduion的人一定不太習慣這種設定方式，畢竟每設定一個GPIO就要打4行程式，雖然可以複製貼上，但程式一多難免看起來混亂複雜，所以我自己寫了一些GPIO相關的函式，方便自己未來使用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[STM32學習記錄-5] 優化STM32 GPIO設定函式">
-<meta property="og:url" content="https://zite-h.github.io/2020/04/learningstm32-05/index.html">
+<meta property="og:url" content="https://ziteh.github.io/2020/04/learningstm32-05/index.html">
 <meta property="og:site_name" content="ZiTe 本物誌">
 <meta property="og:description" content="前言在先前的[STM32學習記錄-3] 基本輸入與輸出教學-GPIO相關程式寫法中已經介紹過STM32設定GPIO的相關函式，但如果是常用Arduion的人一定不太習慣這種設定方式，畢竟每設定一個GPIO就要打4行程式，雖然可以複製貼上，但程式一多難免看起來混亂複雜，所以我自己寫了一些GPIO相關的函式，方便自己未來使用。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-04-02T07:40:00.000Z">
 <meta property="article:modified_time" content="2020-05-02T08:03:39.779Z">
 <meta property="article:author" content="ZiTe">
-<meta property="article:tag" content="電子電路">
 <meta property="article:tag" content="教學">
+<meta property="article:tag" content="電子電路">
 <meta property="article:tag" content="ARM-STM32F10x">
 <meta name="twitter:card" content="summary">
   
@@ -72,7 +72,7 @@
         <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zite-h.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://ziteh.github.io"></form>
       </div>
     </div>
   </div>
@@ -126,9 +126,9 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
  <!-- 改 -->
-      <a data-url="https://zite-h.github.io/2020/04/learningstm32-05/" data-id="ckbsr3014001ixwi33tz23csa" class="article-share-link">分享</a>
+      <a data-url="https://ziteh.github.io/2020/04/learningstm32-05/" data-id="ckc1ew7dm001kf8i310e5d908" class="article-share-link">分享</a>
       
-        <a href="https://zite-h.github.io/2020/04/learningstm32-05/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
+        <a href="https://ziteh.github.io/2020/04/learningstm32-05/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
         
       <!--
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM-STM32F10x/" rel="tag">ARM-STM32F10x</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%BB%E5%AD%90%E9%9B%BB%E8%B7%AF/" rel="tag">電子電路</a></li></ul>
@@ -278,7 +278,7 @@
 <script>
   var disqus_shortname = 'zite-honmonoh';
   
-  var disqus_url = 'https://zite-h.github.io/2020/04/learningstm32-05/';
+  var disqus_url = 'https://ziteh.github.io/2020/04/learningstm32-05/';
   
   (function(){
     var dsq = document.createElement('script');

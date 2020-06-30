@@ -11,7 +11,7 @@
   <meta name="description" content="前言自製一把鍵盤主要會需要兩個部分：硬體和韌體。 硬體（Hardware）大家都知道，就是PCB電路板、鍵軸、LED…等，但韌體（Firmware）可能就不是每個人都聽過了。簡單來說，韌體就是嵌入在硬體（通常是晶片、微控制器）裡的程式。例如我之前介紹過的Just60鍵盤，它的主晶片是ATmega32U4，而韌體是用TMK改的。 說到自製鍵盤的韌體，就不得不說到TMK，這是目前最廣泛使用的開源（O">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[自製QMK鍵盤-1] 設計鍵盤佈局、按鍵功能和產生韌體原始檔">
-<meta property="og:url" content="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/index.html">
+<meta property="og:url" content="https://ziteh.github.io/2020/06/diyqmkkeyboard-1/index.html">
 <meta property="og:site_name" content="ZiTe 本物誌">
 <meta property="og:description" content="前言自製一把鍵盤主要會需要兩個部分：硬體和韌體。 硬體（Hardware）大家都知道，就是PCB電路板、鍵軸、LED…等，但韌體（Firmware）可能就不是每個人都聽過了。簡單來說，韌體就是嵌入在硬體（通常是晶片、微控制器）裡的程式。例如我之前介紹過的Just60鍵盤，它的主晶片是ATmega32U4，而韌體是用TMK改的。 說到自製鍵盤的韌體，就不得不說到TMK，這是目前最廣泛使用的開源（O">
 <meta property="og:locale" content="zh_TW">
@@ -39,8 +39,8 @@
 <meta property="article:published_time" content="2020-06-21T02:27:00.000Z">
 <meta property="article:modified_time" content="2020-06-23T16:00:16.527Z">
 <meta property="article:author" content="ZiTe">
-<meta property="article:tag" content="DIY">
 <meta property="article:tag" content="教學">
+<meta property="article:tag" content="DIY">
 <meta property="article:tag" content="軟體">
 <meta property="article:tag" content="3C">
 <meta name="twitter:card" content="summary">
@@ -95,7 +95,7 @@
         <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zite-h.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://ziteh.github.io"></form>
       </div>
     </div>
   </div>
@@ -229,9 +229,9 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li></ul>
  <!-- 改 -->
-      <a data-url="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/" data-id="ckbsr300p000nxwi3fyop95b8" class="article-share-link">分享</a>
+      <a data-url="https://ziteh.github.io/2020/06/diyqmkkeyboard-1/" data-id="ckc1ew7d2000nf8i32i0303ho" class="article-share-link">分享</a>
       
-        <a href="https://zite-h.github.io/2020/06/diyqmkkeyboard-1/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
+        <a href="https://ziteh.github.io/2020/06/diyqmkkeyboard-1/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
         
       <!--
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li></ul>
@@ -381,7 +381,7 @@
 <script>
   var disqus_shortname = 'zite-honmonoh';
   
-  var disqus_url = 'https://zite-h.github.io/2020/06/diyqmkkeyboard-1/';
+  var disqus_url = 'https://ziteh.github.io/2020/06/diyqmkkeyboard-1/';
   
   (function(){
     var dsq = document.createElement('script');
