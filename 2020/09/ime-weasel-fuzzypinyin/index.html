@@ -6,21 +6,25 @@
   
 
   
-  <title>[自製QMK鍵盤-0] 介紹與構想、啟發與展望——SNM鍵盤計劃 | ZiTe 本物誌</title>
+  <title>小狼豪輸入法 模糊拼音設置 | ZiTe 本物誌</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="遇到問題 鍵盤和滑鼠是許多現代人工作上不可缺少的東西，但是我一直都很不喜歡滑鼠。我們的右手（或是左手）總是在鍵盤和滑鼠之間來回切換，這樣不僅很沒效率，也很累人，尤其是使用100%（104鍵）的鍵盤。">
+  <meta name="description" content="前言 小狼毫輸入法（Weasel）是開源的中州韻輸入法引擎（Rime 輸入法）在 Windows 上的官方發行版。另外它在Linux上的發行版爲中州韻（ibus-rime）、macOS 爲鼠鬚管（Squirrel），也有許多第三方的版本。 身爲開源軟體，其最大的特色就在於高度自訂的各種設定，想要什麼樣子或功能都可以自己修改。 我從高中二年級就開始使用漢語拼音輸入法，但漢語拼音的主要用戶爲中國大陸，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[自製QMK鍵盤-0] 介紹與構想、啟發與展望——SNM鍵盤計劃">
-<meta property="og:url" content="https://ziteh.github.io/2020/06/diyqmkkeyboard-0/index.html">
+<meta property="og:title" content="小狼豪輸入法 模糊拼音設置">
+<meta property="og:url" content="https://ziteh.github.io/2020/09/ime-weasel-fuzzypinyin/index.html">
 <meta property="og:site_name" content="ZiTe 本物誌">
-<meta property="og:description" content="遇到問題 鍵盤和滑鼠是許多現代人工作上不可缺少的東西，但是我一直都很不喜歡滑鼠。我們的右手（或是左手）總是在鍵盤和滑鼠之間來回切換，這樣不僅很沒效率，也很累人，尤其是使用100%（104鍵）的鍵盤。">
+<meta property="og:description" content="前言 小狼毫輸入法（Weasel）是開源的中州韻輸入法引擎（Rime 輸入法）在 Windows 上的官方發行版。另外它在Linux上的發行版爲中州韻（ibus-rime）、macOS 爲鼠鬚管（Squirrel），也有許多第三方的版本。 身爲開源軟體，其最大的特色就在於高度自訂的各種設定，想要什麼樣子或功能都可以自己修改。 我從高中二年級就開始使用漢語拼音輸入法，但漢語拼音的主要用戶爲中國大陸，">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-06-21T02:24:00.000Z">
-<meta property="article:modified_time" content="2020-06-23T15:59:08.554Z">
+<meta property="og:image" content="https://1.bp.blogspot.com/-iueiNPsmSM0/X172CNmVbqI/AAAAAAAACm8/BNsoDld4biYAgqkl9V3pGt8ZFiqLD-1WgCPcBGAsYHg/s272/rime-%25E5%258F%25B3%25E9%258D%25B5%25E9%2581%25B8%25E5%2596%25AE-1.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-PM-9gfp0-ho/X172CCwKZHI/AAAAAAAACm8/U9OoEY-gKFEzN4b_ZaGeT5Kk0kg7hI5PwCPcBGAsYHg/s264/rime-%25E7%2594%25A8%25E6%2588%25B6%25E8%25B3%2587%25E6%2596%2599%25E5%25A4%25BE-1.png">
+<meta property="og:image" content="https://1.bp.blogspot.com/-eH1rXjLq344/X172CCCFjQI/AAAAAAAACm8/0aPqPZ75mdUFHa8tHO4OypI6W8mzO86RgCPcBGAsYHg/s255/rime-%25E5%258F%25B3%25E9%258D%25B5%25E9%2581%25B8%25E5%2596%25AE-2.png">
+<meta property="article:published_time" content="2020-09-14T04:54:00.000Z">
+<meta property="article:modified_time" content="2020-09-14T04:55:58.577Z">
 <meta property="article:author" content="ZiTe">
-<meta property="article:tag" content="DIY">
-<meta property="article:tag" content="3C">
+<meta property="article:tag" content="教學">
+<meta property="article:tag" content="軟體">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://1.bp.blogspot.com/-iueiNPsmSM0/X172CNmVbqI/AAAAAAAACm8/BNsoDld4biYAgqkl9V3pGt8ZFiqLD-1WgCPcBGAsYHg/s272/rime-%25E5%258F%25B3%25E9%258D%25B5%25E9%2581%25B8%25E5%2596%25AE-1.png">
   
     <link rel="alternate" href="/atom.xml" title="ZiTe 本物誌" type="application/atom+xml">
   
@@ -78,10 +82,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-diyqmkkeyboard-0" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ime-weasel-fuzzypinyin" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/06/diyqmkkeyboard-0/" class="article-date">
-  <time datetime="2020-06-21T02:24:00.000Z" itemprop="datePublished">2020-06-21</time>
+    <a href="/2020/09/ime-weasel-fuzzypinyin/" class="article-date">
+  <time datetime="2020-09-14T04:54:00.000Z" itemprop="datePublished">2020-09-14</time>
 </a>
     
   </div>
@@ -92,7 +96,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      [自製QMK鍵盤-0] 介紹與構想、啟發與展望——SNM鍵盤計劃
+      小狼豪輸入法 模糊拼音設置
     </h1>
   
 
@@ -100,63 +104,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1>遇到問題</h1>
-<p>鍵盤和滑鼠是許多現代人工作上不可缺少的東西，但是我一直都很不喜歡滑鼠。我們的右手（或是左手）總是在鍵盤和滑鼠之間來回切換，這樣不僅很沒效率，也很累人，尤其是使用100%（104鍵）的鍵盤。</p>
+        <h1>前言</h1>
+<p>小狼毫輸入法（Weasel）是開源的<a href="https://rime.im/" target="_blank" rel="noopener">中州韻輸入法引擎（Rime 輸入法）</a>在 Windows 上的官方發行版。另外它在Linux上的發行版爲中州韻（ibus-rime）、macOS 爲鼠鬚管（Squirrel），也有許多第三方的版本。</p>
+<p>身爲開源軟體，其最大的特色就在於高度自訂的各種設定，想要什麼樣子或功能都可以自己修改。</p>
+<p>我從高中二年級就開始使用漢語拼音輸入法，但漢語拼音的主要用戶爲中國大陸，而我又不太喜歡中國那裡較常見的幾款拼音輸入法（如搜狗、QQ），而 Windows 內建的我也覺得不好用，所以一直以來我都是使用 Google 拼音輸入法。</p>
+<p>然而 Google 拼音輸入法老早就沒在更新了，有時運作起來也不穩定。故我開始找尋其它適合的拼音輸入法，便找到了小狼毫輸入法。</p>
+<p>而我當初會開始使用漢語拼音的原因就是因爲多數漢語拼音輸入法都有「模糊拼音」的功能，而小狼毫的拼音輸入法並未直接內建該功能，但是我們可以透過其強大的自訂功能來達成。</p>
+<p>小狼毫也有內建注音輸入法，但是我現在已經沒有、也不太會打注音了，所以也不知道和其它輸入法比較起來如何。</p>
 <a id="more"></a>
-<h1>嘗試解決</h1>
-<p>我因為會長時間使用電腦，所以使用滑鼠的右手常常疼痛。雖然我早在高中時就發現此問題，並且開始訓練自己左右手都可以控制滑鼠，藉此分攤使用量，但隨著使用電腦的時間越來越長，這招也不夠用了。</p>
-<p>後來我嘗試使用軌跡球，效果非常好，基本上不管用多久都不太會有疼痛感產生。雖然手不痛了，但是手在鍵盤和軌跡球之間的切換依然存在，操作效率依舊很低。</p>
-<p>我一直以來都很喜歡用筆電的觸控板來進行滑鼠游標的控制，因為我的大拇指可以很自然地操作，而且我的雙手都不用離開鍵盤，效率可以說是非常高。</p>
-<p>但是市售的外接觸控板實在是太少了，而且現在有許多筆電也漸漸捨棄觸控板了。我雖然也嘗試使用舊手機搭配滑鼠App來當觸控板，但是使用上的效果並不太好。</p>
-<h1>發現新路</h1>
-<p>就在我灰心喪志時，我看到了這篇文章——<a href="https://tsai.it/archives/2017/11/tex-yoda-2-hhkb-%E5%B0%8F%E7%B4%85%E9%BB%9E-%E6%A9%9F%E6%A2%B0%E8%BB%B8-%E6%96%B9%E5%90%91%E9%8D%B5/" target="_blank" rel="noopener">TEX Yoda 2 = HHKB + 小紅點 + 機械軸 + 方向鍵</a>。我才想到，聯想電腦ThinkPad系列的TrackPoint（俗稱小紅點）不就是鍵盤結合滑鼠的最好示範嗎？</p>
-<p>於是我開始構想、找資料、查零件，準備開始製作屬於我自己的鍵盤。</p>
-<p>——這就是SNM鍵盤計劃的起源。</p>
-<h1>開闢新道</h1>
-<p>SNM鍵盤，或稱SNM-Keyboard（“Say No to Mouse” Keyboard）是一個開源（Open-source）的鍵盤計劃，包含了硬體和韌體的部分。</p>
-<p>其最主要的目的就是將滑鼠的功能完全地整合進（或附加在）鍵盤，這樣在使用電腦時，手就不用一直在鍵盤和滑鼠上來回切換。</p>
-<p>目前SNM-Keyboard計劃有兩個項目：</p>
-<ul>
-<li>SNM60：一把整合了滑鼠功能的60%尺寸鍵盤。</li>
-<li>SNM-Thumb：一個獨立的滑鼠功能模組。使用者可以把它放在鍵盤空白鍵下方，並透過大拇指來操控它以控制滑鼠。</li>
-</ul>
-<p>本計劃的韌體使用<a href="https://github.com/qmk/qmk_firmware" target="_blank" rel="noopener">QMK</a>。而硬體，或者說PCB電路板的部分會參考眾多開源鍵盤（如GH60）來進行設計。</p>
-<p>本計劃的相關檔案都會放在<a href="https://github.com/ZiTe-H/snm-keyboard/tree/master" target="_blank" rel="noopener">GitHub</a>上，但是因為我其實還不是很熟悉GitHub，所以它看起來可能會有點亂。</p>
-<h1>瞭望前方</h1>
-<p>我在找資料的時候發現，自製鍵盤的中文相關文章並不多，找到的通常也都是來自中國的文章。所以我除了自己把鍵盤做出來以外，我還會盡可能地將我的製作過程與步驟整理成文章，就是希望未來如果有人想要自己做鍵盤的話，可以有多一點的資料參考，可以少走一點冤枉路，並且從中感受到開源的美好，甚至投身開源社群，回饋社會。</p>
-<p>希望它可以引起一點台灣自製鍵盤與開源鍵盤的漣漪——這是我對SNM-Keyboard計劃的願景。</p>
-<p>那麽，趕緊開始旅途吧：<a href="/2020/06/diyqmkkeyboard-1/">[自製QMK鍵盤-1] 設計鍵盤佈局、按鍵功能和產生韌體原始檔</a></p>
+<h1>開始設定模糊拼音</h1>
+<p>小狼毫在設定方面沒有圖形界面，所以你會需要使用文字編輯器來進行設定的修改。關於文字編輯器，我個人首先推薦 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code (VSCode)</a>，不過用記事本來編輯也是可以的。</p>
+<h2 id="一、-到用戶資料夾"><a class="header-anchor" href="#一、-到用戶資料夾"></a>一、 到用戶資料夾</h2>
+<p>需要修改的文件檔案都在用戶資料夾裡。有2種方式可以到達用戶資料夾：</p>
+<ol>
+<li>在檔案總管上的路徑欄輸入以下路徑：
+<ol>
+<li><code>%APPDATA%\Rime</code> (Windows)</li>
+<li><code>~/.config/ibus/rime</code>  (Linux)</li>
+<li><code>~/Library/Rime</code>  (Mac OS)</li>
+</ol>
+</li>
+<li>在電腦上安裝好小狼毫輸入法後，切換輸入法到小狼毫，並在其右下角的圖示按下滑鼠右鍵顯示選單，並點擊「用戶文件夾」。</li>
+</ol>
+<p><img src="https://1.bp.blogspot.com/-iueiNPsmSM0/X172CNmVbqI/AAAAAAAACm8/BNsoDld4biYAgqkl9V3pGt8ZFiqLD-1WgCPcBGAsYHg/s272/rime-%25E5%258F%25B3%25E9%258D%25B5%25E9%2581%25B8%25E5%2596%25AE-1.png" alt="▲ 在右鍵選單中點選用戶文件夾。"></p>
+<h2 id="二、-取得設定檔"><a class="header-anchor" href="#二、-取得設定檔"></a>二、 取得設定檔</h2>
+<p>到達用戶資料夾後應該會看到一些YAML檔，這些都是小狼毫的設定檔。</p>
+<p>這時要看各位所選擇使用的小狼毫輸入方案是那一種，像我是使用「朙月拼音」和「朙月拼音-臺灣正體」，而它們的設定檔分別爲「luna_pinyin.schema.yaml」和「luna_pinyin_tw.schema.yaml」。這兩個檔案可能會在<code>用戶資料夾/build/</code>裡。</p>
+<p>接着請到<a href="https://gist.github.com/ziteh/beac7b7038652b79864fbab7a7254183" target="_blank" rel="noopener">我的 GitHub </a>下載設定檔。</p>
+<p>可以發現其檔名爲「luna_pinyin.custom.yaml」，對應了上述的「luna_pinyin.schema.yaml」。請將「luna_pinyin.custom.yaml」放到用戶資料夾中（不是<code>用戶資料夾/build/</code>）。</p>
+<p>另外因爲我還有選擇「朙月拼音-臺灣正體」方案，所以我將「luna_pinyin.custom.yaml」複製一份並修改檔名爲「luna_pinyin_tw.custom.yaml」。</p>
+<p><img src="https://1.bp.blogspot.com/-PM-9gfp0-ho/X172CCwKZHI/AAAAAAAACm8/U9OoEY-gKFEzN4b_ZaGeT5Kk0kg7hI5PwCPcBGAsYHg/s264/rime-%25E7%2594%25A8%25E6%2588%25B6%25E8%25B3%2587%25E6%2596%2599%25E5%25A4%25BE-1.png" alt="▲ 加入設定檔的用戶資料夾。"></p>
+<h2 id="三、-修改設定檔"><a class="header-anchor" href="#三、-修改設定檔"></a>三、 修改設定檔</h2>
+<p>以文字編輯軟體打開「luna_pinyin.custom.yaml」。你會看到有許多行，其中每一行都是一種模糊音的規則。如果你想啓用該模糊音規則，就請將改行前的<code>#</code>（井號）刪除；反之要停用的話就在該行前加上井號。</p>
+<p>例如以下示範啓用規則「zh, ch, sh =&gt; z, c, s」、「z, c, s =&gt; zh, ch, sh」，並停用規則「n =&gt; l」、「l =&gt; n」。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">derive/^([zcs])h/$1/</span>             <span class="comment"># zh, ch, sh =&gt; z, c, s</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">derive/^([zcs])([^h])/$1h$2/</span>     <span class="comment"># z, c, s =&gt; zh, ch, sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#- derive/^n/l/                     # n =&gt; l</span></span><br><span class="line"><span class="comment">#- derive/^l/n/                     # l =&gt; n</span></span><br></pre></td></tr></table></figure>
+<p>修改完成後儲存該檔案，然後在右下角的圖示按下滑鼠右鍵顯示選單，並點擊「重新部署」。這樣就完成設定了。</p>
+<p><img src="https://1.bp.blogspot.com/-eH1rXjLq344/X172CCCFjQI/AAAAAAAACm8/0aPqPZ75mdUFHa8tHO4OypI6W8mzO86RgCPcBGAsYHg/s255/rime-%25E5%258F%25B3%25E9%258D%25B5%25E9%2581%25B8%25E5%2596%25AE-2.png" alt="▲ 在右鍵選單中點選重新部署。"></p>
+<h1>結語</h1>
+<p>上述步驟二所提供的設定檔是我從<a href="https://gist.github.com/lotem/2320943" target="_blank" rel="noopener">【朙月拼音】模糊音定製模板</a> fork 並自行測試並修改而成的，我以該設定檔在 Windows10 和 Ubuntu 上都可以正常運作。</p>
+<p>而設定檔內的那些模糊音規則使用的是 Perl 正規表示式，可以參考<a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F#PCRE%E8%A1%A8%E9%81%94%E5%BC%8F%E5%85%A8%E9%9B%86" target="_blank" rel="noopener">正規表示式 - 維基百科</a></p>
 <h1>相關文章與資源</h1>
 <ul>
-<li><a href="/pages/serial/s-diysnmkeyboard.html">[系列文章] 自製QMK鍵盤</a></li>
-<li>參考資料
-<ul>
-<li><a href="https://tsai.it/archives/2017/11/tex-yoda-2-hhkb-%E5%B0%8F%E7%B4%85%E9%BB%9E-%E6%A9%9F%E6%A2%B0%E8%BB%B8-%E6%96%B9%E5%90%91%E9%8D%B5/" target="_blank" rel="noopener">TEX Yoda 2 = HHKB + 小紅點 + 機械軸 + 方向鍵</a></li>
-<li><a href="https://geekhack.org/index.php?topic=92681.0" target="_blank" rel="noopener">TEX YODA II - DIY kit (Special Edition)</a></li>
-<li><a href="https://kobtea.net/posts/2019/01/11/tex-yoda-2/" target="_blank" rel="noopener">TEX Yoda IIを作る</a></li>
-</ul>
-</li>
-<li>QMK相關
-<ul>
-<li><a href="https://qmk.fm/" target="_blank" rel="noopener">QMK官方網站</a></li>
-<li><a href="https://docs.qmk.fm/#/" target="_blank" rel="noopener">QMK官方說明文件</a></li>
-<li><a href="https://github.com/qmk/qmk_firmware" target="_blank" rel="noopener">QMK的GitHub</a></li>
-</ul>
-</li>
+<li><a href="https://rime.im/" target="_blank" rel="noopener">RIME | 中州韻輸入法引擎</a></li>
+<li><a href="https://github.com/rime/home/wiki" target="_blank" rel="noopener">GitHub · rime/home Wiki</a></li>
+<li><a href="https://github.com/rime/home/wiki/CustomizationGuide#%E6%9C%99%E6%9C%88%E6%8B%BC%E9%9F%B3%E6%A8%A1%E7%B3%8A%E9%9F%B3%E5%AE%9A%E8%A3%BD%E6%A8%A1%E6%9D%BF" target="_blank" rel="noopener">Rime 定製指南</a></li>
+<li><a href="https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md" target="_blank" rel="noopener">Rime 設定項手冊</a></li>
+<li><a href="https://gist.github.com/lotem/2320943" target="_blank" rel="noopener">【朙月拼音】模糊音定製模板</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F#PCRE%E8%A1%A8%E9%81%94%E5%BC%8F%E5%85%A8%E9%9B%86" target="_blank" rel="noopener">正規表示式 - 維基百科</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li></ul>
  <!-- 改 -->
-      <a data-url="https://ziteh.github.io/2020/06/diyqmkkeyboard-0/" data-id="ckf2230gd000n9oi3hrcth628" class="article-share-link">分享</a>
+      <a data-url="https://ziteh.github.io/2020/09/ime-weasel-fuzzypinyin/" data-id="ckf2230hd00249oi3cpow2ed7" class="article-share-link">分享</a>
       
-        <a href="https://ziteh.github.io/2020/06/diyqmkkeyboard-0/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
+        <a href="https://ziteh.github.io/2020/09/ime-weasel-fuzzypinyin/#disqus_thread" class="article-comment-link"><!--留言-->Comments</a>
         
       <!--
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3C/" rel="tag">3C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DIY/" rel="tag">DIY</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E5%AD%B8/" rel="tag">教學</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BB%9F%E9%AB%94/" rel="tag">軟體</a></li></ul>
 -->
     </footer>
   </div>
@@ -164,19 +172,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/06/diyqmkkeyboard-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">較新的文章</strong>
-      <div class="article-nav-title">
-        
-          [自製QMK鍵盤-1] 設計鍵盤佈局、按鍵功能和產生韌體原始檔
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/s6lite-vs-ipad2019/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/09/hh-andromedae/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">較舊的文章</strong>
-      <div class="article-nav-title">三星 Tab S6 Lite V.S. Apple iPad 2019(7代)</div>
+      <div class="article-nav-title">仙女座HH</div>
     </a>
   
 </nav>
@@ -303,7 +302,7 @@
 <script>
   var disqus_shortname = 'zite-honmonoh';
   
-  var disqus_url = 'https://ziteh.github.io/2020/06/diyqmkkeyboard-0/';
+  var disqus_url = 'https://ziteh.github.io/2020/09/ime-weasel-fuzzypinyin/';
   
   (function(){
     var dsq = document.createElement('script');
